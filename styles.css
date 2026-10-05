@@ -1033,27 +1033,6 @@ main{position:relative;z-index:10;isolation:isolate}
 .parallax-section::before,
 .parallax-section::after{display:none !important}
 
-/* 3. OUR EVENTS — arrow click feedback + smooth directional travel */
-:where(.events-section) .event-grid{
-  scroll-behavior:smooth !important;
-  perspective:1200px !important;
-}
-:where(.events-section) .event-grid.event-scroll-next .event{
-  animation:eventCardTravelNext .42s cubic-bezier(.22,.61,.36,1) both;
-}
-:where(.events-section) .event-grid.event-scroll-prev .event{
-  animation:eventCardTravelPrev .42s cubic-bezier(.22,.61,.36,1) both;
-}
-@keyframes eventCardTravelNext{
-  0%{opacity:.92;transform:translate3d(18px,0,0) scale(.985)}
-  55%{opacity:1;transform:translate3d(-5px,0,0) scale(1.005)}
-  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
-}
-@keyframes eventCardTravelPrev{
-  0%{opacity:.92;transform:translate3d(-18px,0,0) scale(.985)}
-  55%{opacity:1;transform:translate3d(5px,0,0) scale(1.005)}
-  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
-}
 :where(.events-section) .event-grid .event{
   --card-rx:0deg;
   --card-ry:0deg;
@@ -1215,22 +1194,9 @@ main{position:relative;z-index:10;isolation:isolate}
   transform-origin:center center !important;
   will-change:transform !important;
 }
-@keyframes fosiaPureCssParallax{
-  from{transform:translate3d(0,-12%,0) scale(1.16)}
-  to{transform:translate3d(0,12%,0) scale(1.16)}
-}
-@supports (animation-timeline:view()){
-  .parallax-bg{
-    animation:fosiaPureCssParallax 1ms linear both !important;
-    animation-timeline:view(block) !important;
-    animation-range:entry 0% exit 100% !important;
-  }
-}
-@supports not (animation-timeline:view()){
-  .parallax-bg{
-    background-attachment:fixed !important;
-  }
-}
+
+
+
 
 /* ---------------------------------------------------------
    3. LIGHTBOX — ALWAYS ABOVE NAVBAR / OFF-CANVAS MENU
@@ -1299,30 +1265,6 @@ body.no-scroll{overflow:hidden !important}
   transform:scale(1.055) translate3d(calc(var(--card-mx) * -.28),calc(var(--card-my) * -.28),0) !important;
 }
 
-/* ---------------------------------------------------------
-   5. EVENT ARROW — MOTION TRIGGER WITHOUT FIGHTING SCROLL POSITION
---------------------------------------------------------- */
-:where(.events-section) .event-grid{
-  scroll-behavior:auto !important;
-  overscroll-behavior-x:contain !important;
-  touch-action:pan-y !important;
-}
-@keyframes fosiaEventArrowNext{
-  0%{opacity:.72;filter:blur(.4px)}
-  45%{opacity:1;filter:blur(0)}
-  100%{opacity:1;filter:none}
-}
-@keyframes fosiaEventArrowPrev{
-  0%{opacity:.72;filter:blur(.4px)}
-  45%{opacity:1;filter:blur(0)}
-  100%{opacity:1;filter:none}
-}
-:where(.events-section) .event-grid.event-scroll-next .event{
-  animation:fosiaEventArrowNext .46s cubic-bezier(.22,.61,.36,1) both !important;
-}
-:where(.events-section) .event-grid.event-scroll-prev .event{
-  animation:fosiaEventArrowPrev .46s cubic-bezier(.22,.61,.36,1) both !important;
-}
 
 /* ---------------------------------------------------------
    6. MOBILE / REDUCED MOTION
@@ -1494,24 +1436,9 @@ body.no-scroll{overflow:hidden !important}
   transform-origin:center center !important;
   will-change:transform !important;
 }
-@keyframes fosiaSectionParallax{
-  from{transform:translate3d(0,-12%,0) scale(1.14)}
-  to{transform:translate3d(0,12%,0) scale(1.14)}
-}
-@supports (animation-timeline:view()){
-  .parallax-bg{
-    animation:fosiaSectionParallax 1ms linear both !important;
-    animation-timeline:--fosia-parallax !important;
-    animation-range:entry 0% exit 100% !important;
-  }
-}
-@supports not (animation-timeline:view()){
-  .parallax-bg{
-    transform:none !important;
-    inset:0 !important;
-    background-attachment:fixed !important;
-  }
-}
+
+
+
 
 /* 6. EVENTS — clickable title + permanently rounded card/image geometry */
 :where(.events-section) .event-grid .event{
@@ -1744,17 +1671,8 @@ body.no-scroll{overflow:hidden !important}
   pointer-events:none !important;
   background:rgba(0,0,0,.30) !important;
 }
-@keyframes fosiaSectionParallax49{
-  from{transform:translate3d(0,12%,0) scale(1.14)}
-  to{transform:translate3d(0,-12%,0) scale(1.14)}
-}
-@supports (animation-timeline:view()){
-  .parallax-bg{
-    animation:fosiaSectionParallax49 1ms linear both !important;
-    animation-timeline:--fosia-parallax !important;
-    animation-range:entry 0% exit 100% !important;
-  }
-}:where(.hotels-section) /* HOTEL ACTIONS */
+
+:where(.hotels-section) /* HOTEL ACTIONS */
 .hotel-primary-actions a[href*="google.com/maps"]{cursor:pointer !important}:where(.hotels-section) .hotel-primary-actions a[href*="wa.me"]{cursor:pointer !important}
 
 /* BOOKING BAR DATE FIELD — hide native right-side calendar glyph; JS owns picker */
@@ -4797,11 +4715,11 @@ body{
 }
 
 
-/* FOSIA BOOKING FORM — REVISION 11: compact initial date visibility
-   At <=819px, Arrival and Departure remain collapsed until a hotel is selected.
-   This CSS guard makes the initial state deterministic even before JS applies
-   the booking-compact class. Existing JS reveal logic remains unchanged. */
-@media (max-width:819px){
+/* FOSIA BOOKING FORM — REVISION 37: compact initial date visibility
+   At 320px–959px, Arrival and Departure remain collapsed until a hotel is selected.
+   At 960px and above, both date fields remain visible.
+   This CSS guard makes the initial state deterministic; JS mirrors the same breakpoint. */
+@media (max-width:959px){
   .booking-bar:not(.booking-dates-revealed) .date-field{
     min-height:0 !important;
     height:0 !important;
@@ -4824,3 +4742,4 @@ body{
     pointer-events:auto !important;
   }
 }
+\n\n/* =========================================================\n   FOSIA BOOKING — REVISION 38 / RESPONSIVE FLOW SOURCE OF TRUTH\n   < 960px  = compact responsive booking flow\n   >= 960px = desktop booking flow\n\n   Compact flow:\n   1. Hotel is the first/primary field.\n   2. Arrival + Departure are hidden until a hotel is selected.\n   3. After hotel selection, Arrival + Departure are revealed.\n   4. Submit remains last.\n\n   Desktop flow (>=960px): all fields remain visible.\n========================================================= */\n@media (max-width:959px){\n  .booking-bar{\n    grid-template-columns:1fr !important;\n    grid-template-rows:auto !important;\n    width:calc(100% - 24px) !important;\n    max-width:760px !important;\n    height:auto !important;\n    border-radius:10px !important;\n    overflow:visible !important;\n  }\n\n  .booking-bar .booking-destination,\n  .booking-bar .date-field,\n  .booking-bar .booking-actions{\n    grid-column:1 / -1 !important;\n    width:100% !important;\n    min-width:0 !important;\n  }\n\n  .booking-bar .booking-destination{\n    min-height:54px !important;\n    height:54px !important;\n    border-right:0 !important;\n    border-bottom:1px solid var(--line) !important;\n  }\n\n  /* Default compact state: hotel not selected => dates consume zero layout space. */\n  .booking-bar.booking-compact:not(.booking-dates-revealed) .date-field,\n  .booking-bar:not(.booking-dates-revealed) .date-field{\n    min-height:0 !important;\n    height:0 !important;\n    max-height:0 !important;\n    margin:0 !important;\n    padding-top:0 !important;\n    padding-bottom:0 !important;\n    border-top:0 !important;\n    border-bottom:0 !important;\n    opacity:0 !important;\n    overflow:hidden !important;\n    transform:none !important;\n    pointer-events:none !important;\n  }\n\n  /* Hotel selected => reveal both date fields in normal vertical order. */\n  .booking-bar.booking-compact.booking-dates-revealed .date-field,\n  .booking-bar.booking-dates-revealed .date-field{\n    min-height:54px !important;\n    height:54px !important;\n    max-height:54px !important;\n    margin:0 !important;\n    padding-top:0 !important;\n    padding-bottom:0 !important;\n    border-right:0 !important;\n    border-bottom:1px solid var(--line) !important;\n    opacity:1 !important;\n    overflow:hidden !important;\n    transform:none !important;\n    pointer-events:auto !important;\n  }\n\n  .booking-bar .booking-actions{\n    display:flex !important;\n    align-items:center !important;\n    min-height:70px !important;\n    padding:0 !important;\n    border:0 !important;\n  }\n\n  .booking-bar .booking-actions > button[type="submit"]{\n    width:100% !important;\n    min-height:54px !important;\n    margin:8px !important;\n    border-radius:50px !important;\n  }\n\n  .booking-bar .booking-actions .back-top{\n    display:none !important;\n  }\n}\n\n@media (min-width:960px){\n  .booking-bar{\n    grid-template-columns:1.55fr .9fr .95fr 1.3fr !important;\n    height:65px !important;\n  }\n\n  .booking-bar .date-field{\n    min-height:65px !important;\n    height:65px !important;\n    max-height:none !important;\n    opacity:1 !important;\n    overflow:visible !important;\n    pointer-events:auto !important;\n    transform:none !important;\n  }\n}\n

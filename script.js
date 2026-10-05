@@ -600,13 +600,9 @@
       bookingDestination.classList.add('has-value');
       bookingTrigger.setAttribute('aria-expanded','false');
       closePopover();
-      if (bookingCompactMedia.matches) {
-        window.setTimeout(() => {
-          bookingForm?.classList.add('booking-dates-revealed');
-          arrivalField?.classList.add('booking-field-revealed');
-          departureField?.classList.add('booking-field-revealed');
-        }, 180);
-      }
+      // Responsive source of truth: below 960px, reveal dates only after hotel selection.
+      // At 960px+, dates remain visible regardless of hotel selection.
+      updateBookingResponsiveState?.();
     }));
   };
 
@@ -759,7 +755,7 @@
     });
   }
 
-  const bookingCompactMedia = window.matchMedia('(max-width: 819px)');
+  const bookingCompactMedia = window.matchMedia('(max-width: 959px)');
   const updateBookingResponsiveState = () => {
     const compact = bookingCompactMedia.matches;
     const hasHotel = Boolean(bookingSelect?.value);
