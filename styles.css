@@ -1,0 +1,4826 @@
+
+:root{
+  --nav:#2B3843;
+  --text:#646D75;
+  --white:#FEFEFE;
+  --surface:#F2F2F2;
+  --line:#DDDDDD;
+  --muted:#B8BCBF;
+  --blue:#81A5C4;
+  --gold:#FFD700;
+  --orange:#FDA634;
+  --content:1320px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Kumbh Sans",sans-serif;color:var(--nav);background:var(--white);font-size:16px;line-height:1.5}
+img{display:block;max-width:100%}
+button,a{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.content{width:min(var(--content),calc(100% - 40px));margin-inline:auto}
+h1,h2,h3,p{margin:0}
+h2{font-size:39px;line-height:1.15;font-weight:600}
+h3{font-size:20px;line-height:1.25;font-weight:600}
+p{color:var(--text)}
+/* Hero */
+.hero{height:908px;position:relative;overflow:hidden;border-radius:0 0 28px 28px;background:#2B3843}
+.hero-media,.hero-overlay{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-overlay{background:linear-gradient(180deg,rgba(43,56,67,.08),rgba(43,56,67,.24))}
+.site-nav{position:absolute;z-index:10;top:0;left:0;right:0;height:80px;padding:0 30px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(43,56,67,1) 0%,rgba(43,56,67,.72) 38%,rgba(43,56,67,.03) 100%);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky}
+.brand{width:155px;height:50px;display:block}
+.brand img{width:155px;height:50px;object-fit:contain}
+.menu-toggle{display:flex;align-items:center;gap:14px;border:0;background:transparent;color:#fff;padding:10px 0;text-transform:uppercase;font-size:13px;letter-spacing:.06em}
+.menu-toggle iconify-icon{font-size:32px}
+.mobile-menu{position:absolute;z-index:9;right:0;top:80px;width:390px;padding:25px 42px 35px;background:rgba(43,56,67,.94);backdrop-filter:blur(20px);transform:translateY(-120%);transition:transform .3s ease;border-radius:0 0 0 24px;display:grid;gap:20px;color:#fff}
+.mobile-menu.open{transform:translateY(0)}
+.hero-arrow{position:absolute;z-index:4;top:428px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.88);color:var(--nav);display:grid;place-items:center}
+.hero-arrow iconify-icon{font-size:24px}
+.hero-prev{left:10px}.hero-next{right:10px}
+.hero-dots{position:absolute;z-index:4;left:50%;bottom:28px;transform:translateX(-50%);display:flex;gap:10px}
+.hero-dots button{width:8px;height:8px;border:0;border-radius:50%;padding:0;background:#fff;opacity:.65}
+.hero-dots button.active{width:22px;border-radius:10px;opacity:1}
+/* About */
+.about-section{position:relative;background:var(--surface);padding:72px 0 0;overflow:hidden}
+.about-section:before,.about-section:after{content:"";position:absolute;top:0;width:100px;height:116px;background:var(--white)}
+.about-section:before{left:0;border-radius:0 0 100% 0}.about-section:after{right:0;border-radius:0 0 0 100%}
+.welcome{text-align:center;font-size:61px;font-weight:400;color:var(--text);margin:0 0 45px}
+.about-top{display:grid;grid-template-columns:869px 428px;gap:23px;align-items:start}
+.who,.vision{min-width:0}
+.copy-block{padding:30px}
+.copy-block h2{margin-bottom:20px}
+.about-photo{overflow:hidden;border-radius:25px}
+.photo-large{height:428px}.photo-square{height:428px}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.core-values{padding:20px 0 78px}
+.core-values>h2{margin:0 0 20px}
+.value-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.value-grid article{min-height:309px;padding:30px 12px}
+.value-grid iconify-icon{font-size:60px;width:60px;height:60px;display:block;margin-bottom:10px}
+.value-grid h3{margin-bottom:10px}
+/* Hotels */
+.hotels-section{background:#fff}
+.hotel-heading{padding:38px 0 32px}
+.hotel-heading h2{margin-bottom:10px}:where(.hotels-section) .hotel-list{width:100%}:where(.hotels-section) .hotel-row{min-height:558px;display:grid;grid-template-columns:50% 50%;background:#2B3843;color:#fff}:where(.hotels-section) .hotel-row:nth-child(even){background:#40505D}:where(.hotels-section) .hotel-logo{width:180px;height:62px;object-fit:contain;object-position:left center;margin-bottom:22px;filter:none}:where(.hotels-section) .hotel-desc{color:rgba(255,255,255,.82);max-width:490px;margin-bottom:24px}:where(.hotels-section) .hotel-meta{display:grid;gap:8px;color:rgba(255,255,255,.78);font-size:13px}:where(.hotels-section) .hotel-meta span{display:flex;align-items:center;gap:8px}:where(.hotels-section) .hotel-meta iconify-icon{font-size:19px}
+.outline-btn,.solid-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:24px;font-size:13px}
+.outline-btn{border:1px solid rgba(255,255,255,.55);color:#fff}
+.solid-btn{background:#fff;color:var(--nav)}:where(.hotels-section) .hotel-slider{position:relative;min-height:558px;overflow:hidden;border-radius:0}
+.slides,.slide{position:absolute;inset:0;width:100%;height:100%}
+.slide{object-fit:cover;opacity:0;transition:opacity .45s ease}
+.slide.active{opacity:1}
+.slider-prev,.slider-next{position:absolute;z-index:2;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.9);color:var(--nav);display:grid;place-items:center}
+.slider-prev{left:18px}.slider-next{right:18px}
+.slider-count{position:absolute;z-index:2;right:26px;bottom:24px;color:#fff;font-size:13px;background:rgba(43,56,67,.5);padding:7px 11px;border-radius:30px;backdrop-filter:blur(6px)}.banner-logo-section .fosia-logo-marquee{height:98px;overflow:hidden;background:#fff;display:flex;align-items:center}
+.banner-logo-section .logo-track{width:min(1728px,calc(100% - 40px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.banner-logo-section .logo-track img{width:150px;height:65px;object-fit:contain;filter:grayscale(1);opacity:.7}
+/* Packages */
+.packages-section{background:var(--surface);padding:78px 0 72px}
+.section-intro{text-align:left}
+.section-intro p{margin-top:14px;max-width:1260px}
+:where(.packages-section) .package-tabs{display:flex;justify-content:center;gap:8px;margin:34px 0}
+:where(.packages-section) .package-tabs button{border:1px solid var(--line);background:#fff;border-radius:30px;padding:9px 20px;color:var(--text)}
+:where(.packages-section) .package-tabs button.active{background:var(--nav);border-color:var(--nav);color:#fff}
+:where(.packages-section) .package-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+:where(.packages-section) .package-grid article{background:#fff;overflow:hidden;border-radius:18px}
+:where(.packages-section) .package-grid article[hidden]{display:none}
+:where(.packages-section) .package-grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
+:where(.packages-section) .package-grid article div{padding:2px;font-size:14px;color:var(--text)}
+/* Parallax */
+.parallax-section{height:530px;position:relative;overflow:hidden;border-radius:0 0 28px 28px}
+.parallax-bg{position:absolute;inset:-90px 0;background:url("assets/img_14.jpeg") center/cover no-repeat;will-change:transform}
+.parallax-section:after{content:"";position:absolute;inset:0;background:rgba(43,56,67,.16)}
+/* Events */
+.events-section{background:#2B3843;color:#fff;padding:78px 0 84px}
+.events-section .section-intro p{color:rgba(255,255,255,.7)}
+:where(.events-section) .event-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+:where(.events-section) .event{min-width:0}
+:where(.events-section) .event img{width:100%;height:330px;object-fit:cover;border-radius:20px}
+:where(.events-section) .event h3{margin-bottom:10px}:where(.events-section) .event p{color:rgba(255,255,255,.68);font-size:14px}
+/* News */
+.news-section{background:var(--surface);padding:82px 0 74px}
+.news-grid{width:1076px;max-width:100%;margin:48px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.news-grid article img{width:100%;height:417px;object-fit:cover;border-radius:20px}
+.news-grid small{display:block;color:var(--muted);margin-top:18px}
+.news-grid h3{margin-top:8px;line-height:1.35}
+.view-all{width:max-content;margin:48px auto 0;display:flex;align-items:center;gap:10px;border:1px solid var(--nav);padding:10px 20px;border-radius:30px}
+/* Part of us */
+.part-of-us{background:var(--surface);padding:34px 0 78px}
+.part-of-us h2{text-align:center}
+.part-logos{display:flex;align-items:center;justify-content:center;gap:90px;margin-top:34px}
+.part-logos img{width:180px;height:75px;object-fit:contain;filter:grayscale(1);opacity:.72}
+/* Footer */
+.footer{height:460px;background:#2B3843;color:#fff;padding:60px 0 0}
+.footer-logo{width:155px;height:50px;object-fit:contain;margin:0 auto;display:block}
+.footer h2{text-align:center;font-size:31px;margin-top:30px}
+.footer-info{margin-top:30px;display:grid;grid-template-columns:313px 160px 166px 122px;justify-content:center;gap:60px}
+.footer-info>div{display:grid;align-content:start;gap:10px}
+.footer-info b{font-size:13px}.footer-info span{font-size:13px;color:rgba(255,255,255,.72);display:flex;gap:8px;align-items:flex-start}
+.footer-info iconify-icon{font-size:20px}
+.copyright{text-align:center;color:rgba(255,255,255,.62);margin-top:80px;font-size:13px}
+/* Booking */
+.booking-bar{position:fixed;z-index:30;left:50%;bottom:10px;transform:translateX(-50%);width:1076px;max-width:calc(100% - 32px);height:65px;background:#fff;border-radius:36px;display:grid;grid-template-columns:1.55fr .9fr .95fr 1.3fr;box-shadow:0 14px 35px rgba(0,0,0,.18);overflow:hidden;border:1px solid rgba(43,56,67,.1)}
+.booking-bar>div{display:flex;align-items:center;gap:10px;padding:0 24px;border-right:1px solid var(--line);font-size:13px;color:var(--text)}
+.booking-bar iconify-icon{font-size:22px;color:var(--nav)}
+.booking-bar button{border:0;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;font-weight:600}
+.back-top{position:fixed;z-index:29;right:10px;bottom:15px;width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.16)}
+/* Responsive */
+@media(max-width:1200px){
+  .about-top{grid-template-columns:minmax(0,2fr) minmax(320px,1fr)}
+  .value-grid{grid-template-columns:repeat(3,1fr)}
+  :where(.packages-section) .package-grid{grid-template-columns:repeat(3,1fr)}
+  .event-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-info{grid-template-columns:repeat(2,1fr);width:min(760px,100%);margin-inline:auto}
+  .footer{height:auto;padding-bottom:130px}
+}
+@media(max-width:820px){
+  .content{width:min(100% - 32px,var(--content))}
+  .hero{height:720px}
+  .site-nav{height:72px;padding:0 18px}
+  .brand,.brand img{width:130px;height:44px}
+  .mobile-menu{top:72px;width:min(360px,92vw)}
+  .welcome{font-size:42px}
+  .about-section{padding-top:58px}
+  .about-top{grid-template-columns:1fr}
+  .photo-large,.photo-square{height:320px}
+  .value-grid{grid-template-columns:1fr 1fr}
+  .hotel-row{grid-template-columns:1fr}
+.hotel-slider{min-height:420px}
+  .banner-logo-section .logo-track{justify-content:flex-start;overflow:hidden}
+  .banner-logo-section .logo-track img{flex:0 0 145px}
+  :where(.packages-section) .package-grid{grid-template-columns:repeat(2,1fr)}
+  .parallax-section{height:420px}
+  .news-grid{grid-template-columns:1fr}
+  .part-logos{gap:25px;flex-wrap:wrap}
+  .booking-bar{grid-template-columns:1fr;height:auto;border-radius:22px}
+  .booking-bar>div{min-height:50px;border-right:0;border-bottom:1px solid var(--line)}
+  .booking-bar button{min-height:52px}
+}
+@media(max-width:520px){
+  h2{font-size:32px}
+  .value-grid, :where(.packages-section) .package-grid, :where(.events-section) .event-grid{grid-template-columns:1fr}
+  .hero-arrow{top:auto;bottom:70px}
+  .hero-prev{left:18px}.hero-next{right:18px}
+  .hero-dots{bottom:29px}
+  .hotel-logo{width:155px}
+.hotel-slider{min-height:300px}
+  .footer-info{grid-template-columns:1fr}
+  .footer-info{gap:25px}
+}
+
+/* =========================================================
+   V3 REFINEMENTS — FOSIA HOME A
+========================================================= */
+.site-nav{position:sticky !important;top:0;z-index:100;margin-bottom:-80px;height:80px}
+.mobile-menu{position:fixed;z-index:99;top:80px;right:0}
+.about-section{margin-top:-92px;z-index:5;border-radius:72px 72px 0 0;box-shadow:0 -22px 55px rgba(43,56,67,.10);padding-top:92px}
+.welcome-wrap{position:relative;will-change:transform;z-index:2}:where(.hotels-section) /* Our Hotels — three-column composition */
+.hotel-row{grid-template-columns:24% 26% 50%;min-height:558px}:where(.hotels-section) .hotel-side{min-width:0;display:flex;flex-direction:column;justify-content:center}:where(.hotels-section) .hotel-side-left{padding:54px 36px max(54px,calc((100vw - 1320px)/2)) max(28px,calc((100vw - 1320px)/2));border-right:1px solid rgba(255,255,255,.10)}:where(.hotels-section) .hotel-side-middle{padding:54px 42px;border-right:1px solid rgba(255,255,255,.10)}:where(.hotels-section) .hotel-logo-space{min-height:105px;display:flex;align-items:center;justify-content:flex-start}:where(.hotels-section) .hotel-logo{width:180px;height:70px;object-fit:contain;object-position:left center;margin:0}:where(.hotels-section) .hotel-primary-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:30px}:where(.hotels-section) .hotel-primary-actions .outline-btn,:where(.hotels-section) .hotel-primary-actions .solid-btn{min-width:154px;justify-content:space-between}:where(.hotels-section) .hotel-primary-actions .solid-btn{min-width:174px}:where(.hotels-section) .hotel-side-middle h3{font-size:29px;line-height:1.2;margin-bottom:14px}:where(.hotels-section) .hotel-side-middle .hotel-desc{margin-bottom:13px;max-width:380px}
+.discover-link{display:inline-flex;align-items:center;gap:9px;width:max-content;color:#fff;font-size:13px;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:5px;margin-bottom:28px}
+.discover-link iconify-icon{transition:transform .2s ease}
+.discover-link:hover iconify-icon{transform:translateX(4px)}:where(.hotels-section) .hotel-side-middle .hotel-meta{gap:11px}:where(.hotels-section) .hotel-slider{min-height:558px;border-radius:48px 0 0 0}:where(.hotels-section) .hotel-slider .slide{object-position:center}
+
+/* Packages centered heading + image zoom */
+.packages-section .section-intro,.news-section .section-intro,.events-section .section-intro{text-align:center}
+.packages-section .section-intro p,.news-section .section-intro p,.events-section .section-intro p{margin:14px auto 0;max-width:820px}
+:where(.packages-section) .package-grid article{cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
+:where(.packages-section) .package-grid article:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(43,56,67,.12)}
+:where(.packages-section) .package-grid img{transition:transform .35s ease}
+:where(.packages-section) .package-grid article:hover img{transform:scale(1.035)}
+.image-lightbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:30px;background:rgba(20,27,33,.88);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;cursor:zoom-out}
+.image-lightbox.open{opacity:1;visibility:visible}
+.image-lightbox img{max-width:min(90vw,900px);max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:18px;box-shadow:0 25px 70px rgba(0,0,0,.35)}
+.lightbox-close{position:absolute;top:22px;right:26px;width:46px;height:46px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:32px;line-height:1}
+.no-scroll{overflow:hidden}
+
+/* Grow Through Innovation parallax */
+.parallax-section{height:530px;overflow:hidden;isolation:isolate}
+.parallax-bg{inset:-150px 0;transform:translate3d(0,0,0) scale(1.12);background-position:center;will-change:transform}
+/* Events — fixed 4:3 thumbnails + horizontal overflow */
+:where(.events-section) .event-slider-wrap{width:100%;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.38) transparent;padding-bottom:12px;margin-top:48px}
+:where(.events-section) .event-grid{display:flex;flex-wrap:nowrap;gap:24px;width:max-content;margin:0}
+:where(.events-section) .event{flex:0 0 calc((min(1320px,100vw - 40px) - 72px) / 4);width:calc((min(1320px,100vw - 40px) - 72px) / 4)}
+:where(.events-section) .event img{width:100%;aspect-ratio:4 / 3;height:auto;object-fit:cover;border-radius:18px}
+:where(.events-section) .event p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden;min-height:calc(14px * 1.5 * 5)}
+.news-grid{margin-top:48px}
+.news-section .view-all{margin-left:auto;margin-right:auto}
+
+@media(max-width:1200px){
+  .hotel-row{grid-template-columns:30% 30% 40%}
+  .hotel-side-left{padding-right:24px}
+  .hotel-side-middle{padding-inline:28px}
+  .hotel-side-middle h3{font-size:25px}
+  .hotel-primary-actions .outline-btn,.hotel-primary-actions .solid-btn{min-width:145px}
+  :where(.events-section) .event{flex-basis:calc((100vw - 40px - 48px) / 3);width:calc((100vw - 40px - 48px) / 3)}
+}
+@media(max-width:820px){
+  .site-nav{height:72px;margin-bottom:-72px}
+  .mobile-menu{top:72px}
+  .about-section{margin-top:-58px;padding-top:72px;border-radius:42px 42px 0 0}
+  
+  .hotel-side-left{padding:38px 24px 26px;border-right:0;border-bottom:1px solid rgba(255,255,255,.10)}
+  .hotel-side-middle{padding:32px 24px;border-right:0;border-bottom:1px solid rgba(255,255,255,.10)}
+  .hotel-logo-space{min-height:85px}
+  .hotel-primary-actions{flex-direction:row;flex-wrap:wrap}
+  .hotel-slider{min-height:420px;border-radius:34px 0 0 0}
+  :where(.events-section) .event{flex-basis:calc((100vw - 32px - 24px) / 2);width:calc((100vw - 32px - 24px) / 2)}
+}
+@media(max-width:520px){
+  .about-section{margin-top:-42px;padding-top:60px;border-radius:30px 30px 0 0}
+  .hotel-primary-actions{display:grid;grid-template-columns:1fr 1fr}
+  .hotel-primary-actions .solid-btn{grid-column:1 / -1;justify-content:center}
+  .hotel-slider{min-height:300px;border-radius:26px 0 0 0}
+  :where(.events-section) .event{flex-basis:calc(100vw - 32px);width:calc(100vw - 32px)}
+  .image-lightbox{padding:18px}
+}
+
+/* =========================================================
+   V4 REFINEMENTS — THIRD REVISION
+========================================================= */
+/* 1. Full-height right-to-left menu */
+.site-nav{position:sticky !important;top:0;z-index:300}
+.mobile-menu{
+  position:fixed !important;
+  inset:0 0 0 auto !important;
+  top:0 !important;
+  width:min(480px,100vw) !important;
+  height:100dvh !important;
+  padding:120px 56px 48px !important;
+  margin:0 !important;
+  border-radius:0 !important;
+  background:rgba(43,56,67,.97) !important;
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  transform:translateX(100%) !important;
+  transition:transform .42s cubic-bezier(.22,.61,.36,1) !important;
+  align-content:start;
+  gap:0 !important;
+  overflow-y:auto;
+}
+.mobile-menu.open{transform:translateX(0) !important}
+.mobile-menu a{
+  display:flex;
+  align-items:center;
+  min-height:68px;
+  padding:0 0 0 2px;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  font-size:22px;
+  letter-spacing:.01em;
+  color:#fff;
+}
+.menu-toggle{position:relative;z-index:301}
+
+/* 2. Welcome background rises over the hero — concave corner cut-outs */
+.about-section{
+  margin-top:-88px;
+  padding-top:116px;
+  z-index:20;
+  border-radius:0 !important;
+  box-shadow:0 -24px 60px rgba(43,56,67,.12);
+}
+.about-section:before,.about-section:after{
+  top:0;
+  width:88px;
+  height:88px;
+  background:var(--white);
+  z-index:0;
+}
+
+
+.about-section .content{position:relative;z-index:1}
+.welcome-wrap{transform:translate3d(0,-8px,0)}
+
+/* 3. Core Value */
+.core-values>h2{text-align:center}
+.core-values .value-grid{text-align:center}
+.core-values article{display:flex;flex-direction:column;align-items:center}
+.value-grid iconify-icon{margin:0 auto 14px}:where(.hotels-section) /* 4. Hotel rows: no column divider + 20px between hotel units */
+.hotel-list{display:flex;flex-direction:column;gap:20px;background:#fff}:where(.hotels-section) .hotel-row{border:0 !important}:where(.hotels-section) .hotel-row + .hotel-row{margin-top:0}:where(.hotels-section) .hotel-side-left,:where(.hotels-section) .hotel-side-middle{border-right:0 !important}:where(.hotels-section) .hotel-primary-actions .outline-btn,:where(.hotels-section) .hotel-primary-actions .solid-btn{
+  width:180px;
+  min-width:180px;
+  justify-content:space-between;
+}:where(.hotels-section) .hotel-primary-actions .solid-btn{width:180px;min-width:180px}:where(.hotels-section) .hotel-primary-actions iconify-icon{font-size:18px}:where(.hotels-section) .hotel-desc-truncate{
+  color:rgba(255,255,255,.82);
+  font-size:13.5px;
+  line-height:1.5;
+  max-width:460px;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:7;
+  overflow:hidden;
+  margin-bottom:13px;
+}:where(.hotels-section) .hotel-desc-truncate .desc-heading{
+  display:inline;
+  font-weight:700;
+  letter-spacing:.04em;
+  color:#fff;
+}
+.discover-link{
+  color:#FDA634 !important;
+  border-bottom:0 !important;
+  padding-bottom:0 !important;
+  text-decoration:none !important;
+  font-weight:500;
+  margin-bottom:22px;
+}:where(.hotels-section) .hotel-meta{font-size:12.5px !important}:where(.hotels-section) .hotel-meta span{align-items:flex-start}:where(.hotels-section) .hotel-meta b{display:inline-block;color:#fff;margin-right:7px;font-weight:600}:where(.hotels-section) .hotel-slider{border-radius:48px 0 0 0 !important}/* 5. Grow Through Innovation — stronger visible parallax */
+.parallax-section{height:530px;position:relative;overflow:hidden}
+.parallax-bg{
+  inset:-180px 0 !important;
+  background-image:url("https://images.pexels.com/photos/36729757/pexels-photo-36729757.jpeg?cs=srgb&dl=pexels-silverkblack-36729757.jpg&fm=jpg") !important;
+  background-position:center center;
+  background-size:cover;
+  transform:translate3d(0,0,0) scale(1.08);
+}
+
+/* 6. Events — full-width layout break + 4:3 cards + max 5 text lines */
+.events-section{overflow:hidden}
+.events-section>.content{width:100%;max-width:none;margin:0}
+.events-section .section-intro{width:min(1320px,calc(100% - 40px));margin-inline:auto}
+:where(.events-section) .event-slider-wrap{
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-top:48px;
+  padding:0 0 14px 0 !important;
+  overflow-x:auto !important;
+  overflow-y:hidden;
+  scrollbar-width:thin;
+}
+:where(.events-section) .event-grid{
+  width:max-content !important;
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  gap:20px !important;
+  margin:0 !important;
+  padding-left:max(20px,calc((100vw - 1320px)/2));
+  padding-right:40px;
+}
+:where(.events-section) .event{
+  flex:0 0 clamp(300px,calc((min(1320px,100vw) - 60px)/4),390px) !important;
+  width:clamp(300px,calc((min(1320px,100vw) - 60px)/4),390px) !important;
+}
+:where(.events-section) .event img{width:100%;aspect-ratio:4 / 3 !important;height:auto !important;object-fit:cover;border-radius:18px}
+:where(.events-section) .event p{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:5;
+  overflow:hidden;
+  min-height:0 !important;
+  max-height:7.5em;
+  line-height:1.5;
+}
+/* 7. News heading */
+.news-section .section-intro{text-align:center}
+.news-section .section-intro p{margin-inline:auto}
+
+/* 8. Booking glass form */
+.booking-bar{
+  bottom:10px !important;
+  border-radius:10px !important;
+  background:rgba(255,255,255,.85) !important;
+  backdrop-filter:blur(18px) saturate(135%);
+  -webkit-backdrop-filter:blur(18px) saturate(135%);
+  border:1px solid rgba(255,255,255,.42) !important;
+  box-shadow:0 16px 42px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.48);
+  overflow:hidden;
+}
+.booking-bar button{
+  margin:10px;
+  border-radius:50px !important;
+  padding:10px 40px !important;
+  background:#2B3843 !important;
+  color:#FEFEFE !important;
+}
+
+@media(max-width:820px){
+  .mobile-menu{width:100vw !important;padding:105px 28px 36px !important}
+  .about-section{margin-top:-58px;padding-top:86px}
+  .hotel-primary-actions{display:grid;grid-template-columns:repeat(2,180px);justify-content:start}
+  .hotel-primary-actions .solid-btn{grid-column:auto}
+  
+  .hotel-side-left,.hotel-side-middle{padding-inline:24px}
+  :where(.events-section) .event-grid{padding-left:16px;padding-right:24px}
+  :where(.events-section) .event{flex-basis:min(78vw,380px) !important;width:min(78vw,380px) !important}
+  .banner-logo-section .logo-set{gap:36px;padding-right:36px}
+  .banner-logo-section .logo-track img{flex-basis:130px;width:130px}
+  .booking-bar{border-radius:10px !important}
+  .booking-bar button{padding:18px 10px !important}
+}
+@media(max-width:520px){
+  .mobile-menu a{font-size:20px;min-height:60px}
+  .about-section{margin-top:-42px;padding-top:70px}
+  .hotel-primary-actions{grid-template-columns:1fr 1fr}
+  .hotel-primary-actions .outline-btn,.hotel-primary-actions .solid-btn{width:100%;min-width:0}
+  .hotel-primary-actions .solid-btn{grid-column:1 / -1}
+  .hotel-slider{border-radius:26px 0 0 0 !important}
+  :where(.events-section) .event{flex-basis:82vw !important;width:82vw !important}
+  .booking-bar button{margin:8px;border-radius:50px !important}
+}
+
+/* =========================================================
+   V5 REFINEMENTS — FOURTH REVISION
+========================================================= */
+/* 1. Navbar + menu layer: menu must sit above navbar background */
+.site-nav{z-index:500 !important}
+.menu-toggle{z-index:520 !important}
+.mobile-menu{z-index:510 !important}
+.mobile-menu::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 24%)}
+.mobile-menu a{position:relative;z-index:1}
+
+/* 2–3. Hero slider stays behind while Welcome/About scrolls over it */
+.hero{
+  position:sticky !important;
+  top:0;
+  z-index:1;
+  height:908px;
+  border-radius:0 0 28px 28px !important;
+  overflow:hidden;
+}
+.about-section{
+  position:relative;
+  z-index:20;
+  margin-top:-88px !important;
+  padding-top:88px !important;
+  border-radius:0 !important;
+  box-shadow:0 -18px 42px rgba(43,56,67,.10);
+}
+.about-section::before,.about-section::after{display:none !important}
+
+/* 4. Core Value */
+.core-values{padding:30px 12px !important}
+.core-values>h2{text-align:center}
+.value-grid article{align-items:flex-start !important;text-align:left !important;padding:30px 12px !important}
+.value-grid iconify-icon{margin:0 0 14px !important}
+
+/* 5. Hotels — 3 columns, 180px buttons,:where(.hotels-section) middle column spacing */
+.hotel-side-middle{padding:30px 20px !important}:where(.hotels-section) .hotel-primary-actions .outline-btn,:where(.hotels-section) .hotel-primary-actions .solid-btn{width:180px !important;min-width:180px !important}:where(.hotels-section) .hotel-meta{display:grid !important;gap:14px !important}:where(.hotels-section) .hotel-meta span{display:flex !important;flex-direction:column !important;align-items:flex-start !important;gap:3px !important}:where(.hotels-section) .hotel-meta b{display:block !important;margin:0 !important;color:#fff !important;font-size:11px;text-transform:uppercase;letter-spacing:.08em}:where(.hotels-section) .hotel-meta em{display:block;font-style:normal;color:rgba(255,255,255,.76);font-size:12.5px;line-height:1.5;max-width:100%}:where(.hotels-section) .hotel-slider .slides{background:#d9dde0}:where(.hotels-section) .hotel-slider .slide{object-fit:cover}
+
+/* 6. Package categories */
+.package-tabs{justify-content:center;flex-wrap:wrap;row-gap:10px}
+:where(.packages-section) .package-tabs button{transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease}
+:where(.packages-section) .package-tabs button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(43,56,67,.10)}
+
+/* 7. Growth image is a background layer behind Packages + Events */
+.packages-section,.events-section{position:relative;z-index:2}
+.packages-section{background:rgba(242,242,242,.93) !important}
+.events-section{background:rgba(43,56,67,.94) !important}
+
+/* 8. Events — centered card lane + arrow controls + stop marks */
+.events-section>.content{width:100% !important;max-width:none !important}
+
+:where(.events-section) .event-slider-wrap{overflow:hidden !important;padding:0 !important;scrollbar-width:none !important}
+:where(.events-section) .event-slider-wrap::-webkit-scrollbar{display:none}
+:where(.events-section) .event-grid{
+  width:max-content !important;
+  min-width:100%;
+  justify-content:center;
+  padding-left:max(20px,calc((100vw - 1320px)/2));
+  padding-right:max(20px,calc((100vw - 1320px)/2));
+  gap:20px !important;
+}
+:where(.events-section) .event{transition:transform .28s ease}
+:where(.events-section) .event img{transition:transform .45s cubic-bezier(.22,.61,.36,1),filter .35s ease,box-shadow .35s ease}
+:where(.events-section) .event:hover{transform:translateY(-6px)}
+:where(.events-section) .event:hover img{transform:scale(1.025);filter:saturate(1.08) contrast(1.03);box-shadow:0 18px 35px rgba(0,0,0,.20)}
+:where(.events-section) .event h3{transition:color .25s ease,transform .25s ease}
+:where(.events-section) .event:hover h3{color:#FDA634;transform:translateX(3px)}
+:where(.events-section) .event-discover{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:#FDA634;font-size:13px;transition:gap .2s ease,opacity .2s ease}
+:where(.events-section) .event-discover:hover{gap:12px;opacity:.9}
+:where(.events-section) .event-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin:34px auto 0}
+:where(.events-section) .event-controls button{width:44px;height:44px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.08);color:#fff;border-radius:50%;display:grid;place-items:center;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+:where(.events-section) .event-controls button:hover{transform:translateY(-2px);background:#FDA634;border-color:#FDA634;color:#2B3843}
+
+/* 9. News hover interactions */
+.news-grid article{transition:transform .28s ease}
+.news-grid article:hover{transform:translateY(-6px)}
+.news-grid article img{transition:transform .45s cubic-bezier(.22,.61,.36,1),filter .35s ease,box-shadow .35s ease}
+.news-grid article:hover img{transform:scale(1.02);filter:saturate(1.06);box-shadow:0 18px 35px rgba(43,56,67,.16)}
+.news-grid article h3{transition:color .25s ease,transform .25s ease}
+.news-grid article:hover h3{color:#FDA634;transform:translateX(3px)}
+
+/* 10–11. Booking glass + universal button micro-interactions */
+.booking-bar{background:rgba(255,255,255,.80) !important}
+.booking-bar button iconify-icon{color:#FEFEFE !important;font-size:18px}
+.outline-btn,.solid-btn,.view-all,.menu-toggle,.hero-arrow,.slider-prev,.slider-next,.back-top,:where(.packages-section) .package-tabs button{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,border-color .2s ease,color .2s ease}
+.outline-btn:hover,.solid-btn:hover,.view-all:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.14)}
+.outline-btn:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.solid-btn:hover{background:#FDA634;color:#2B3843}
+.menu-toggle:hover{opacity:.86;transform:translateY(-1px)}
+.hero-arrow:hover,.slider-prev:hover,.slider-next:hover,.back-top:hover{transform:translateY(-50%) scale(1.06);box-shadow:0 10px 24px rgba(0,0,0,.16)}
+.back-top:hover{transform:scale(1.06)}
+
+@media(max-width:1200px){
+  
+  .hotel-side-middle{padding:30px 20px !important}
+  :where(.events-section) .event{flex-basis:calc((100vw - 100px)/3) !important;width:calc((100vw - 100px)/3) !important}
+}
+@media(max-width:820px){
+  
+  .about-section{margin-top:-58px !important;padding-top:58px !important}
+  .mobile-menu{z-index:510 !important}
+  
+  .hotel-side-middle{padding:30px 20px !important}
+  .hotel-slider{border-radius:34px 0 0 0 !important}
+  :where(.events-section) .event-grid{min-width:0;justify-content:flex-start;padding-left:16px;padding-right:16px}
+  
+}
+@media(max-width:520px){
+  .hero{height:620px}
+  .about-section{margin-top:-42px !important;padding-top:42px !important}
+  
+  .hotel-primary-actions .outline-btn,.hotel-primary-actions .solid-btn{width:100% !important;min-width:0 !important}
+  
+  
+  :where(.events-section) .event-controls{margin-top:26px}
+}
+
+/* =========================================================
+   V4.1 REFINEMENTS — LAYERING FIX
+========================================================= */
+/* Keep the slide-out menu above the navbar glass layer. It is now a
+   sibling of the nav/hero rather than being trapped inside the hero
+   stacking context. */
+.site-nav{z-index:500 !important}
+.mobile-menu{
+  position:fixed !important;
+  z-index:700 !important;
+  inset:0 0 0 auto !important;
+  top:0 !important;
+  width:min(480px,100vw) !important;
+  height:100dvh !important;
+  transform:translateX(100%) !important;
+}
+
+.menu-toggle{position:relative;z-index:720 !important}
+
+/* The hero is a sticky visual layer only. Main content must paint above
+   it, not underneath it. The negative margin on Welcome keeps only the
+   intended overlap with the hero. */
+.hero{z-index:1 !important}
+main{position:relative;z-index:10;isolation:isolate}
+.about-section{z-index:20 !important}
+.hotels-section,.packages-section,.events-section,.news-section,.footer{position:relative;z-index:10}
+
+@media(max-width:820px){
+  .mobile-menu{width:100vw !important}
+}
+
+/* =========================================================
+   V4.2 REFINEMENTS — NAV, HOTEL WIDTH, PACKAGES, EVENTS, FADE
+========================================================= */
+/* 1. Navbar: 70% glass, burger always above the open menu */
+.site-nav{
+  z-index:800 !important;
+  background:rgba(43,56,67,.70) !important;
+  backdrop-filter:blur(14px) !important;
+  -webkit-backdrop-filter:blur(14px) !important;
+}
+.menu-toggle{z-index:950 !important}
+.mobile-menu{z-index:900 !important}
+.mobile-menu::before{z-index:0 !important}:where(.hotels-section) /* 2. Our Hotels: fixed maximum desktop column widths */
+.hotel-row{
+  grid-template-columns:minmax(0,318px) minmax(0,413px) minmax(0,1fr) !important;
+}:where(.hotels-section) .hotel-side-left{max-width:318px !important}:where(.hotels-section) .hotel-side-middle{max-width:413px !important}:where(.hotels-section) .hotel-logo-space{width:100%;max-width:318px !important}:where(.hotels-section) .hotel-logo{
+  width:100% !important;
+  max-width:318px !important;
+  height:auto !important;
+  max-height:120px;
+  object-fit:contain;
+  object-position:left center;
+}
+
+/* 3. Packages: show no more than five cards in the initial set */
+.package-grid{grid-template-columns:repeat(5,minmax(0,1fr)) !important}
+:where(.packages-section) .package-more{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:26px auto 0;
+  color:#FDA634;
+  font-size:14px;
+  font-weight:600;
+  transition:gap .2s ease,transform .2s ease,color .2s ease;
+}
+:where(.packages-section) .package-more:not([hidden]){display:flex;width:max-content}
+:where(.packages-section) .package-more:hover{gap:12px;color:#2B3843;transform:translateY(-2px)}
+
+/* 4. Events: four cards centered in the viewport; extra cards continue off-canvas.
+      Extra top padding creates a safe hover zone so translateY/zoom is never clipped. */
+.events-section{overflow:visible !important}
+:where(.events-section) .event-slider-wrap{
+  width:100vw !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-top:38px !important;
+  padding:14px 0 18px !important;
+  overflow-x:hidden !important;
+  overflow-y:visible !important;
+}
+:where(.events-section) .event-grid{
+  width:max-content !important;
+  min-width:0 !important;
+  justify-content:flex-start !important;
+  padding-left:max(20px,calc((100vw - 1320px)/2)) !important;
+  padding-right:max(20px,calc((100vw - 1320px)/2)) !important;
+  gap:20px !important;
+}
+:where(.events-section) .event{
+  flex:0 0 clamp(300px,calc((min(1320px,100vw) - 60px)/4),390px) !important;
+  width:clamp(300px,calc((min(1320px,100vw) - 60px)/4),390px) !important;
+  transform-origin:center bottom;
+}
+:where(.events-section) .event:hover{transform:translateY(-6px) !important;z-index:3}
+
+
+/* 5. Hero + hotel sliders: smooth cross-fade */
+.hero-media{overflow:hidden}
+.hero-media .hero-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  opacity:0;
+  transition:opacity 1.15s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity;
+}
+.hero-media .hero-image.active{opacity:1}
+.slide{transition:opacity 1.15s cubic-bezier(.22,.61,.36,1) !important}
+
+@media(max-width:1200px){
+  .hotel-row{grid-template-columns:30% 30% 40% !important}
+  .hotel-side-left,.hotel-side-middle{max-width:none !important}
+  .hotel-logo-space,.hotel-logo{max-width:100% !important}
+}
+@media(max-width:820px){
+  .site-nav{z-index:800 !important}
+  .menu-toggle{z-index:950 !important}
+  .mobile-menu{z-index:900 !important}
+  .hotel-row{grid-template-columns:1fr !important}
+  .hotel-logo{max-width:318px !important;width:min(100%,318px) !important}
+  :where(.events-section) .event-slider-wrap{overflow-x:hidden !important;padding-top:12px !important}
+  :where(.events-section) .event-grid{justify-content:flex-start !important;padding-left:16px !important;padding-right:16px !important}
+}
+
+/* =========================================================
+   V4.3 REFINEMENTS — HEADER AUTO SLIDE / HOTEL STABLE / EVENT CENTER
+========================================================= */
+/* 1. Navbar glass: exact requested gradient + 75% visibility.
+   Burger is the top-most interactive layer. */
+.site-nav{
+  z-index:1000 !important;
+  background:linear-gradient(180deg,rgba(43,56,67,.75) 100%,rgba(43,56,67,0) 0%) !important;
+  background-color:transparent !important;
+  backdrop-filter:blur(14px) !important;
+  -webkit-backdrop-filter:blur(14px) !important;
+}
+.mobile-menu{
+  z-index:1100 !important;
+  background:rgba(43,56,67,.97) !important;
+}
+.menu-toggle{
+  z-index:1200 !important;
+  position:relative !important;
+}
+.menu-toggle iconify-icon,.menu-toggle span{position:relative;z-index:1201}:where(.hotels-section) /* 2. Hotel columns: stable three-column geometry on desktop. */
+.hotel-row{
+  grid-template-columns:minmax(280px,318px) minmax(360px,413px) minmax(0,1fr) !important;
+  align-items:stretch !important;
+}:where(.hotels-section) .hotel-side-left{
+  width:100% !important;
+  max-width:318px !important;
+  box-sizing:border-box !important;
+  padding:30px 28px !important;
+}:where(.hotels-section) .hotel-side-middle{
+  width:100% !important;
+  max-width:413px !important;
+  box-sizing:border-box !important;
+  padding:30px 20px !important;
+}:where(.hotels-section) .hotel-logo-space{
+  width:100% !important;
+  max-width:318px !important;
+}:where(.hotels-section) .hotel-logo{
+  width:100% !important;
+  max-width:318px !important;
+  height:auto !important;
+  max-height:120px !important;
+  object-fit:contain !important;
+}:where(.hotels-section) .hotel-primary-actions .outline-btn,:where(.hotels-section) .hotel-primary-actions .solid-btn{
+  width:180px !important;
+  min-width:180px !important;
+  max-width:180px !important;
+  box-sizing:border-box !important;
+}:where(.hotels-section) /* Hotel slider is manual-only in V4.3. */
+.hotel-slider .slide{transition:opacity .75s cubic-bezier(.22,.61,.36,1) !important}
+
+/* 3. Event track: the entire card track is centered on the page.
+   The user can scroll both directions with no visible scrollbar. */
+.events-section{overflow:visible !important}
+:where(.events-section) .event-slider-wrap{
+  width:100vw !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-top:34px !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+:where(.events-section) .event-grid{
+  width:100vw !important;
+  max-width:none !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  justify-content:flex-start !important;
+  gap:20px !important;
+  margin:0 !important;
+  padding:20px 0 26px !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  scroll-behavior:smooth !important;
+  scrollbar-width:none !important;
+  -ms-overflow-style:none !important;
+}
+:where(.events-section) .event-grid::-webkit-scrollbar{display:none !important;width:0 !important;height:0 !important}
+:where(.events-section) .event-grid .event{
+  flex:0 0 clamp(280px,calc((min(1320px,100vw) - 60px)/4),390px) !important;
+  width:clamp(280px,calc((min(1320px,100vw) - 60px)/4),390px) !important;
+  min-width:0 !important;
+  transform-origin:center center !important;
+}
+:where(.events-section) .event-grid .event:first-child{margin-left:max(16px,calc((100vw - 1320px)/2))}
+:where(.events-section) .event-grid .event:last-child{margin-right:max(16px,calc((100vw - 1320px)/2))}
+:where(.events-section) .event-grid .event:hover{transform:translateY(-6px) !important;z-index:5 !important}
+
+@media(max-width:1200px){
+  .hotel-row{grid-template-columns:30% 30% minmax(0,40%) !important}
+  .hotel-side-left{max-width:none !important;padding:30px 24px !important}
+  .hotel-side-middle{max-width:none !important;padding:30px 20px !important}
+  .hotel-primary-actions .outline-btn,.hotel-primary-actions .solid-btn{width:180px !important;min-width:180px !important}
+  :where(.events-section) .event-grid .event{flex-basis:calc((100vw - 80px)/3) !important;width:calc((100vw - 80px)/3) !important}
+}
+@media(max-width:820px){
+  
+  .hotel-side-left,.hotel-side-middle{max-width:none !important;width:100% !important}
+  
+  :where(.events-section) .event-grid{padding-top:18px !important}
+  :where(.events-section) .event-grid .event{flex-basis:min(78vw,380px) !important;width:min(78vw,380px) !important}
+  :where(.events-section) .event-grid .event:first-child{margin-left:16px}
+  :where(.events-section) .event-grid .event:last-child{margin-right:16px}
+}
+@media(max-width:520px){
+  .hotel-primary-actions .outline-btn,.hotel-primary-actions .solid-btn{width:100% !important;min-width:0 !important;max-width:none !important}
+  :where(.events-section) .event-grid .event{flex-basis:82vw !important;width:82vw !important}
+}
+
+/* =========================================================
+   V4.4 FINAL REFINEMENTS
+   - Navbar glass restored to requested 80% gradient
+   - Hotel left edge aligned with the 1320px content grid
+   - Events: 10-card infinite loop + native-like custom scrollbar
+   - Grow Through Innovation restored as a standalone parallax section
+========================================================= */
+
+/* 1. NAVBAR — keep MENU/burger above every submenu pixel */
+.site-nav{
+  z-index:1400 !important;
+  background:linear-gradient(180deg,rgba(43,56,67,.80) 0%,rgba(43,56,67,0) 100%) !important;
+  background-color:transparent !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+.mobile-menu{
+  z-index:1300 !important;
+}
+.menu-toggle{
+  z-index:1500 !important;
+  position:relative !important;
+  isolation:isolate !important;
+}
+.menu-toggle span,.menu-toggle iconify-icon{
+  position:relative !important;
+  z-index:1501 !important;
+}:where(.hotels-section) /* 2. OUR HOTELS — left column starts on the same 1320px grid as Packages */
+.hotel-row{
+  grid-template-columns:minmax(280px,318px) minmax(360px,413px) minmax(0,1fr) !important;
+  padding-left:max(20px,calc((100vw - 1320px)/2)) !important;
+  box-sizing:border-box !important;
+}:where(.hotels-section) .hotel-side-left{
+  max-width:318px !important;
+  width:318px !important;
+  box-sizing:border-box !important;
+}:where(.hotels-section) .hotel-side-middle{
+  max-width:413px !important;
+  width:413px !important;
+  box-sizing:border-box !important;
+}:where(.hotels-section) .hotel-logo-space,:where(.hotels-section) .hotel-logo{
+  max-width:318px !important;
+}
+
+/* 3. EVENTS — 4 visible cards, 10 unique cards, infinite looping */
+.events-section{overflow:visible !important}
+.events-section>.content{width:100% !important;max-width:none !important}
+.events-section .section-intro{
+  width:min(1320px,calc(100% - 40px)) !important;
+  margin-inline:auto !important;
+}
+:where(.events-section) .event-slider-wrap{
+  width:100vw !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-top:34px !important;
+  padding:20px 0 8px !important;
+  overflow:hidden !important;
+}
+:where(.events-section) .event-grid{
+  width:100vw !important;
+  max-width:none !important;
+  min-width:0 !important;
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  justify-content:flex-start !important;
+  gap:20px !important;
+  margin:0 !important;
+  padding:0 max(20px,calc((100vw - 1320px)/2)) !important;
+  overflow-x:auto !important;
+  overflow-y:visible !important;
+  scroll-behavior:smooth !important;
+  scrollbar-width:none !important;
+  -ms-overflow-style:none !important;
+  overscroll-behavior-x:contain;
+  cursor:grab;
+}
+:where(.events-section) .event-grid:active{cursor:grabbing}
+
+:where(.events-section) .event-grid .event{
+  flex:0 0 clamp(280px,calc((min(1320px,100vw) - 60px)/4),390px) !important;
+  width:clamp(280px,calc((min(1320px,100vw) - 60px)/4),390px) !important;
+  min-width:0 !important;
+  margin:0 !important;
+  transform-origin:center center !important;
+}
+
+
+/* 4. GROW THROUGH INNOVATION — standalone parallax section */
+/* 5. Events card hover remains visible above the image viewport */
+:where(.events-section) .event-grid{padding-top:10px !important;padding-bottom:18px !important}
+
+@media(max-width:1200px){
+  .hotel-row{
+    grid-template-columns:30% 30% minmax(0,40%) !important;
+    padding-left:20px !important;
+  }
+  .hotel-side-left,.hotel-side-middle{width:100% !important;max-width:none !important}
+  :where(.events-section) .event-grid .event{
+    flex-basis:calc((100vw - 80px)/3) !important;
+    width:calc((100vw - 80px)/3) !important;
+  }
+}
+@media(max-width:820px){
+  .hotel-row{grid-template-columns:1fr !important;padding-left:0 !important}
+  .hotel-side-left,.hotel-side-middle{width:100% !important;max-width:none !important}
+  :where(.events-section) .event-grid{padding-left:16px !important;padding-right:16px !important}
+  
+}
+@media(max-width:520px){
+  
+}
+
+@media(prefers-reduced-motion:reduce){
+:where(.events-section) .event-grid{scroll-behavior:auto !important}
+}
+
+/* V4.4 — ensure the standalone growth section is visually separate */
+.packages-section,.events-section{background:var(--surface) !important}
+.events-section{background:#2B3843 !important}
+
+/* =========================================================
+   V4.5 FINAL REFINEMENTS
+   1. Navbar: #2B3843 at 70% -> transparent
+   2. Hotel logos: continuous loop slider
+   3. Parallax: Luxy-style inertial target movement, no caption
+   4. Events: no visible scrollbar; drag + momentum
+   5. Gentle click feedback for submenu + back-to-top
+========================================================= */
+
+/* 1. NAVBAR — requested glass gradient */
+.site-nav{
+  z-index:1400 !important;
+  background:linear-gradient(180deg,rgba(43,56,67,.70) 0%,rgba(43,56,67,0) 100%) !important;
+  background-color:transparent !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+.mobile-menu{z-index:1300 !important}
+.menu-toggle{z-index:1500 !important}
+.menu-toggle span,.menu-toggle iconify-icon{position:relative !important;z-index:1501 !important}:where(.hotels-section) /* 3. PARALLAX SECTION — clean image-only section */
+.parallax-section{
+  position:relative !important;
+  isolation:isolate !important;
+  height:530px !important;
+  min-height:530px !important;
+  overflow:hidden !important;
+  background:#2B3843 !important;
+  border-radius:0 !important;
+  z-index:1 !important;
+}
+.parallax-bg{
+  position:absolute !important;
+  z-index:0 !important;
+  left:0 !important;
+  right:0 !important;
+  top:-18% !important;
+  bottom:-18% !important;
+  min-height:136% !important;
+  background:url("https://images.pexels.com/photos/36729757/pexels-photo-36729757.jpeg?auto=compress&cs=tinysrgb&w=2400") center center / cover no-repeat !important;
+  transform:translate3d(0,0,0) scale(1.12);
+  transform-origin:center center !important;
+  will-change:transform !important;
+}
+.parallax-section::after{display:none !important}
+
+/* 4. EVENTS — hidden scrollbar + inertial drag */
+:where(.events-section) .event-grid{
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  scrollbar-width:none !important;
+  -ms-overflow-style:none !important;
+  scroll-behavior:smooth !important;
+  cursor:grab !important;
+  touch-action:pan-y !important;
+  user-select:none !important;
+}
+
+:where(.events-section) .event-grid.is-dragging{cursor:grabbing !important;scroll-behavior:auto !important}
+:where(.events-section) .event-grid .event{user-select:none !important}
+
+/* 5. GENTLE CLICK ANIMATION */
+.mobile-menu a,
+.back-top{
+  transition:transform .28s cubic-bezier(.22,.61,.36,1),opacity .28s ease,background-color .28s ease !important;
+}
+.mobile-menu a.gentle-click{
+  animation:gentleMenuClick .34s cubic-bezier(.22,.61,.36,1) both !important;
+}
+.back-top.gentle-click{
+  animation:gentleTopClick .48s cubic-bezier(.22,.61,.36,1) both !important;
+}
+@keyframes gentleMenuClick{
+  0%{transform:translateX(0);opacity:1}
+  45%{transform:translateX(4px) scale(.985);opacity:.72}
+  100%{transform:translateX(0);opacity:1}
+}
+@keyframes gentleTopClick{
+  0%{transform:scale(1)}
+  38%{transform:scale(.88)}
+  70%{transform:scale(1.06)}
+  100%{transform:scale(1)}
+}
+
+@media(max-width:820px){
+  .banner-logo-section .fosia-logo-marquee{height:96px !important}
+  .banner-logo-section .logo-track{animation-duration:20s !important}
+  .banner-logo-section .logo-set{gap:38px !important;padding:0 19px !important}
+  .banner-logo-section .logo-track img{flex-basis:130px !important;width:130px !important;height:60px !important}
+  .parallax-section{height:420px !important;min-height:420px !important}
+  .parallax-bg{top:-22% !important;bottom:-22% !important;min-height:144% !important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .banner-logo-section .logo-track{animation:none !important}
+  
+  .mobile-menu a.gentle-click,.back-top.gentle-click{animation:none !important}
+}
+
+/* =========================================================
+   V4.6 FINAL REFINEMENTS
+   1. Logo marquee: measured JS loop, no CSS animation conflict
+   2. Parallax: local image + Luxy-style inertial transform
+   3. Events: arrow-triggered smooth motion + directional animation
+   4. Cards: subtle perspective/shine interaction
+   5. Scroll reveal: IntersectionObserver-triggered CSS animation
+   6. Back-to-top: requestAnimationFrame ease-out scroll
+   7. Navbar: right-side off-canvas with staggered link reveal
+========================================================= */
+
+/* 1. HOTEL LOGOS — JS owns the loop position */
+.banner-logo-section .logo-track{
+  animation:none !important;
+  transform:translate3d(0,0,0);
+  will-change:transform;
+}.banner-logo-section .fosia-logo-marquee{cursor:default !important}
+
+/* 2. PARALLAX — image-only viewport with enough travel room for translate3d */
+.parallax-section{
+  position:relative !important;
+  height:530px !important;
+  min-height:530px !important;
+  overflow:hidden !important;
+  background:#2B3843 !important;
+  isolation:isolate !important;
+}
+.parallax-bg{
+  position:absolute !important;
+  inset:-34% 0 !important;
+  width:100% !important;
+  min-height:168% !important;
+  background-image:url("assets/img_14.jpeg") !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  transform:translate3d(0,0,0) scale(1.16);
+  transform-origin:center center !important;
+  will-change:transform !important;
+}
+.parallax-section::before,
+.parallax-section::after{display:none !important}
+
+/* 3. OUR EVENTS — arrow click feedback + smooth directional travel */
+:where(.events-section) .event-grid{
+  scroll-behavior:smooth !important;
+  perspective:1200px !important;
+}
+:where(.events-section) .event-grid.event-scroll-next .event{
+  animation:eventCardTravelNext .42s cubic-bezier(.22,.61,.36,1) both;
+}
+:where(.events-section) .event-grid.event-scroll-prev .event{
+  animation:eventCardTravelPrev .42s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes eventCardTravelNext{
+  0%{opacity:.92;transform:translate3d(18px,0,0) scale(.985)}
+  55%{opacity:1;transform:translate3d(-5px,0,0) scale(1.005)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
+}
+@keyframes eventCardTravelPrev{
+  0%{opacity:.92;transform:translate3d(-18px,0,0) scale(.985)}
+  55%{opacity:1;transform:translate3d(5px,0,0) scale(1.005)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
+}
+:where(.events-section) .event-grid .event{
+  --card-rx:0deg;
+  --card-ry:0deg;
+  --card-mx:0px;
+  --card-my:0px;
+  position:relative !important;
+  overflow:hidden !important;
+  transform-style:preserve-3d !important;
+  transition:transform .46s cubic-bezier(.22,.61,.36,1),box-shadow .46s ease,filter .46s ease !important;
+}
+:where(.events-section) .event-grid .event.card-tilt-active{
+  /* transform is owned by the shared JS tilt controller */
+  box-shadow:0 22px 42px rgba(0,0,0,.24) !important;
+  z-index:8 !important;
+}
+:where(.events-section) .event-grid .event img{
+  transform:scale(1);
+  transition:transform .65s cubic-bezier(.22,.61,.36,1),filter .65s ease !important;
+  will-change:transform;
+}
+:where(.events-section) .event-grid .event.card-tilt-active img{
+  transform:scale(1.035) translate3d(calc(var(--card-mx) * -.35),calc(var(--card-my) * -.35),0) !important;
+  filter:saturate(1.04) contrast(1.015) !important;
+}
+
+/* 4. CARD EFFECT FOR PACKAGE CARDS — same restrained interaction */
+.package-grid article{
+  --card-rx:0deg;
+  --card-ry:0deg;
+  --card-mx:0px;
+  --card-my:0px;
+  transform-style:preserve-3d !important;
+  transition:transform .46s cubic-bezier(.22,.61,.36,1),box-shadow .46s ease !important;
+  will-change:transform;
+}
+:where(.packages-section) .package-grid article.card-tilt-active{
+  /* transform is owned by the shared JS tilt controller */
+  box-shadow:0 20px 40px rgba(0,0,0,.18) !important;
+  z-index:4 !important;
+}
+:where(.packages-section) .package-grid article img{
+  transition:transform .65s cubic-bezier(.22,.61,.36,1),filter .65s ease !important;
+}
+:where(.packages-section) .package-grid article.card-tilt-active img{
+  transform:scale(1.035) !important;
+  filter:saturate(1.04) contrast(1.015) !important;
+}
+
+/* 5. SCROLL-TRIGGERED REVEALS */
+.section-intro, :where(.hotels-section) .hotel-row, .package-grid article, :where(.events-section) .event-grid .event, .news-grid article, .part-of-us, .footer-info > div{
+  opacity:0;
+  transform:translate3d(0,28px,0);
+  transition:opacity .72s ease,transform .72s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity,transform;
+}
+.section-intro.is-inview, :where(.hotels-section) .hotel-row.is-inview, :where(.packages-section) .package-grid article.is-inview, :where(.events-section) .event-grid .event.is-inview, .news-grid article.is-inview, .part-of-us.is-inview, .footer-info > div.is-inview{
+  opacity:1;
+  transform:translate3d(0,0,0);
+}:where(.hotels-section) .hotel-row:nth-child(2), :where(.events-section) .event-grid .event:nth-child(2), :where(.packages-section) .package-grid article:nth-child(2){transition-delay:.05s}:where(.hotels-section) .hotel-row:nth-child(3), :where(.events-section) .event-grid .event:nth-child(3), :where(.packages-section) .package-grid article:nth-child(3){transition-delay:.10s}:where(.hotels-section) .hotel-row:nth-child(4), :where(.events-section) .event-grid .event:nth-child(4), :where(.packages-section) .package-grid article:nth-child(4){transition-delay:.15s}:where(.hotels-section) .hotel-row:nth-child(5), :where(.events-section) .event-grid .event:nth-child(5), :where(.packages-section) .package-grid article:nth-child(5){transition-delay:.20s}
+:where(.events-section) .event-grid .event:nth-child(6){transition-delay:.25s}
+:where(.events-section) .event-grid .event:nth-child(7){transition-delay:.30s}
+:where(.events-section) .event-grid .event:nth-child(8){transition-delay:.35s}
+
+/* 6. RIGHT-SIDE NAV — panel remains on the right, links enter from right */
+.mobile-menu{
+  right:0 !important;
+  left:auto !important;
+  width:min(480px,100vw) !important;
+  transform:translate3d(100%,0,0) !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  transition:transform .62s cubic-bezier(.22,.61,.36,1),opacity .34s ease,visibility 0s linear .62s !important;
+  overflow-y:auto !important;
+  overscroll-behavior:contain !important;
+}
+.mobile-menu.open{
+  transform:translate3d(0,0,0) !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transition:transform .62s cubic-bezier(.22,.61,.36,1),opacity .34s ease,visibility 0s linear 0s !important;
+}
+.mobile-menu a{
+  opacity:0 !important;
+  transform:translate3d(42px,0,0) !important;
+  transition:opacity .42s ease,transform .58s cubic-bezier(.22,.61,.36,1),color .25s ease,background-color .25s ease !important;
+}
+.mobile-menu.open a{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+}
+.mobile-menu.open a:nth-child(1){transition-delay:.10s !important}
+.mobile-menu.open a:nth-child(2){transition-delay:.15s !important}
+.mobile-menu.open a:nth-child(3){transition-delay:.20s !important}
+.mobile-menu.open a:nth-child(4){transition-delay:.25s !important}
+.mobile-menu.open a:nth-child(5){transition-delay:.30s !important}
+.mobile-menu.open a:nth-child(6){transition-delay:.35s !important}
+.mobile-menu a:hover{transform:translate3d(-4px,0,0) !important}
+
+/* 7. MOVE-TO / BACK-TO-TOP visual feedback */
+.back-top{
+  transition:transform .32s cubic-bezier(.22,.61,.36,1),opacity .32s ease,box-shadow .32s ease !important;
+}
+.back-top.gentle-click{animation:gentleTopClick46 .52s cubic-bezier(.22,.61,.36,1) both !important}
+@keyframes gentleTopClick46{
+  0%{transform:scale(1) rotate(0deg)}
+  35%{transform:scale(.86) rotate(-4deg)}
+  68%{transform:scale(1.07) rotate(2deg)}
+  100%{transform:scale(1) rotate(0deg)}
+}
+
+@media(max-width:820px){
+  
+  .parallax-bg{inset:-38% 0 !important;min-height:176% !important}
+  
+}
+
+@media(prefers-reduced-motion:reduce){
+  .banner-logo-section .logo-track{animation:none !important;transform:none !important}
+  .parallax-bg{transform:none !important}
+  
+  :where(.events-section) .event-grid.event-scroll-next .event, :where(.events-section) .event-grid.event-scroll-prev .event{animation:none !important}
+  :where(.events-section) .event-grid .event, :where(.packages-section) .package-grid article, :where(.events-section) .event-grid .event img, :where(.packages-section) .package-grid article img{transition:none !important;transform:none !important}
+  .section-intro, .hotel-row, :where(.packages-section) .package-grid article, :where(.events-section) .event-grid .event, .news-grid article, .part-of-us, .footer-info > div{
+    opacity:1 !important;transform:none !important;transition:none !important;
+  }
+  .mobile-menu,.mobile-menu a{transition:none !important;transform:none !important}
+  .mobile-menu{opacity:1 !important;visibility:visible !important}
+  .mobile-menu:not(.open){display:none !important}
+  .back-top.gentle-click{animation:none !important}
+}
+
+/* =========================================================
+   V4.7 CLEAN MOTION LAYER
+   Keep this block as the single, documented place for v4.7 behavior.
+   Older revision blocks above are intentionally left intact as history;
+   these rules are the final source of truth for the affected components.
+========================================================= */
+
+/* ---------------------------------------------------------
+   2. PARALLAX — PURE HTML + CSS SCROLL-DRIVEN VERSION
+   No JS scroll handler, no library and no background-attachment dependency
+   on modern Chromium/Edge. The image itself is the animated layer.
+--------------------------------------------------------- */
+.parallax-section{
+  position:relative !important;
+  height:530px !important;
+  min-height:530px !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  background:#2B3843 !important;
+}
+.parallax-bg{
+  position:absolute !important;
+  inset:-22% 0 !important;
+  width:100% !important;
+  min-height:144% !important;
+  background:url("assets/img_14.jpeg") center center / cover no-repeat !important;
+  transform:translate3d(0,0,0) scale(1.16);
+  transform-origin:center center !important;
+  will-change:transform !important;
+}
+@keyframes fosiaPureCssParallax{
+  from{transform:translate3d(0,-12%,0) scale(1.16)}
+  to{transform:translate3d(0,12%,0) scale(1.16)}
+}
+@supports (animation-timeline:view()){
+  .parallax-bg{
+    animation:fosiaPureCssParallax 1ms linear both !important;
+    animation-timeline:view(block) !important;
+    animation-range:entry 0% exit 100% !important;
+  }
+}
+@supports not (animation-timeline:view()){
+  .parallax-bg{
+    background-attachment:fixed !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   3. LIGHTBOX — ALWAYS ABOVE NAVBAR / OFF-CANVAS MENU
+--------------------------------------------------------- */
+.image-lightbox{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:5000 !important;
+  isolation:isolate !important;
+}
+.image-lightbox img{
+  position:relative !important;
+  z-index:5002 !important;
+  max-width:min(90vw,1000px) !important;
+  max-height:88vh !important;
+}
+.lightbox-close{
+  position:absolute !important;
+  top:28px !important;
+  right:34px !important;
+  z-index:5003 !important;
+}
+body.no-scroll{overflow:hidden !important}
+
+/* ---------------------------------------------------------
+   4. PACKAGE + EVENT CARD INTERACTION
+   Cursor-following highlight + restrained 3D lift.
+--------------------------------------------------------- */
+.package-grid article, :where(.events-section) .event-grid .event{
+  --spot-x:50%;
+  --spot-y:50%;
+  --card-rx:0deg;
+  --card-ry:0deg;
+  --card-mx:0px;
+  --card-my:0px;
+  position:relative !important;
+  transform-style:preserve-3d !important;
+  backface-visibility:hidden !important;
+  isolation:isolate !important;
+}
+ :where(.packages-section) .package-grid article::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:5 !important;
+  pointer-events:none !important;
+  border-radius:inherit !important;
+  opacity:0 !important;
+  background:radial-gradient(circle at var(--spot-x) var(--spot-y),rgba(255,255,255,.28) 0,rgba(255,255,255,.10) 18%,transparent 48%) !important;
+  transition:opacity .28s ease !important;
+}
+:where(.packages-section) .package-grid article.card-tilt-active, :where(.events-section) .event-grid .event.card-tilt-active{
+  /* transform is owned by the shared JS tilt controller */
+  box-shadow:0 24px 52px rgba(20,27,33,.22) !important;
+  z-index:20 !important;
+}
+:where(.packages-section) .package-grid article.card-tilt-active::after{opacity:1 !important;}
+:where(.packages-section) .package-grid article img, :where(.events-section) .event-grid .event img{
+  transform-origin:center center !important;
+  will-change:transform !important;
+}
+:where(.packages-section) .package-grid article.card-tilt-active img{
+  transform:scale(1.055) !important;
+}
+:where(.events-section) .event-grid .event.card-tilt-active img{
+  transform:scale(1.055) translate3d(calc(var(--card-mx) * -.28),calc(var(--card-my) * -.28),0) !important;
+}
+
+/* ---------------------------------------------------------
+   5. EVENT ARROW — MOTION TRIGGER WITHOUT FIGHTING SCROLL POSITION
+--------------------------------------------------------- */
+:where(.events-section) .event-grid{
+  scroll-behavior:auto !important;
+  overscroll-behavior-x:contain !important;
+  touch-action:pan-y !important;
+}
+@keyframes fosiaEventArrowNext{
+  0%{opacity:.72;filter:blur(.4px)}
+  45%{opacity:1;filter:blur(0)}
+  100%{opacity:1;filter:none}
+}
+@keyframes fosiaEventArrowPrev{
+  0%{opacity:.72;filter:blur(.4px)}
+  45%{opacity:1;filter:blur(0)}
+  100%{opacity:1;filter:none}
+}
+:where(.events-section) .event-grid.event-scroll-next .event{
+  animation:fosiaEventArrowNext .46s cubic-bezier(.22,.61,.36,1) both !important;
+}
+:where(.events-section) .event-grid.event-scroll-prev .event{
+  animation:fosiaEventArrowPrev .46s cubic-bezier(.22,.61,.36,1) both !important;
+}
+
+/* ---------------------------------------------------------
+   6. MOBILE / REDUCED MOTION
+--------------------------------------------------------- */
+@media(max-width:820px){
+  .banner-logo-section .logo-track{animation-duration:22s !important}
+  .banner-logo-section .logo-set{gap:38px !important;padding:0 19px !important}
+  .banner-logo-section .logo-track img{flex-basis:130px !important;width:130px !important;height:60px !important}
+  .parallax-section{height:420px !important;min-height:420px !important}
+  .parallax-bg{inset:-26% 0 !important;min-height:152% !important}
+}
+@media(prefers-reduced-motion:reduce){
+  
+  .parallax-bg{animation:none !important;transform:none !important}
+  
+  
+  :where(.packages-section) .package-grid article.card-tilt-active, :where(.events-section) .event-grid .event.card-tilt-active{transform:none !important;box-shadow:none !important}
+  :where(.packages-section) .package-grid article.card-tilt-active::after{opacity:0 !important}
+}
+
+
+/* =========================================================
+   V4.8 TOUCH-UP — CLEAN FINAL SOURCE OF TRUTH
+   Scope: navbar layering, welcome motion, hotel spacing, banner logo,
+   CSS parallax, event/news links, Part Of Us reveal, booking form.
+========================================================= */
+
+/* 1. NAVBAR — glass background behind the right-side menu, burger above it */
+.site-nav{
+  position:sticky !important;
+  top:0 !important;
+  z-index:100 !important;
+  height:80px !important;
+  margin-bottom:-80px !important;
+  background:linear-gradient(180deg,rgba(43,56,67,.70) 0%,rgba(43,56,67,0) 100%) !important;
+  background-color:transparent !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+.mobile-menu{
+  position:fixed !important;
+  top:80px !important;
+  right:0 !important;
+  left:auto !important;
+  z-index:200 !important;
+  width:min(480px,100vw) !important;
+}
+.menu-toggle{
+  position:fixed !important;
+  top:20px !important;
+  right:30px !important;
+  z-index:300 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  color:#fff !important;
+  background:transparent !important;
+  border:0 !important;
+  cursor:pointer !important;
+}
+.menu-toggle span,
+.menu-toggle iconify-icon{
+  position:relative !important;
+  z-index:301 !important;
+}
+.menu-toggle iconify-icon{font-size:30px !important}
+.menu-toggle.is-open{color:#fff !important}
+
+/* 2. WELCOME — same reveal family as Our Hotels */
+.welcome-wrap{
+  opacity:0 !important;
+  transform:translate3d(0,28px,0) !important;
+  transition:opacity .72s ease,transform .72s cubic-bezier(.22,.61,.36,1) !important;
+  will-change:opacity,transform !important;
+}
+.welcome-wrap.is-inview{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+}:where(.hotels-section) /* 3. OUR HOTELS — middle description gets a deliberate 48px rhythm */
+.hotel-side-middle{
+  padding-inline:48px !important;
+}
+
+/* 4. BANNER LOGO — independent section, not part of Our Hotels */
+.banner-logo-section{
+  position:relative !important;
+  z-index:11 !important;
+  background:#fff !important;
+  overflow:hidden !important;
+}.banner-logo-section .fosia-logo-marquee{
+  position:relative !important;
+  width:100% !important;
+  height:112px !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  background:#fff !important;
+}
+.banner-logo-section .logo-track{
+  flex:0 0 auto !important;
+  width:max-content !important;
+  max-width:none !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:0 !important;
+  will-change:transform !important;
+  animation:fosiaBannerLogoLoop 26s linear infinite !important;
+}
+.banner-logo-section .logo-set{
+  flex:0 0 auto !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:58px !important;
+  padding:0 29px !important;
+  box-sizing:border-box !important;
+}
+.banner-logo-section .logo-set a{
+  flex:0 0 180px !important;
+  width:180px !important;
+  height:82px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:10px !important;
+  outline:none !important;
+}
+.banner-logo-section .logo-track img{
+  display:block !important;
+  width:180px !important;
+  height:82px !important;
+  object-fit:contain !important;
+  filter:grayscale(1) !important;
+  opacity:.72 !important;
+  transition:filter .25s ease,opacity .25s ease,transform .25s ease !important;
+}
+.banner-logo-section .logo-set a:hover img,
+.banner-logo-section .logo-set a:focus-visible img{
+  filter:grayscale(0) !important;
+  opacity:1 !important;
+  transform:scale(1.04) !important;
+}
+@keyframes fosiaBannerLogoLoop{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+
+/* 5. PARALLAX — named section view timeline, pure CSS */
+.parallax-section{
+  position:relative !important;
+  height:530px !important;
+  min-height:530px !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  background:#2B3843 !important;
+  border-radius:0 !important;
+  view-timeline-name:--fosia-parallax !important;
+  view-timeline-axis:block !important;
+}
+.parallax-bg{
+  position:absolute !important;
+  inset:-30% 0 !important;
+  width:100% !important;
+  min-height:160% !important;
+  background-image:url("assets/img_14.jpeg") !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  transform:translate3d(0,0,0) scale(1.14);
+  transform-origin:center center !important;
+  will-change:transform !important;
+}
+@keyframes fosiaSectionParallax{
+  from{transform:translate3d(0,-12%,0) scale(1.14)}
+  to{transform:translate3d(0,12%,0) scale(1.14)}
+}
+@supports (animation-timeline:view()){
+  .parallax-bg{
+    animation:fosiaSectionParallax 1ms linear both !important;
+    animation-timeline:--fosia-parallax !important;
+    animation-range:entry 0% exit 100% !important;
+  }
+}
+@supports not (animation-timeline:view()){
+  .parallax-bg{
+    transform:none !important;
+    inset:0 !important;
+    background-attachment:fixed !important;
+  }
+}
+
+/* 6. EVENTS — clickable title + permanently rounded card/image geometry */
+:where(.events-section) .event-grid .event{
+  position:relative !important;
+  border-radius:20px !important;
+  overflow:hidden !important;
+  clip-path:inset(0 round 20px) !important;
+}
+:where(.events-section) .event-grid .event img{
+  border-radius:20px !important;
+}
+:where(.events-section) .event-grid .event h3 a{
+  color:inherit !important;
+  text-decoration:none !important;
+}
+:where(.events-section) .event-grid .event h3 a:hover, :where(.events-section) .event-grid .event h3 a:focus-visible{
+  color:#FDA634 !important;
+}
+:where(.events-section) .event-grid .event.card-tilt-active{
+  border-radius:20px !important;
+  clip-path:inset(0 round 20px) !important;
+}
+
+/* 7. NEWS — clickable article title */
+.news-grid article h3 a{
+  color:inherit !important;
+  text-decoration:none !important;
+  transition:color .25s ease,transform .25s ease !important;
+}
+.news-grid article h3 a:hover,
+.news-grid article h3 a:focus-visible{
+  color:#FDA634 !important;
+}
+
+/* 8. PART OF US — solid section background; reveal only its content */
+.part-of-us{
+  position:relative !important;
+  z-index:12 !important;
+  background:#F2F1F1 !important;
+  opacity:1 !important;
+  transform:none !important;
+  overflow:hidden !important;
+}
+.part-of-us::before,
+.part-of-us::after{display:none !important;content:none !important}
+.part-of-us .content{
+  opacity:0;
+  transform:translate3d(0,28px,0);
+  transition:opacity .72s ease,transform .72s cubic-bezier(.22,.61,.36,1);
+}
+.part-of-us .content.is-inview{
+  opacity:1;
+  transform:translate3d(0,0,0);
+}
+
+/* 9. BOOKING — actual hotel selector + date inputs + interactive CTA */
+.booking-bar{
+  z-index:400 !important;
+  grid-template-columns:1.55fr .9fr .95fr 1.3fr !important;
+}
+.booking-field{
+  min-width:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  padding:0 24px !important;
+  border-right:1px solid var(--line) !important;
+  color:var(--text) !important;
+  cursor:pointer !important;
+}
+.booking-field select,
+.booking-field input{
+  min-width:0 !important;
+  width:100% !important;
+  border:0 !important;
+  outline:0 !important;
+  background:transparent !important;
+  color:var(--text) !important;
+  font:inherit !important;
+  cursor:pointer !important;
+}
+.booking-field select:invalid{color:var(--muted) !important}
+.booking-field option{color:#2B3843 !important;background:#fff !important}
+.booking-field input::-webkit-calendar-picker-indicator{cursor:pointer}
+.booking-bar button{
+  position:relative !important;
+  overflow:hidden !important;
+  cursor:pointer !important;
+  transition:transform .28s cubic-bezier(.22,.61,.36,1),box-shadow .28s ease,background-color .28s ease !important;
+}
+.booking-bar button:hover{
+  transform:translateY(-1px) !important;
+  background:#40505D !important;
+  box-shadow:0 10px 24px rgba(43,56,67,.20) !important;
+}
+.booking-bar button:active{
+  transform:translateY(1px) scale(.985) !important;
+  box-shadow:0 5px 12px rgba(43,56,67,.16) !important;
+}
+.booking-bar button:focus-visible{
+  outline:3px solid rgba(253,166,52,.35) !important;
+  outline-offset:-5px !important;
+}
+
+/* 10. REDUCED MOTION */
+@media(prefers-reduced-motion:reduce){
+  .welcome-wrap,
+  .part-of-us .content{opacity:1 !important;transform:none !important;transition:none !important}
+  .banner-logo-section .logo-track{animation:none !important;transform:none !important}
+  .parallax-bg{animation:none !important;transform:none !important}
+  .booking-bar button{transition:none !important}
+}
+
+@media(max-width:820px){
+  .site-nav{height:72px !important;margin-bottom:-72px !important}
+  .mobile-menu{top:72px !important}
+  .menu-toggle{top:16px !important;right:18px !important}
+  .hotel-side-middle{padding-inline:32px !important}
+  
+  .banner-logo-section .logo-track{animation-duration:22s !important}
+  .banner-logo-section .logo-set{gap:38px !important;padding-inline:19px !important}
+  .banner-logo-section .logo-set a,.banner-logo-section .logo-track img{flex-basis:130px !important;width:130px !important;height:60px !important}
+  
+  .parallax-bg{inset:-34% 0 !important;min-height:168% !important}
+  .booking-bar{grid-template-columns:1fr !important;height:auto !important;border-radius:22px !important}
+  .booking-field{min-height:54px !important;border-right:0 !important;border-bottom:1px solid var(--line) !important}
+  .booking-bar button{min-height:54px !important;margin:8px !important;border-radius:50px !important}
+}
+
+/* =========================================================
+   V4.9 — FINAL TOUCH-UP / SOURCE OF TRUTH
+   1. Navbar: MENU/CLOSE > submenu > glass background > booking bar
+   2. Hotel routing + menu submenu geometry
+   3. Banner logo: 4-set seamless CSS marquee, pause only on logo hover
+   4. Parallax: reverse direction + 30% black overlay
+   5. Booking date UI: left icon only + DD/Month/YYYY display
+   6. Back-to-top hover motion
+========================================================= */
+
+/* NAVBAR STACKING ORDER: burger 3000 > menu 2000 > glass nav 1000 > booking 30 */
+.site-nav{
+  z-index:1000 !important;
+  background:linear-gradient(180deg,rgba(43,56,67,.70) 0%,rgba(43,56,67,0) 100%) !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+.mobile-menu{
+  z-index:2000 !important;
+  top:0 !important;
+  right:0 !important;
+  width:min(480px,100vw) !important;
+  padding:112px 42px 36px !important;
+  background:rgba(43,56,67,.97) !important;
+  backdrop-filter:blur(20px) !important;
+  -webkit-backdrop-filter:blur(20px) !important;
+  transform:translate3d(100%,0,0) !important;
+  border-radius:0 !important;
+  box-shadow:-18px 0 55px rgba(0,0,0,.18) !important;
+}
+.mobile-menu.open{transform:translate3d(0,0,0) !important}
+.menu-toggle{
+  z-index:3000 !important;
+  top:20px !important;
+  right:30px !important;
+  color:#fff !important;
+}
+.menu-toggle span{letter-spacing:.08em !important}
+.menu-group{display:grid !important;gap:0 !important}
+.menu-parent{
+  width:100% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:18px !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  color:#fff !important;
+  font:inherit !important;
+  text-align:left !important;
+  cursor:pointer !important;
+}
+.menu-parent iconify-icon{font-size:20px !important;transition:transform .32s ease !important}
+.menu-parent[aria-expanded="true"] iconify-icon{transform:rotate(180deg) !important}
+.menu-submenu{
+  display:grid !important;
+  gap:0 !important;
+  max-height:0 !important;
+  overflow:hidden !important;
+  opacity:0 !important;
+  padding-left:18px !important;
+  transition:max-height .42s cubic-bezier(.22,.61,.36,1),opacity .28s ease,padding-top .42s ease,padding-bottom .42s ease !important;
+}
+.menu-group.is-expanded .menu-submenu{
+  max-height:520px !important;
+  opacity:1 !important;
+  padding-top:10px !important;
+  padding-bottom:8px !important;
+}
+.menu-submenu a{
+  font-size:15px !important;
+  padding:9px 0 !important;
+  color:rgba(255,255,255,.78) !important;
+}
+.menu-submenu a:hover,.menu-submenu a:focus-visible{color:#fff !important}
+
+/* BOOKING BAR MUST NEVER COVER THE OPEN MENU */
+.booking-bar{z-index:30 !important}/* BANNER LOGO — four identical sets eliminate any visible blank gap on wide screens */
+.banner-logo-section .fosia-logo-marquee{overflow:hidden !important;}
+.banner-logo-section .logo-track{
+  animation:fosiaBannerLogoLoop49 26s linear infinite !important;
+  transform:translate3d(0,0,0) !important;
+}
+.banner-logo-section .logo-set{flex:0 0 auto !important}
+.banner-logo-section .logo-set a:hover,.banner-logo-section .logo-set a:focus-visible{z-index:2 !important}
+@keyframes fosiaBannerLogoLoop49{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-25%,0,0)}
+}
+
+/* PARALLAX — reverse the 4.8 direction and add exact 30% black overlay */
+.parallax-section{isolation:isolate !important}
+.parallax-bg{z-index:0 !important}
+.parallax-section::after{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  background:rgba(0,0,0,.30) !important;
+}
+@keyframes fosiaSectionParallax49{
+  from{transform:translate3d(0,12%,0) scale(1.14)}
+  to{transform:translate3d(0,-12%,0) scale(1.14)}
+}
+@supports (animation-timeline:view()){
+  .parallax-bg{
+    animation:fosiaSectionParallax49 1ms linear both !important;
+    animation-timeline:--fosia-parallax !important;
+    animation-range:entry 0% exit 100% !important;
+  }
+}:where(.hotels-section) /* HOTEL ACTIONS */
+.hotel-primary-actions a[href*="google.com/maps"]{cursor:pointer !important}:where(.hotels-section) .hotel-primary-actions a[href*="wa.me"]{cursor:pointer !important}
+
+/* BOOKING BAR DATE FIELD — hide native right-side calendar glyph; JS owns picker */
+.booking-field.date-field{position:relative !important;overflow:hidden !important}
+.booking-field.date-field .date-display{
+  cursor:pointer !important;
+  appearance:none !important;
+  -webkit-appearance:none !important;
+}
+.booking-field.date-field .date-native{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  opacity:0 !important;
+  cursor:pointer !important;
+  border:0 !important;
+  pointer-events:none !important;
+}
+.booking-field.date-field .date-icon{flex:0 0 auto !important;transition:transform .34s cubic-bezier(.22,.61,.36,1),opacity .34s ease !important}
+.booking-field.date-field.is-active .date-icon,
+.booking-field.date-field.is-active .date-display{
+  animation:bookingDateLift49 .34s cubic-bezier(.22,.61,.36,1) both !important;
+}
+@keyframes bookingDateLift49{
+  from{opacity:.58;transform:translateY(9px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.booking-field.date-field .date-display::placeholder{color:var(--muted) !important}
+
+/* GO TO TOP — mouse-over feedback */
+.back-top{
+  transition:transform .30s cubic-bezier(.22,.61,.36,1),box-shadow .30s ease,background-color .30s ease,color .30s ease !important;
+}
+.back-top:hover{
+  transform:translateY(-4px) scale(1.08) !important;
+  background:#2B3843 !important;
+  color:#fff !important;
+  box-shadow:0 14px 28px rgba(43,56,67,.24) !important;
+}
+.back-top:active{transform:translateY(-1px) scale(.97) !important}
+
+@media(max-width:820px){
+  .mobile-menu{top:0 !important;padding:96px 28px 30px !important}
+  
+  
+  .parallax-section::after{background:rgba(0,0,0,.30) !important}
+}
+@media(prefers-reduced-motion:reduce){
+  
+  .menu-submenu{transition:none !important}
+  
+  .back-top{transition:none !important}
+}:where(.hotels-section) /* 4.9 LOGO ASSET REFINEMENT — supplied transparent PNG brand marks */
+.banner-logo-section .fosia-logo-marquee{
+  min-height:128px !important;
+  height:128px !important;
+}
+.banner-logo-section .logo-track{
+  animation-duration:30s !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  animation-play-state:running;
+}
+.banner-logo-section .logo-set{
+  gap:64px !important;
+  padding-inline:32px !important;
+}
+.banner-logo-section .logo-set a{
+  flex-basis:180px !important;
+  width:180px !important;
+  height:82px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.banner-logo-section .logo-track img{
+  width:180px !important;
+  height:82px !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  filter:none !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+.banner-logo-section .logo-set a:hover img,
+.banner-logo-section .logo-set a:focus-visible img{
+  transform:scale(1.045) !important;
+  filter:none !important;
+}
+@media(max-width:820px){
+  .banner-logo-section .fosia-logo-marquee{height:104px !important;min-height:104px !important}
+  .banner-logo-section .logo-set{gap:34px !important;padding-inline:17px !important}
+  .banner-logo-section .logo-set a{flex-basis:140px !important;width:140px !important;height:68px !important}
+  .banner-logo-section .logo-track img{width:140px !important;height:68px !important}
+}
+
+/* =========================================================
+   V5 — REQUESTED FIXES / CROSS-BROWSER MOTION LAYER
+   This block is intentionally last so V5 overrides historical 4.x rules
+   without rewriting the known-good 4.9 structure.
+========================================================= */
+
+/* 1. NAVBAR — Our Hotels uses the same main-menu geometry as other items. */
+.mobile-menu > a,
+.mobile-menu .menu-parent{
+  font-size:22px !important;
+  line-height:1.25 !important;
+  min-height:68px !important;
+  box-sizing:border-box !important;
+}
+.mobile-menu .menu-parent{
+  border-bottom:1px solid rgba(255,255,255,.14) !important;
+  padding:0 0 0 2px !important;
+}
+.mobile-menu .menu-submenu{
+  border:0 !important;
+  padding-left:18px !important;
+}
+.mobile-menu .menu-submenu a{
+  min-height:0 !important;
+  height:auto !important;
+  padding:9px 0 !important;
+  border:0 !important;
+  border-bottom:0 !important;
+  font-size:15px !important;
+  line-height:1.45 !important;
+}
+
+/* 2. WELCOME — restored Figma images are local and independent of remote URLs. */
+.about-photo img{display:block !important;opacity:1 !important;visibility:visible !important;}:where(.hotels-section) /* 3. OUR HOTELS — logo/action alignment + external links. */
+.hotel-logo-space{
+  min-height:0 !important;
+  height:88px !important;
+  align-items:flex-start !important;
+  padding-top:0 !important;
+  margin-bottom:8px !important;
+}:where(.hotels-section) .hotel-logo{
+  margin-top:0 !important;
+  align-self:flex-start !important;
+}:where(.hotels-section) .hotel-primary-actions a[href*="google.com/maps"],:where(.hotels-section) .hotel-primary-actions a[href*="wa.me"]{
+  cursor:pointer !important;
+}:where(.hotels-section) /* 4. BANNER LOGO — JavaScript owns position so pause/resume never restarts. */
+.banner-logo-section .fosia-logo-marquee{
+  position:relative !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+}
+.banner-logo-section .logo-track{
+  animation:none !important;
+  transition:none !important;
+  transform:translate3d(0,0,0) !important;
+  will-change:transform !important;
+}
+.banner-logo-section .logo-track.is-marquee-paused{will-change:transform !important;}
+
+/* 5. PARALLAX — JS/rAF fallback modeled on the supplied perspective-parallax reference. */
+.parallax-section{
+  position:relative !important;
+  overflow:hidden !important;
+  perspective:1px !important;
+  perspective-origin:center top !important;
+  transform-style:preserve-3d !important;
+  isolation:isolate !important;
+}
+.parallax-bg{
+  position:absolute !important;
+  inset:-18% 0 !important;
+  width:100% !important;
+  min-height:136% !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  transform:translate3d(0,0,0) scale(1.12) !important;
+  transform-origin:center center !important;
+  will-change:transform !important;
+  animation:none !important;
+  background-attachment:scroll !important;
+}
+
+
+/* 6. PACKAGE / EVENT CARDS — rounded geometry, no clip-path. */
+.package-grid article, :where(.events-section) .event-grid .event{
+  border-radius:20px !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+  transform-style:preserve-3d !important;
+  backface-visibility:hidden !important;
+}
+:where(.packages-section) .package-grid article{overflow:hidden !important;}
+:where(.events-section) .event-grid .event{overflow:hidden !important;}
+:where(.packages-section) .package-grid article img{border-radius:20px 20px 0 0 !important;}
+:where(.packages-section) .package-grid article.card-tilt-active{
+  border-radius:20px !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+}
+
+/* 7. MOTION COMPATIBILITY — graceful fallbacks for browsers without newer CSS motion APIs. */
+html{scroll-behavior:auto !important;}
+@media (prefers-reduced-motion:reduce){
+  .banner-logo-section .logo-track{animation:none !important;}
+  .parallax-bg{transform:translate3d(0,0,0) scale(1.12) !important;}
+}
+
+/* 9. BOOKING — clearer date field text. */
+.booking-field.date-field .date-display::placeholder{
+  color:#52606B !important;
+  opacity:1 !important;
+  font-weight:500 !important;
+}
+.booking-field select{color:#2B3843 !important;font-weight:500 !important;}
+
+@media(max-width:820px){
+  .mobile-menu > a,
+  .mobile-menu .menu-parent{font-size:20px !important;min-height:60px !important;}
+  .hotel-logo-space{height:76px !important;margin-bottom:6px !important;}
+  .parallax-section{perspective:none !important;}
+  .parallax-bg{inset:-20% 0 !important;min-height:140% !important;}
+}:where(.hotels-section) /* =========================================================
+   V5.1 — MOTION FIXES
+   Scope: only the five user-reported V5 failures.
+========================================================= */
+
+/* 1. OUR HOTELS — logo top alignment with the hotel image column. */
+.hotel-side-left{
+  justify-content:flex-start !important;
+  padding-top:0 !important;
+}:where(.hotels-section) .hotel-logo-space{
+  height:auto !important;
+  min-height:0 !important;
+  padding-top:0 !important;
+  margin-top:0 !important;
+  margin-bottom:28px !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+}:where(.hotels-section) .hotel-logo{
+  height:88px !important;
+  margin:0 !important;
+  object-fit:contain !important;
+  object-position:left top !important;
+  align-self:flex-start !important;
+}
+
+/* 2. BANNER MARQUEE — transform is JS-owned; no CSS transform override. */
+.banner-logo-section .logo-track{
+  animation:none !important;
+  transform:translate3d(0,0,0);
+  will-change:transform !important;
+}
+
+/* 3. PARALLAX — transform is JS-owned; no CSS transform override. */
+.parallax-bg{
+  animation:none !important;
+  transform:translate3d(0,0,0) scale(1.12);
+  will-change:transform !important;
+}
+
+/* 4–5. CARD TILT — preserve rounded geometry while allowing JS transform. */
+.package-grid article.card-tilt-active{
+  border-radius:20px !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+  transform-style:preserve-3d !important;
+  backface-visibility:hidden !important;
+}
+:where(.packages-section) .package-grid article.card-tilt-active::after{border-radius:20px !important;}
+
+@media(max-width:820px){
+  .hotel-logo{height:72px !important;}
+}
+
+
+/* =========================================================
+   V5.2 FINAL CHANGESET
+   Audit baseline: V5.1
+========================================================= */
+
+/* 1. NAVBAR — smooth burger/menu/submenu motion + DESIGN accent */
+.menu-toggle{
+  color:#fff !important;
+  transition:color .25s ease,transform .32s cubic-bezier(.22,.61,.36,1),opacity .25s ease !important;
+}
+.menu-toggle span{display:inline-block;transition:color .25s ease,transform .32s cubic-bezier(.22,.61,.36,1),opacity .25s ease !important}
+.menu-toggle iconify-icon{display:block;transform-origin:center;transition:transform .38s cubic-bezier(.22,.61,.36,1),color .25s ease !important}
+.menu-toggle:hover,.menu-toggle:focus-visible{color:var(--orange) !important;opacity:1 !important;outline:none}
+.menu-toggle:hover iconify-icon,.menu-toggle:focus-visible iconify-icon{color:var(--orange) !important}
+.menu-toggle.is-open iconify-icon{transform:rotate(90deg) scale(1.04) !important;color:var(--orange) !important}
+.menu-toggle.is-open span{color:var(--orange) !important;transform:translateX(-2px)}
+.mobile-menu .menu-parent{
+  width:100%;min-height:68px;padding:0 0 0 2px;border:0;border-bottom:1px solid rgba(255,255,255,.14);
+  background:transparent;color:#fff;display:flex;align-items:center;justify-content:space-between;
+  font-size:22px;letter-spacing:.01em;text-align:left;transition:color .25s ease,background-color .25s ease,transform .35s cubic-bezier(.22,.61,.36,1) !important;
+}
+.mobile-menu .menu-parent iconify-icon{font-size:22px;transition:transform .35s cubic-bezier(.22,.61,.36,1),color .25s ease !important}
+.mobile-menu .menu-parent:hover,.mobile-menu .menu-parent:focus-visible{color:var(--orange) !important;background:rgba(253,166,52,.06);outline:none}
+.mobile-menu .menu-parent:hover iconify-icon,.mobile-menu .menu-parent:focus-visible iconify-icon{color:var(--orange) !important}
+.mobile-menu .menu-hotels.is-expanded .menu-parent{color:var(--orange) !important}
+.mobile-menu .menu-hotels.is-expanded .menu-parent iconify-icon{transform:rotate(180deg);color:var(--orange) !important}
+.mobile-menu .menu-submenu{display:grid;grid-template-rows:0fr;opacity:0;overflow:hidden;transition:grid-template-rows .42s cubic-bezier(.22,.61,.36,1),opacity .28s ease !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu{grid-template-rows:1fr;opacity:1}
+.mobile-menu .menu-submenu > *{min-height:0}
+.mobile-menu .menu-submenu a{border-bottom:0 !important;min-height:48px !important;padding-left:18px !important;font-size:20px !important;color:rgba(255,255,255,.82) !important;transition:color .25s ease,transform .35s cubic-bezier(.22,.61,.36,1),opacity .3s ease !important}
+.mobile-menu .menu-submenu a:hover,.mobile-menu .menu-submenu a:focus-visible{color:var(--orange) !important;transform:translate3d(5px,0,0) !important;outline:none}
+.mobile-menu a:not(.menu-submenu a):hover,.mobile-menu a:not(.menu-submenu a):focus-visible{color:var(--orange) !important}
+
+/* 2. OUR HOTELS — maximize logo width, preserve aspect ratio,:where(.hotels-section) center logo/actions */
+.hotel-side-left{align-items:center !important;text-align:center !important}:where(.hotels-section) .hotel-logo-space{width:100% !important;max-width:318px !important;min-height:0 !important;height:auto !important;display:flex !important;align-items:flex-start !important;justify-content:center !important;margin:0 auto 24px !important}:where(.hotels-section) .hotel-logo{display:block !important;width:100% !important;max-width:318px !important;height:auto !important;max-height:140px !important;object-fit:contain !important;object-position:center top !important;margin:0 auto !important}:where(.hotels-section) .hotel-primary-actions{width:100% !important;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:10px !important;margin:0 auto !important}:where(.hotels-section) .hotel-primary-actions .outline-btn,:where(.hotels-section) .hotel-primary-actions .solid-btn{width:min(100%,180px) !important;min-width:180px !important;max-width:180px !important;justify-content:space-between !important}
+
+/* 3. BANNER LOGO — monotone/duotone presentation only */
+.banner-logo-section .logo-track img{filter:grayscale(1) contrast(1.04) !important;opacity:.78 !important}
+.banner-logo-section .logo-track img:hover,.banner-logo-section .logo-track a:focus-visible img{filter:grayscale(1) contrast(1.12) !important;opacity:1 !important}
+
+/* 4. PACKAGES + EVENTS — Vanilla-Tilt-style layered 3D card system.
+   No clip-path. Rounded geometry is preserved with border-radius + overflow. */
+.package-grid article.tilt-card, :where(.events-section) .event-grid article.tilt-card{
+  position:relative !important;
+  overflow:hidden !important;
+  border-radius:28px !important;
+  transform-style:preserve-3d !important;
+  perspective:1800px !important;
+  cursor:grab !important;
+  isolation:isolate !important;
+  will-change:transform,box-shadow !important;
+  transition:transform .6s cubic-bezier(.23,1,.32,1),box-shadow .4s ease-out !important;
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.18),0 18px 38px rgba(0,0,0,.16) !important;
+  background:#2B3843 !important;
+}
+:where(.packages-section) .package-grid article.tilt-card:hover, :where(.events-section) .event-grid article.tilt-card:hover{box-shadow:0 0 0 2px rgba(253,166,52,.46),0 24px 48px rgba(0,0,0,.22) !important;z-index:5 !important}
+:where(.packages-section) .package-grid article.tilt-card:active, :where(.events-section) .event-grid article.tilt-card:active{cursor:grabbing !important}
+.tilt-card-media{position:absolute !important;inset:0 !important;overflow:hidden !important;border-radius:inherit !important;transform:translateZ(0) !important;will-change:transform !important}
+.tilt-card-media img{width:100% !important;height:100% !important;object-fit:cover !important;transition:transform 1.5s cubic-bezier(.23,1,.32,1),filter .5s ease !important;will-change:transform !important}
+.tilt-card:hover .tilt-card-media img{transform:scale(1.045) !important;filter:saturate(1.04) contrast(1.02) !important}
+.tilt-card-content{position:absolute !important;left:14px;right:14px;bottom:14px;padding:24px 20px 20px !important;z-index:20 !important;color:#fff !important;text-align:center !important;transform:translateZ(60px) !important;will-change:transform !important}
+.tilt-card-content h3{margin:0 !important;color:#fff !important;font-size:clamp(17px,1.4vw,23px) !important;line-height:1.25 !important;font-weight:600 !important;text-shadow:0 2px 4px rgba(0,0,0,.5) !important;transition:color .25s ease,transform .3s ease !important}
+.tilt-card-content p{margin:8px auto 0 !important;color:rgba(255,255,255,.78) !important;font-size:13px !important;line-height:1.5 !important;text-shadow:0 1px 3px rgba(0,0,0,.4) !important}
+.tilt-card:hover .tilt-card-content h3{color:#FDA634 !important;transform:translateY(-2px)}
+:where(.packages-section) .package-grid article.tilt-card{aspect-ratio:3/4 !important;min-height:0 !important}
+:where(.packages-section) .package-grid article.tilt-card > .tilt-card-media{height:100% !important}
+:where(.events-section) .event-grid article.tilt-card{height:100% !important;min-height:390px !important}
+:where(.events-section) .event-grid article.tilt-card .tilt-card-content{text-align:left !important;left:14px;right:14px}
+:where(.events-section) .event-grid article.tilt-card .tilt-card-content h3 a{color:inherit !important}
+:where(.events-section) .event-grid article.tilt-card .tilt-card-content p{display:block !important;max-height:105px !important;overflow:hidden !important}
+
+/* 5. PART OF US — use the supplied colored logos */
+.part-logos-color img{filter:none !important;opacity:1 !important}
+
+/* 6. BOOKING — black 65% field text */
+.booking-bar .booking-field,
+.booking-bar .booking-field select,
+.booking-bar .booking-field select option,
+.booking-bar .booking-field .date-display,
+.booking-bar .booking-field input{color:rgba(0,0,0,.65) !important}
+.booking-bar .booking-field::placeholder,
+.booking-bar .booking-field input::placeholder{color:rgba(0,0,0,.65) !important;opacity:1 !important}
+.booking-bar .booking-field iconify-icon{color:rgba(0,0,0,.65) !important}
+
+@media(max-width:820px){
+  .hotel-logo-space{max-width:318px !important;margin-bottom:20px !important}
+  .hotel-primary-actions{flex-direction:row !important;flex-wrap:wrap !important}
+  .hotel-primary-actions .outline-btn,.hotel-primary-actions .solid-btn{width:180px !important;min-width:180px !important}
+  :where(.packages-section) .package-grid article.tilt-card{border-radius:24px !important}
+  :where(.events-section) .event-grid article.tilt-card{min-height:360px !important;border-radius:24px !important}
+}
+@media(max-width:520px){
+  .hotel-logo-space{max-width:min(100%,318px) !important}
+  .hotel-primary-actions{display:grid !important;grid-template-columns:1fr 1fr !important;width:100% !important}
+  
+  
+  .mobile-menu .menu-parent{font-size:20px}
+  .mobile-menu .menu-submenu a{font-size:18px !important}
+}
+
+
+/* V5.2 final safeguards */
+.package-grid article.tilt-card, :where(.events-section) .event-grid article.tilt-card, .package-grid article.tilt-card::before, .package-grid article.tilt-card::after, :where(.events-section) .event-grid article.tilt-card::before, :where(.events-section) .event-grid article.tilt-card::after{
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+}
+.banner-logo-section .logo-track img{filter:none !important}
+
+
+/* =========================================================
+   V5.3 FINAL CHANGESET
+   Baseline: V5.2
+========================================================= */
+
+/* 1. NAVBAR — right-to-left panel + animated page background */
+.menu-backdrop{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:1050 !important;
+  background:rgba(20,27,33,.34) !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transition:opacity .52s cubic-bezier(.22,.61,.36,1),visibility 0s linear .52s !important;
+  -webkit-backdrop-filter:blur(0px) !important;
+  backdrop-filter:blur(0px) !important;
+}
+body.menu-open .menu-backdrop{
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+  transition:opacity .52s cubic-bezier(.22,.61,.36,1),visibility 0s linear 0s !important;
+  -webkit-backdrop-filter:blur(2px) !important;
+  backdrop-filter:blur(2px) !important;
+}
+.mobile-menu{
+  z-index:1100 !important;
+  transform:translate3d(100%,0,0) !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  transition:
+    transform .68s cubic-bezier(.22,.61,.36,1),
+    opacity .38s ease,
+    visibility 0s linear .68s !important;
+  will-change:transform,opacity !important;
+}
+.mobile-menu.open{
+  transform:translate3d(0,0,0) !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transition:
+    transform .68s cubic-bezier(.22,.61,.36,1),
+    opacity .38s ease,
+    visibility 0s linear 0s !important;
+}
+.mobile-menu > a,
+.mobile-menu .menu-group > .menu-parent{
+  opacity:0 !important;
+  transform:translate3d(42px,0,0) !important;
+}
+.mobile-menu.open > a,
+.mobile-menu.open .menu-group > .menu-parent{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+  transition:opacity .42s ease,transform .58s cubic-bezier(.22,.61,.36,1),color .25s ease,background-color .25s ease !important;
+}
+.mobile-menu.open > a:nth-child(1){transition-delay:.08s !important}
+.mobile-menu.open .menu-group > .menu-parent{transition-delay:.14s !important}
+.mobile-menu.open > a:nth-child(3){transition-delay:.20s !important}
+.mobile-menu.open > a:nth-child(4){transition-delay:.26s !important}
+.mobile-menu.open > a:nth-child(5){transition-delay:.32s !important}
+.mobile-menu.open > a:nth-child(6){transition-delay:.38s !important}
+.menu-toggle iconify-icon{transition:transform .42s cubic-bezier(.22,.61,.36,1),color .25s ease !important}
+.menu-toggle.is-open iconify-icon{transform:rotate(90deg) scale(1.04) !important}
+.menu-toggle span{transition:color .25s ease,transform .42s cubic-bezier(.22,.61,.36,1) !important}
+.menu-toggle.is-open span{transform:translateX(-3px) !important}
+
+/* 2. CARDS — thumbnail first, content below, no visible image border */
+.package-grid article.tilt-card, :where(.events-section) .event-grid article.tilt-card{
+  overflow:visible !important;
+  border:0 !important;
+  outline:0 !important;
+  border-radius:24px !important;
+  transform-style:preserve-3d !important;
+  isolation:isolate !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.12) !important;
+  background:#fff !important;
+  perspective:1800px !important;
+}
+:where(.packages-section) .package-grid article.tilt-card:hover, :where(.events-section) .event-grid article.tilt-card:hover{
+  box-shadow:0 22px 46px rgba(0,0,0,.18) !important;
+}
+.tilt-card-media{
+  position:relative !important;
+  inset:auto !important;
+  width:100% !important;
+  height:auto !important;
+  overflow:hidden !important;
+  border-radius:24px 24px 0 0 !important;
+  transform:translateZ(0) !important;
+  background:#d9dde0 !important;
+}
+.tilt-card-media img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  transform:translateZ(0) !important;
+  border:0 !important;
+  border-radius:0 !important;
+}
+:where(.packages-section) .package-grid article.tilt-card .tilt-card-media{aspect-ratio:3/4 !important}
+:where(.events-section) .event-grid article.tilt-card .tilt-card-media{aspect-ratio:4/3 !important}
+.tilt-card-content{
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  width:100% !important;
+  min-height:72px !important;
+  padding:16px 16px 18px !important;
+  z-index:20 !important;
+  color:var(--nav) !important;
+  background:#fff !important;
+  text-align:center !important;
+  transform:translateZ(28px) !important;
+  border-radius:0 0 24px 24px !important;
+}
+.tilt-card-content h3{
+  color:var(--nav) !important;
+  font-size:clamp(16px,1.25vw,21px) !important;
+  line-height:1.3 !important;
+  text-shadow:none !important;
+  margin:0 !important;
+}
+.tilt-card-content p{
+  color:var(--text) !important;
+  text-shadow:none !important;
+  margin:8px 0 0 !important;
+  font-size:13px !important;
+  line-height:1.55 !important;
+}
+.tilt-card:hover .tilt-card-content h3{color:var(--orange) !important;transform:none !important}
+
+
+/* 4. SCROLL REVEAL — bidirectional, crossfade-inspired, browser-compatible fallback.
+   Existing legacy reveal rules are neutralized so card tilt owns card transforms. */
+.section-intro, :where(.hotels-section) .hotel-row, .package-grid article, :where(.events-section) .event-grid .event, .news-grid article, .part-of-us, .footer-info > div{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+  will-change:auto !important;
+}
+.scroll-reveal{
+  --reveal-x:0px;
+  --reveal-y:34px;
+  opacity:0 !important;
+  transform:translate3d(var(--reveal-x),var(--reveal-y),0) !important;
+  filter:blur(3px) !important;
+  transition:
+    opacity .72s cubic-bezier(.22,.61,.36,1),
+    transform .82s cubic-bezier(.22,.61,.36,1),
+    filter .72s ease !important;
+  will-change:opacity,transform,filter !important;
+}
+.scroll-reveal.from-left{--reveal-x:-32px;--reveal-y:8px}
+.scroll-reveal.from-right{--reveal-x:32px;--reveal-y:8px}
+.scroll-reveal.from-up{--reveal-x:0px;--reveal-y:-30px}
+.scroll-reveal.is-inview{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+  filter:blur(0) !important;
+}
+/* Reveal individual Welcome content rather than only the section wrapper. */
+.welcome-wrap.scroll-reveal{--reveal-y:30px}
+.about-top .copy-block.scroll-reveal{--reveal-x:-28px;--reveal-y:8px}
+.about-top .about-photo.scroll-reveal{--reveal-x:28px;--reveal-y:8px}
+.core-values > h2.scroll-reveal{--reveal-y:24px}
+.value-grid article.scroll-reveal{--reveal-y:28px}
+
+/* Cards keep their tilt transform; reveal uses an inner-safe opacity only once active. */
+.package-grid article.scroll-reveal, :where(.events-section) .event-grid .event.scroll-reveal{
+  transform:none !important;
+  filter:blur(2px) !important;
+}
+:where(.packages-section) .package-grid article.scroll-reveal:not(.is-inview), :where(.events-section) .event-grid .event.scroll-reveal:not(.is-inview){opacity:0 !important}
+:where(.packages-section) .package-grid article.scroll-reveal.is-inview, :where(.events-section) .event-grid .event.scroll-reveal.is-inview{opacity:1 !important;filter:blur(0) !important}
+
+@media(max-width:820px){
+  :where(.events-section) .event-slider-wrap{padding-block:58px 70px !important;margin-top:-22px !important}
+  :where(.events-section) .event-grid{padding-block:22px !important}
+  
+}
+@media(max-width:520px){
+  :where(.events-section) .event-slider-wrap{padding-block:48px 62px !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .menu-backdrop, .mobile-menu, .mobile-menu a, .mobile-menu .menu-parent, .scroll-reveal, :where(.events-section) .event-controls .event-arrow-controls button{transition:none !important;animation:none !important}
+  .scroll-reveal{opacity:1 !important;transform:none !important;filter:none !important}
+}
+
+/* V5.3 card geometry correction: content below the thumbnail */
+.package-grid article.tilt-card{
+  aspect-ratio:auto !important;
+  min-height:0 !important;
+  height:auto !important;
+}
+:where(.events-section) .event-grid article.tilt-card{
+  aspect-ratio:auto !important;
+  min-height:0 !important;
+  height:auto !important;
+}
+:where(.packages-section) .package-grid article.tilt-card > .tilt-card-media, :where(.events-section) .event-grid article.tilt-card > .tilt-card-media{
+  height:auto !important;
+}
+:where(.packages-section) .package-grid article.tilt-card > .tilt-card-media img, :where(.events-section) .event-grid article.tilt-card > .tilt-card-media img{
+  border-radius:0 !important;
+}
+
+/* =========================================================
+   V5.3.1 — NAVBAR EASE REFINEMENT
+   Reference: GreenSock / CodePen JoRMPLg
+   Adaptation: separate entrance and exit easing without adding
+   an external animation dependency. The reference demonstrates
+   per-tween exit easing (easeReverse); this version applies the
+   same principle to the FOSIA right-side menu.
+========================================================= */
+.menu-backdrop{
+  /* close / reverse ease: power4.out-like */
+  transition:opacity .48s cubic-bezier(.165,.84,.44,1),visibility 0s linear .48s !important;
+}
+body.menu-open .menu-backdrop{
+  /* open ease: power2.out-like */
+  transition:opacity .42s cubic-bezier(.25,.46,.45,.94),visibility 0s linear 0s !important;
+}
+.mobile-menu{
+  /* closed state = exit/reverse easing */
+  transition:
+    transform .72s cubic-bezier(.215,.61,.355,1),
+    opacity .32s cubic-bezier(.215,.61,.355,1),
+    visibility 0s linear .72s !important;
+}
+.mobile-menu.open{
+  /* open state = smooth back.out-like entrance */
+  transition:
+    transform .78s cubic-bezier(.34,1.22,.64,1),
+    opacity .38s cubic-bezier(.25,.46,.45,.94),
+    visibility 0s linear 0s !important;
+}
+.mobile-menu > a,
+.mobile-menu .menu-group > .menu-parent{
+  /* reverse state */
+  transition:
+    opacity .34s cubic-bezier(.215,.61,.355,1),
+    transform .56s cubic-bezier(.215,.61,.355,1),
+    color .25s ease,
+    background-color .25s ease !important;
+}
+.mobile-menu.open > a,
+.mobile-menu.open .menu-group > .menu-parent{
+  /* entrance state */
+  transition:
+    opacity .42s cubic-bezier(.25,.46,.45,.94),
+    transform .62s cubic-bezier(.25,.46,.45,.94),
+    color .25s ease,
+    background-color .25s ease !important;
+}
+/* Keep the stagger on entrance; reverse naturally collapses from the
+   current state instead of replaying the opening sequence. */
+.mobile-menu.open > a:nth-child(1){transition-delay:.08s !important}
+
+
+
+
+
+.menu-toggle iconify-icon{
+  transition:transform .48s cubic-bezier(.34,1.22,.64,1),color .25s ease !important;
+}
+.menu-toggle span{
+  transition:color .25s ease,transform .48s cubic-bezier(.34,1.22,.64,1) !important;
+}
+@media(prefers-reduced-motion:reduce){
+  .menu-backdrop,.mobile-menu,.mobile-menu a,.mobile-menu .menu-parent,
+  .menu-toggle iconify-icon,.menu-toggle span{
+    transition:none !important;
+  }
+}
+
+/* =========================================================
+   V5.3.3 — NAVBAR ORCHESTRATED MICRO-OVERSHOOT
+   Reference: GreenSock / CodePen JoRMPLg
+   Scope: navbar panel + menu items only.
+
+   The previous revision relied on a transition curve to imply the
+   overshoot. This revision makes the trajectory explicit so the
+   motion is visibly: enter -> overshoot -> rebound -> settle.
+========================================================= */
+.menu-backdrop{
+  background:rgba(20,27,33,.80) !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  transition:opacity .38s cubic-bezier(.25,.46,.45,.94),visibility 0s linear .38s !important;
+}
+body.menu-open .menu-backdrop{
+  background:rgba(20,27,33,.80) !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  transition:opacity .32s cubic-bezier(.25,.46,.45,.94),visibility 0s linear 0s !important;
+}
+
+.mobile-menu{
+  transform:translate3d(104%,10px,0) scale(.98) !important;
+  transform-origin:right top !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  will-change:transform,opacity !important;
+  transition:none !important;
+}
+
+/* OPEN: 104% -> -1.4% -> 0%. The middle keyframe is the
+   intentional micro-overshoot that prevents a rigid drawer feel. */
+.mobile-menu.open{
+  visibility:visible !important;
+  animation:fosiaMenuOpen .82s both !important;
+}
+@keyframes fosiaMenuOpen{
+  0%{opacity:0;transform:translate3d(104%,10px,0) scale(.98)}
+  72%{opacity:1;transform:translate3d(-1.4%,-1px,0) scale(1.006)}
+  88%{opacity:1;transform:translate3d(.35%,.35px,0) scale(.999)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
+}
+
+/* CLOSE: no bounce; smooth power-out-like exit to the right. */
+.mobile-menu.is-closing{
+  visibility:visible !important;
+  opacity:1 !important;
+  animation:fosiaMenuClose .70s both !important;
+}
+@keyframes fosiaMenuClose{
+  0%{opacity:1;transform:translate3d(0,0,0) scale(1)}
+  100%{opacity:0;transform:translate3d(104%,0,0) scale(.985)}
+}
+
+/* Menu content follows the panel with a smaller vertical
+   micro-overshoot: 14px -> -1.5px -> 0px. */
+.mobile-menu > a,
+.mobile-menu .menu-group > .menu-parent{
+  opacity:0 !important;
+  transform:translate3d(0,14px,0) !important;
+  animation:none !important;
+  will-change:transform,opacity !important;
+}
+.mobile-menu.open > a,
+.mobile-menu.open .menu-group > .menu-parent{
+  animation:fosiaMenuItemOpen .52s both !important;
+}
+.mobile-menu.open > a:nth-child(1){animation-delay:.14s !important}
+.mobile-menu.open .menu-group > .menu-parent{animation-delay:.20s !important}
+.mobile-menu.open > a:nth-child(3){animation-delay:.26s !important}
+.mobile-menu.open > a:nth-child(4){animation-delay:.32s !important}
+.mobile-menu.open > a:nth-child(5){animation-delay:.38s !important}
+.mobile-menu.open > a:nth-child(6){animation-delay:.44s !important}
+@keyframes fosiaMenuItemOpen{
+  0%{opacity:0;transform:translate3d(0,14px,0)}
+  72%{opacity:1;transform:translate3d(0,-1.5px,0)}
+  88%{opacity:1;transform:translate3d(0,.35px,0)}
+  100%{opacity:1;transform:translate3d(0,0,0)}
+}
+
+/* Reverse with a clean power-out-like fade/slide. */
+.mobile-menu.is-closing > a,
+.mobile-menu.is-closing .menu-group > .menu-parent{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+  animation:fosiaMenuItemClose .30s cubic-bezier(.165,.84,.44,1) both !important;
+}
+@keyframes fosiaMenuItemClose{
+  0%{opacity:1;transform:translate3d(0,0,0)}
+  100%{opacity:0;transform:translate3d(0,8px,0)}
+}
+
+
+@media(prefers-reduced-motion:reduce){
+  .menu-backdrop,.mobile-menu,.mobile-menu > a,.mobile-menu .menu-parent,
+  .menu-toggle iconify-icon,.menu-toggle span{
+    animation:none !important;
+    transition:none !important;
+  }
+  .mobile-menu,.mobile-menu.open,.mobile-menu.is-closing{
+    transform:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+  .mobile-menu > a,.mobile-menu .menu-group > .menu-parent,
+  .mobile-menu.open > a,.mobile-menu.open .menu-group > .menu-parent{
+    transform:none !important;
+    opacity:1 !important;
+  }
+}
+
+/* =========================================================
+   V5.3.4 FINAL CHANGESET
+   Baseline: V5.3.3
+   Scope: navbar motion, hotel action responsiveness, package/event
+          responsive behavior, Our Hotels dropdown motion.
+========================================================= */
+
+/* 1. NAVBAR — explicit drawer trajectory + distinct reverse motion.
+   Open: right -> left with visible elastic overshoot/rebound.
+   Close: left -> right with smooth reverse; no large bounce. */
+.menu-backdrop,
+body.menu-open .menu-backdrop{
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  background:rgba(20,27,33,.80) !important;
+}
+
+.mobile-menu{
+  animation:none !important;
+  transform:translate3d(108%,12px,0) scale(.985) !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  will-change:transform,opacity !important;
+  transition:none !important;
+}
+.mobile-menu.open{
+  visibility:visible !important;
+  opacity:1 !important;
+  animation:fosiaMenuOpen534 .92s both !important;
+}
+.mobile-menu.is-closing{
+  visibility:visible !important;
+  opacity:1 !important;
+  animation:fosiaMenuClose534 .68s both !important;
+}
+@keyframes fosiaMenuOpen534{
+  0%{transform:translate3d(108%,12px,0) scale(.985);opacity:0}
+  58%{transform:translate3d(-3.2%,-2.5px,0) scale(1.012);opacity:1}
+  76%{transform:translate3d(.95%,.8px,0) scale(.999);opacity:1}
+  88%{transform:translate3d(-.28%,-.25px,0) scale(1.001);opacity:1}
+  100%{transform:translate3d(0,0,0) scale(1);opacity:1}
+}
+@keyframes fosiaMenuClose534{
+  0%{transform:translate3d(0,0,0) scale(1);opacity:1}
+  18%{transform:translate3d(-.8%,0,0) scale(.999);opacity:1}
+  100%{transform:translate3d(108%,0,0) scale(.985);opacity:0}
+}
+
+/* Menu items: staged entrance, with a small vertical overshoot. */
+.mobile-menu > a,
+.mobile-menu .menu-group > .menu-parent{
+  opacity:0 !important;
+  transform:translate3d(30px,14px,0) !important;
+  transition:none !important;
+}
+.mobile-menu.open > a,
+.mobile-menu.open .menu-group > .menu-parent{
+  opacity:1 !important;
+  animation:fosiaMenuItemOpen534 .58s both !important;
+}
+.mobile-menu.is-closing > a,
+.mobile-menu.is-closing .menu-group > .menu-parent{
+  opacity:1 !important;
+  animation:fosiaMenuItemClose534 .42s both !important;
+}
+.mobile-menu.open > a:nth-child(1){animation-delay:.12s !important}
+.mobile-menu.open .menu-group > .menu-parent{animation-delay:.18s !important}
+.mobile-menu.open > a:nth-child(3){animation-delay:.24s !important}
+.mobile-menu.open > a:nth-child(4){animation-delay:.30s !important}
+.mobile-menu.open > a:nth-child(5){animation-delay:.36s !important}
+.mobile-menu.open > a:nth-child(6){animation-delay:.42s !important}
+.mobile-menu.is-closing > a:nth-child(1){animation-delay:.00s !important}
+.mobile-menu.is-closing .menu-group > .menu-parent{animation-delay:.035s !important}
+.mobile-menu.is-closing > a:nth-child(3){animation-delay:.07s !important}
+.mobile-menu.is-closing > a:nth-child(4){animation-delay:.105s !important}
+.mobile-menu.is-closing > a:nth-child(5){animation-delay:.14s !important}
+.mobile-menu.is-closing > a:nth-child(6){animation-delay:.175s !important}
+@keyframes fosiaMenuItemOpen534{
+  0%{opacity:0;transform:translate3d(30px,14px,0)}
+  68%{opacity:1;transform:translate3d(-2px,-1.8px,0)}
+  86%{opacity:1;transform:translate3d(.5px,.45px,0)}
+  100%{opacity:1;transform:translate3d(0,0,0)}
+}
+@keyframes fosiaMenuItemClose534{
+  0%{opacity:1;transform:translate3d(0,0,0)}
+  100%{opacity:0;transform:translate3d(-18px,0,0)}
+}:where(.hotels-section) /* 2. OUR HOTELS — actions remain usable at 320px. */
+.hotel-primary-actions{min-width:0 !important}:where(.hotels-section) .hotel-primary-actions .outline-btn,:where(.hotels-section) .hotel-primary-actions .solid-btn{
+  white-space:nowrap !important;
+  min-width:0 !important;
+}:where(.hotels-section) .hotel-primary-actions iconify-icon{flex:0 0 auto !important}
+@media(max-width:520px){
+  .hotel-primary-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:8px !important}
+  .hotel-primary-actions .outline-btn,
+  .hotel-primary-actions .solid-btn{min-width:0 !important;padding-left:12px !important;padding-right:12px !important;font-size:12px !important;gap:7px !important}
+}
+@media(max-width:340px){
+  .hotel-primary-actions{gap:6px !important}
+  .hotel-primary-actions .outline-btn,
+  .hotel-primary-actions .solid-btn{font-size:10.5px !important;padding-left:8px !important;padding-right:8px !important;gap:5px !important;letter-spacing:-.01em !important}
+  .hotel-primary-actions iconify-icon{font-size:15px !important}
+}
+
+/* 4. EVENTS — one clean shadow layer; responsive card is always whole. */
+:where(.events-section) .event-grid .event{
+  box-shadow:0 14px 32px rgba(0,0,0,.16) !important;
+}
+:where(.events-section) .event-grid .event.card-tilt-active{
+  box-shadow:0 24px 46px rgba(0,0,0,.22) !important;
+}
+@media(max-width:820px){
+  :where(.events-section) .event-slider-wrap{overflow-x:auto !important;overflow-y:visible !important;padding:10px 0 18px !important}
+  :where(.events-section) .event-grid{width:max-content !important;min-width:100% !important;padding-left:16px !important;padding-right:16px !important;gap:16px !important}
+  :where(.events-section) .event-grid .event{
+    flex:0 0 calc(100vw - 32px) !important;
+    width:calc(100vw - 32px) !important;
+    min-height:360px !important;
+  }
+}
+@media(max-width:520px){
+  :where(.events-section) .event-grid .event{flex-basis:calc(100vw - 32px) !important;width:calc(100vw - 32px) !important;min-height:340px !important}
+}
+
+/* 5. OUR HOTELS DROPDOWN — elastic open, smooth reverse. */
+.mobile-menu .menu-submenu{
+  grid-template-rows:0fr !important;
+  opacity:0 !important;
+  transform-origin:top center !important;
+  transition:grid-template-rows .55s cubic-bezier(.22,.61,.36,1),opacity .22s ease !important;
+}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu{
+  grid-template-rows:1fr !important;
+  opacity:1 !important;
+  animation:fosiaDropdownOpen534 .56s both !important;
+}
+@keyframes fosiaDropdownOpen534{
+  0%{transform:translateY(-8px) scaleY(.92);opacity:0}
+  70%{transform:translateY(1px) scaleY(1.015);opacity:1}
+  88%{transform:translateY(-.4px) scaleY(.998);opacity:1}
+  100%{transform:translateY(0) scaleY(1);opacity:1}
+}
+.mobile-menu .menu-submenu a{
+  opacity:0 !important;
+  transform:translate3d(-14px,0,0) !important;
+}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a{
+  animation:fosiaDropdownItemOpen534 .38s both !important;
+}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(1){animation-delay:.08s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(2){animation-delay:.13s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(3){animation-delay:.18s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(4){animation-delay:.23s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(5){animation-delay:.28s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(6){animation-delay:.33s !important}
+@keyframes fosiaDropdownItemOpen534{
+  0%{opacity:0;transform:translate3d(-14px,0,0)}
+  72%{opacity:1;transform:translate3d(2px,0,0)}
+  100%{opacity:1;transform:translate3d(0,0,0)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .mobile-menu,.mobile-menu.open,.mobile-menu.is-closing,
+  .mobile-menu > a,.mobile-menu .menu-group > .menu-parent,
+  .mobile-menu .menu-submenu,.mobile-menu .menu-submenu a{animation:none !important;transition:none !important}
+}
+
+
+/* =========================================================
+   V5.3.5 — FINAL REQUESTED FIXES
+   Baseline: V5.3.4
+   Scope: navbar drawer, hotel action stack, package card anatomy,
+          event card hover layers + responsive slider.
+========================================================= */
+
+/* 1. NAVBAR — real drawer slide, no panel fade.
+   Open: right -> left with visible overshoot/rebound.
+   Close: left -> right with a smooth reverse trajectory.
+   Submenu links remain available; only the panel itself is hidden when closed.
+--------------------------------------------------------- */
+.menu-backdrop,
+body.menu-open .menu-backdrop{
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+.mobile-menu{
+  opacity:1 !important;
+  visibility:hidden !important;
+  transform:translate3d(104%,0,0) !important;
+  transition:none !important;
+  animation:none !important;
+  will-change:transform !important;
+}
+.mobile-menu.open{
+  visibility:visible !important;
+  opacity:1 !important;
+  animation:fosiaDrawerIn535 .82s cubic-bezier(.22,.61,.36,1) both !important;
+}
+.mobile-menu.is-closing{
+  visibility:visible !important;
+  opacity:1 !important;
+  animation:fosiaDrawerOut535 .66s cubic-bezier(.22,.61,.36,1) both !important;
+}
+@keyframes fosiaDrawerIn535{
+  0%{transform:translate3d(104%,0,0)}
+  58%{transform:translate3d(-3.2%,0,0)}
+  76%{transform:translate3d(.95%,0,0)}
+  90%{transform:translate3d(-.28%,0,0)}
+  100%{transform:translate3d(0,0,0)}
+}
+@keyframes fosiaDrawerOut535{
+  0%{transform:translate3d(0,0,0)}
+  18%{transform:translate3d(-.8%,0,0)}
+  100%{transform:translate3d(104%,0,0)}
+}
+/* Main menu items slide; they do not fade in. */
+.mobile-menu > a,
+.mobile-menu > .menu-group > .menu-parent{
+  opacity:1 !important;
+  transform:translate3d(52px,0,0) !important;
+  transition:none !important;
+  will-change:transform !important;
+}
+.mobile-menu.open > a,
+.mobile-menu.open > .menu-group > .menu-parent{
+  animation:fosiaMenuItemIn535 .56s cubic-bezier(.22,.61,.36,1) both !important;
+}
+@keyframes fosiaMenuItemIn535{
+  0%{transform:translate3d(52px,0,0)}
+  72%{transform:translate3d(-3px,0,0)}
+  88%{transform:translate3d(1px,0,0)}
+  100%{transform:translate3d(0,0,0)}
+}
+.mobile-menu.open > a:nth-child(1){animation-delay:.18s !important}
+.mobile-menu.open > .menu-group > .menu-parent{animation-delay:.24s !important}
+.mobile-menu.open > a:nth-child(3){animation-delay:.30s !important}
+.mobile-menu.open > a:nth-child(4){animation-delay:.36s !important}
+.mobile-menu.open > a:nth-child(5){animation-delay:.42s !important}
+.mobile-menu.open > a:nth-child(6){animation-delay:.48s !important}
+/* Submenu is controlled by .is-expanded, never by the drawer entrance animation. */
+.mobile-menu .menu-submenu a{
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+  visibility:visible !important;
+}
+.mobile-menu .menu-submenu{
+  display:grid !important;
+  grid-template-rows:0fr !important;
+  opacity:0 !important;
+  overflow:hidden !important;
+  transition:grid-template-rows .44s cubic-bezier(.22,.61,.36,1),opacity .22s ease !important;
+}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu{
+  grid-template-rows:1fr !important;
+  opacity:1 !important;
+}
+.mobile-menu .menu-submenu > *{min-height:0 !important;}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a{
+  animation:fosiaSubItemIn535 .46s cubic-bezier(.22,.61,.36,1) both !important;
+}
+@keyframes fosiaSubItemIn535{
+  0%{transform:translate3d(28px,0,0);opacity:0}
+  72%{transform:translate3d(-2px,0,0);opacity:1}
+  100%{transform:translate3d(0,0,0);opacity:1}
+}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(1){animation-delay:.05s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(2){animation-delay:.09s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(3){animation-delay:.13s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(4){animation-delay:.17s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(5){animation-delay:.21s !important}
+.mobile-menu .menu-hotels.is-expanded .menu-submenu a:nth-child(6){animation-delay:.25s !important}
+
+/* 2. OUR HOTELS — mobile order: Map, Contact, Booking. */
+@media(max-width:820px){
+  .hotel-primary-actions{
+    display:flex !important;
+    flex-direction:column !important;
+    flex-wrap:nowrap !important;
+    align-items:stretch !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+  .hotel-primary-actions .outline-btn,
+  .hotel-primary-actions .solid-btn{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    justify-content:space-between !important;
+    box-sizing:border-box !important;
+  }
+}
+
+:where(.events-section) .event-grid .event:hover{
+  box-shadow:0 18px 38px rgba(0,0,0,.18) !important;
+}
+:where(.events-section) .event-grid .event.card-tilt-active{
+  box-shadow:0 22px 42px rgba(0,0,0,.20) !important;
+}
+:where(.events-section) .event-grid .event .tilt-card-content h3, :where(.events-section) .event-grid .event .tilt-card-content p{
+  text-shadow:none !important;
+}
+
+/* Responsive event viewport: one complete card at a time, still horizontally draggable. */
+:where(.events-section) .event-slider-wrap{
+  overflow:visible !important;
+}
+:where(.events-section) .event-grid{
+  width:100% !important;
+  max-width:none !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  touch-action:pan-x !important;
+  scroll-snap-type:x proximity !important;
+  padding-left:16px !important;
+  padding-right:16px !important;
+  box-sizing:border-box !important;
+}
+:where(.events-section) .event-grid .event{
+  flex:0 0 clamp(280px,calc(100vw - 32px),390px) !important;
+  width:clamp(280px,calc(100vw - 32px),390px) !important;
+  max-width:390px !important;
+  scroll-snap-align:start !important;
+  box-sizing:border-box !important;
+}
+:where(.events-section) .event-controls{
+  position:relative !important;
+  z-index:100 !important;
+  pointer-events:auto !important;
+}
+:where(.events-section) .event-controls .event-arrow-controls, :where(.events-section) .event-controls .event-arrow-controls button{
+  pointer-events:auto !important;
+}
+:where(.events-section) .event-controls .event-arrow-controls button{
+  position:relative !important;
+  z-index:101 !important;
+  cursor:pointer !important;
+}
+@media(max-width:520px){
+  :where(.events-section) .event-grid .event{
+    flex-basis:calc(100vw - 32px) !important;
+    width:calc(100vw - 32px) !important;
+    max-width:none !important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .mobile-menu.open,.mobile-menu.is-closing,
+  .mobile-menu.open > a,.mobile-menu.open > .menu-group > .menu-parent,
+  .mobile-menu .menu-hotels.is-expanded .menu-submenu a{animation:none !important;}
+}
+
+
+/* =========================================================
+   V5.3.6 — NAVBAR DRAWER REPAIR
+   Source basis: Uckan.Net "Slide Left Menu Off Canvas" CodePen.
+   The panel stays mounted and simply slides between an off-canvas
+   position and its resting position. No animation/visibility race.
+   Only navbar drawer behavior is changed in this revision.
+========================================================= */
+.menu-backdrop,
+body.menu-open .menu-backdrop{
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+.mobile-menu{
+  position:fixed !important;
+  top:80px !important;
+  right:0 !important;
+  z-index:1100 !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  transform:translate3d(105%,0,0) !important;
+  transition:transform .72s cubic-bezier(.22,.61,.36,1) !important;
+  animation:none !important;
+  will-change:transform !important;
+  pointer-events:none !important;
+}
+.mobile-menu.open{
+  visibility:visible !important;
+  opacity:1 !important;
+  transform:translate3d(0,0,0) !important;
+  pointer-events:auto !important;
+  animation:none !important;
+}
+.mobile-menu.is-closing{
+  visibility:visible !important;
+  opacity:1 !important;
+  transform:translate3d(105%,0,0) !important;
+  pointer-events:none !important;
+  animation:none !important;
+}
+/* Keep menu content stable; the drawer panel is the primary moving object. */
+.mobile-menu > a,
+.mobile-menu > .menu-group > .menu-parent{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+  animation:none !important;
+}
+.mobile-menu .menu-submenu a{
+  transition:none !important;
+}
+@media(max-width:820px){
+  .mobile-menu{
+    top:72px !important;
+    width:min(360px,92vw) !important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .mobile-menu{
+    transition:none !important;
+  }
+  .menu-backdrop,
+  body.menu-open .menu-backdrop{
+    transition:none !important;
+  }
+}
+
+/* =========================================================
+   V5.3.6 — NAVBAR DRAWER + RESPONSIVE HEADER REPAIR
+   - Drawer background reaches the top edge of the viewport.
+   - Glass navbar remains an overlay layer; logo + MENU stay above drawer.
+   - Header controls scale safely from 4K down to mobile S.
+   - No changes to page sections below the navbar.
+========================================================= */
+.site-nav{
+  position:sticky !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  min-height:80px !important;
+  height:80px !important;
+  padding:0 clamp(12px,2.2vw,30px) !important;
+  z-index:1400 !important;
+  box-sizing:border-box !important;
+  overflow:visible !important;
+}
+.brand{
+  flex:0 1 auto !important;
+  width:min(155px,42vw) !important;
+  max-width:155px !important;
+  height:auto !important;
+  min-width:0 !important;
+  display:flex !important;
+  align-items:center !important;
+}
+.brand img{
+  display:block !important;
+  width:100% !important;
+  max-width:155px !important;
+  height:auto !important;
+  max-height:50px !important;
+  object-fit:contain !important;
+}
+.menu-toggle{
+  flex:0 0 auto !important;
+  min-width:0 !important;
+  max-width:50vw !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:clamp(7px,1vw,14px) !important;
+  padding:8px 0 !important;
+  margin:0 !important;
+  white-space:nowrap !important;
+  box-sizing:border-box !important;
+  z-index:1600 !important;
+}
+.menu-toggle span{
+  display:block !important;
+  font-size:clamp(11px,1.05vw,13px) !important;
+  line-height:1 !important;
+  letter-spacing:.06em !important;
+}
+.menu-toggle iconify-icon{
+  flex:0 0 auto !important;
+  width:clamp(26px,2.2vw,32px) !important;
+  height:clamp(26px,2.2vw,32px) !important;
+  font-size:clamp(26px,2.2vw,32px) !important;
+  line-height:1 !important;
+}
+
+/* Drawer itself owns the full viewport. It must not begin below the glass nav. */
+.mobile-menu{
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  width:min(480px,100vw) !important;
+  height:100dvh !important;
+  min-height:100vh !important;
+  box-sizing:border-box !important;
+  padding:110px 42px 40px !important;
+  z-index:1500 !important;
+  border-radius:0 0 0 24px !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+.mobile-menu.open,
+.mobile-menu.is-closing{
+  z-index:1500 !important;
+}
+.menu-toggle,
+.menu-toggle span,
+.menu-toggle iconify-icon{
+  position:relative !important;
+  z-index:1600 !important;
+}
+
+@media (min-width:1600px){
+  .site-nav{padding-inline:clamp(30px,2.5vw,64px) !important}
+  .brand{width:min(175px,18vw) !important;max-width:175px !important}
+  .brand img{max-width:175px !important;max-height:54px !important}
+  .mobile-menu{width:min(520px,34vw) !important;padding:120px 52px 48px !important}
+}
+
+@media (max-width:820px){
+  .site-nav{
+    min-height:72px !important;
+    height:72px !important;
+    padding-inline:clamp(12px,4vw,24px) !important;
+  }
+  .brand{width:min(145px,43vw) !important;max-width:145px !important}
+  .brand img{max-width:145px !important;max-height:46px !important}
+  .menu-toggle{max-width:52vw !important;gap:8px !important;padding:7px 0 !important}
+  .mobile-menu{
+    width:100vw !important;
+    max-width:100vw !important;
+    padding:104px clamp(24px,7vw,42px) 34px !important;
+    border-radius:0 !important;
+  }
+}
+
+@media (max-width:380px){
+  .site-nav{
+    padding-inline:10px !important;
+  }
+  .brand{width:min(128px,43vw) !important;max-width:128px !important}
+  .brand img{max-width:128px !important;max-height:42px !important}
+  .menu-toggle{gap:6px !important;max-width:54vw !important}
+  .menu-toggle span{font-size:10px !important;letter-spacing:.045em !important}
+  .menu-toggle iconify-icon{
+    width:27px !important;
+    height:27px !important;
+    font-size:27px !important;
+  }
+  .mobile-menu{padding-inline:22px !important}
+}
+
+@media (max-width:320px){
+  .site-nav{padding-inline:8px !important}
+  .brand{width:116px !important;max-width:116px !important}
+  .brand img{max-width:116px !important;max-height:38px !important}
+  .menu-toggle{gap:5px !important}
+}
+
+
+/* =========================================================
+   V5.3.6 — FINAL NAVBAR POSITION + FULL-VIEWPORT DRAWER
+   - Burger stays fixed at the upper-right, independent of document flow.
+   - Drawer always spans the complete viewport height.
+   - Menu links get an explicit hover/focus color treatment.
+========================================================= */
+.menu-toggle{
+  position:fixed !important;
+  top:clamp(20px,2.1vw,30px) !important;
+  right:clamp(18px,2.2vw,30px) !important;
+  left:auto !important;
+  bottom:auto !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 !important;
+  z-index:1600 !important;
+  transform:none !important;
+}
+.menu-toggle span,
+.menu-toggle iconify-icon{
+  position:relative !important;
+  z-index:1601 !important;
+}
+
+.mobile-menu{
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  left:auto !important;
+  width:min(480px,100vw) !important;
+  height:100vh !important;
+  height:100dvh !important;
+  min-height:100vh !important;
+  max-height:none !important;
+  margin:0 !important;
+  padding-top:110px !important;
+  border-radius:0 !important;
+  box-sizing:border-box !important;
+}
+
+/* Explicit interaction state for every visible menu item. */
+.mobile-menu > a,
+.mobile-menu > .menu-group > .menu-parent,
+.mobile-menu .menu-submenu a{
+  transition:
+    color .08s ease,
+    background-color .12s ease,
+    transform .22s ease !important;
+}
+.mobile-menu > a:hover,
+.mobile-menu > a:focus-visible,
+.mobile-menu > .menu-group > .menu-parent:hover,
+.mobile-menu > .menu-group > .menu-parent:focus-visible,
+.mobile-menu .menu-submenu a:hover,
+.mobile-menu .menu-submenu a:focus-visible{
+  color:var(--orange) !important;
+  outline:none !important;
+}
+.mobile-menu > a:hover,
+.mobile-menu > a:focus-visible,
+.mobile-menu > .menu-group > .menu-parent:hover,
+.mobile-menu > .menu-group > .menu-parent:focus-visible{
+  background:rgba(253,166,52,.06) !important;
+}
+.mobile-menu .menu-submenu a:hover,
+.mobile-menu .menu-submenu a:focus-visible{
+  transform:translate3d(5px,0,0) !important;
+}
+
+/* V5.3.6 NAVBAR POLISH 09 — fast hover color response.
+   Color change should feel immediate; spatial motion remains unchanged.
+*/
+.site-nav .mobile-menu > a,
+.site-nav .mobile-menu > .menu-group > .menu-parent,
+.site-nav .mobile-menu .menu-submenu a{
+  transition-property:color,background-color,transform !important;
+  transition-duration:.08s,.12s,.22s !important;
+  transition-timing-function:ease,ease,ease !important;
+}
+
+@media (min-width:1600px){
+  .menu-toggle{
+    top:clamp(22px,1.8vw,34px) !important;
+    right:clamp(30px,2.5vw,64px) !important;
+  }
+}
+@media (max-width:820px){
+  .menu-toggle{
+    top:clamp(18px,3.5vw,24px) !important;
+    right:clamp(12px,4vw,24px) !important;
+  }
+  .mobile-menu{
+    width:100vw !important;
+    max-width:100vw !important;
+    height:100vh !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+    padding-top:104px !important;
+  }
+}
+@media (max-width:380px){
+  .menu-toggle{
+    top:16px !important;
+    right:10px !important;
+  }
+  .mobile-menu{
+    height:100vh !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+  }
+}
+@media (max-width:320px){
+  .menu-toggle{
+    top:14px !important;
+    right:8px !important;
+  }
+}
+
+/* =========================================================
+   V5.3.6 — NAVBAR RESPONSIVE GEOMETRY REPAIR
+   Scope: navbar/logo/burger/drawer geometry only.
+   Drawer motion is intentionally unchanged.
+   - Drawer uses viewport inset geometry to avoid 100vw/scrollbar clipping.
+   - Burger is anchored to the viewport's right edge.
+   - Logo gets a responsive left breathing room.
+========================================================= */
+.site-nav{
+  width:100% !important;
+  max-width:100% !important;
+  padding-left:clamp(24px,3vw,64px) !important;
+  padding-right:clamp(96px,10vw,180px) !important;
+  box-sizing:border-box !important;
+  overflow:visible !important;
+}
+.site-nav .brand{
+  flex:0 1 auto !important;
+  width:min(155px,18vw) !important;
+  max-width:155px !important;
+  min-width:0 !important;
+  margin-left:clamp(6px,1vw,20px) !important;
+}
+.site-nav .brand img{
+  width:100% !important;
+  max-width:155px !important;
+  height:auto !important;
+  max-height:50px !important;
+  object-fit:contain !important;
+}
+.menu-toggle{
+  position:fixed !important;
+  inset:auto clamp(16px,2.4vw,64px) auto auto !important;
+  top:clamp(18px,2vw,30px) !important;
+  right:clamp(16px,2.4vw,64px) !important;
+  width:auto !important;
+  max-width:calc(100vw - 32px) !important;
+  min-width:0 !important;
+  padding:8px 0 !important;
+  margin:0 !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  box-sizing:border-box !important;
+}
+.mobile-menu{
+  position:fixed !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  left:auto !important;
+  width:min(480px,calc(100vw - 0px)) !important;
+  max-width:100% !important;
+  height:auto !important;
+  min-height:100dvh !important;
+  max-height:none !important;
+  box-sizing:border-box !important;
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  margin:0 !important;
+}
+
+@media (min-width:1600px){
+  .site-nav{
+    padding-left:clamp(48px,3.2vw,80px) !important;
+    padding-right:clamp(120px,8vw,180px) !important;
+  }
+  .site-nav .brand{
+    width:min(175px,14vw) !important;
+    max-width:175px !important;
+    margin-left:clamp(8px,1vw,22px) !important;
+  }
+  .site-nav .brand img{max-width:175px !important;max-height:54px !important}
+  .menu-toggle{right:clamp(28px,2.6vw,64px) !important}
+  .mobile-menu{width:min(520px,100%) !important}
+}
+
+@media (max-width:820px){
+  .site-nav{
+    padding-left:clamp(18px,5vw,30px) !important;
+    padding-right:clamp(78px,18vw,112px) !important;
+  }
+  .site-nav .brand{
+    width:min(145px,42vw) !important;
+    max-width:145px !important;
+    margin-left:clamp(5px,1vw,10px) !important;
+  }
+  .site-nav .brand img{max-width:145px !important;max-height:46px !important}
+  .menu-toggle{
+    top:clamp(16px,3.5vw,24px) !important;
+    right:clamp(12px,4vw,24px) !important;
+    max-width:calc(100vw - 24px) !important;
+  }
+  .mobile-menu{
+    width:100% !important;
+    max-width:100% !important;
+    min-height:100dvh !important;
+  }
+}
+
+@media (max-width:380px){
+  .site-nav{
+    padding-left:16px !important;
+    padding-right:70px !important;
+  }
+  .site-nav .brand{
+    width:min(128px,42vw) !important;
+    max-width:128px !important;
+    margin-left:4px !important;
+  }
+  .site-nav .brand img{max-width:128px !important;max-height:42px !important}
+  .menu-toggle{right:10px !important;max-width:calc(100vw - 20px) !important}
+}
+
+@media (max-width:320px){
+  .site-nav{
+    padding-left:14px !important;
+    padding-right:64px !important;
+  }
+  .site-nav .brand{
+    width:116px !important;
+    max-width:116px !important;
+    margin-left:3px !important;
+  }
+  .site-nav .brand img{max-width:116px !important;max-height:38px !important}
+  .menu-toggle{right:8px !important}
+}
+
+
+/* V5.3.6 — BURGER GEOMETRY REPAIR 02
+   Keep the burger inside the glass navbar so it cannot be clipped by viewport/fixed positioning.
+   The drawer height/motion remains unchanged.
+*/
+.site-nav{
+  position:sticky !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  z-index:1600 !important;
+  overflow:visible !important;
+}
+.site-nav .menu-toggle{
+  position:absolute !important;
+  top:50% !important;
+  right:clamp(16px,2.4vw,64px) !important;
+  left:auto !important;
+  bottom:auto !important;
+  transform:translateY(-50%) !important;
+  width:max-content !important;
+  max-width:none !important;
+  min-width:max-content !important;
+  flex:0 0 auto !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:clamp(6px,0.8vw,12px) !important;
+  padding:8px 0 !important;
+  margin:0 !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  box-sizing:border-box !important;
+  z-index:1601 !important;
+}
+.site-nav .menu-toggle span{
+  flex:0 0 auto !important;
+  width:auto !important;
+  max-width:none !important;
+  overflow:visible !important;
+}
+.site-nav .menu-toggle iconify-icon{
+  flex:0 0 27px !important;
+  width:27px !important;
+  min-width:27px !important;
+  max-width:27px !important;
+  height:27px !important;
+  font-size:27px !important;
+  overflow:visible !important;
+}
+@media (min-width:1600px){
+  .site-nav .menu-toggle{right:clamp(28px,2.6vw,64px) !important}
+  .site-nav .menu-toggle iconify-icon{flex-basis:32px !important;width:32px !important;min-width:32px !important;max-width:32px !important;height:32px !important;font-size:32px !important}
+}
+@media (max-width:820px){
+  .site-nav .menu-toggle{right:clamp(14px,3.5vw,28px) !important}
+}
+@media (max-width:380px){
+  .site-nav .menu-toggle{right:12px !important;gap:5px !important}
+  .site-nav .menu-toggle span{font-size:10px !important;letter-spacing:.045em !important}
+  .site-nav .menu-toggle iconify-icon{flex-basis:25px !important;width:25px !important;min-width:25px !important;max-width:25px !important;height:25px !important;font-size:25px !important}
+}
+@media (max-width:320px){
+  .site-nav .menu-toggle{right:10px !important}
+}
+
+/* =========================================================
+   V5.3.6 — BURGER/CLOSE EDGE REPAIR 03
+   Scope: only navbar control edge geometry + Our Hotels chevron inset.
+   Drawer height and drawer motion are intentionally untouched.
+   The control is anchored to the visual viewport, with an explicit
+   right-safe gutter so CLOSE/MENU and the icon never sit under the
+   browser scrollbar or outside the emulated viewport.
+========================================================= */
+.site-nav .menu-toggle{
+  position:fixed !important;
+  top:clamp(18px,2vw,30px) !important;
+  right:max(12px, env(safe-area-inset-right)) !important;
+  left:auto !important;
+  bottom:auto !important;
+  inset-inline-start:auto !important;
+  inset-inline-end:max(12px, env(safe-area-inset-right)) !important;
+  width:max-content !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:auto !important;
+  padding:8px 0 !important;
+  margin:0 !important;
+  transform:none !important;
+  overflow:visible !important;
+  white-space:nowrap !important;
+  box-sizing:border-box !important;
+  z-index:3001 !important;
+}
+.site-nav .menu-toggle:hover,
+.site-nav .menu-toggle:focus-visible,
+.site-nav .menu-toggle.is-open{
+  transform:none !important;
+}
+.site-nav .menu-toggle span{
+  display:inline-block !important;
+  flex:0 0 auto !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+  overflow:visible !important;
+}
+.site-nav .menu-toggle iconify-icon{
+  display:block !important;
+  flex:0 0 auto !important;
+  width:clamp(25px,2.1vw,32px) !important;
+  min-width:clamp(25px,2.1vw,32px) !important;
+  max-width:clamp(25px,2.1vw,32px) !important;
+  height:clamp(25px,2.1vw,32px) !important;
+  font-size:clamp(25px,2.1vw,32px) !important;
+  overflow:visible !important;
+}
+
+/* Keep the submenu chevron safely inside the drawer content box. */
+.mobile-menu .menu-parent{
+  box-sizing:border-box !important;
+  padding-right:14px !important;
+  overflow:visible !important;
+}
+.mobile-menu .menu-parent iconify-icon{
+  flex:0 0 auto !important;
+  width:20px !important;
+  min-width:20px !important;
+  max-width:20px !important;
+  height:20px !important;
+  margin-right:2px !important;
+  overflow:visible !important;
+}
+
+@media (min-width:1600px){
+  .site-nav .menu-toggle{
+    right:max(28px, env(safe-area-inset-right)) !important;
+    inset-inline-end:max(28px, env(safe-area-inset-right)) !important;
+  }
+  .mobile-menu .menu-parent{padding-right:16px !important}
+}
+
+@media (max-width:820px){
+  .site-nav .menu-toggle{
+    top:clamp(16px,3.5vw,24px) !important;
+    right:max(14px, env(safe-area-inset-right)) !important;
+    inset-inline-end:max(14px, env(safe-area-inset-right)) !important;
+  }
+  .mobile-menu .menu-parent{padding-right:16px !important}
+}
+
+@media (max-width:380px){
+  .site-nav .menu-toggle{
+    top:16px !important;
+    right:max(12px, env(safe-area-inset-right)) !important;
+    inset-inline-end:max(12px, env(safe-area-inset-right)) !important;
+    gap:5px !important;
+  }
+  
+  .site-nav .menu-toggle iconify-icon{
+    width:25px !important;
+    min-width:25px !important;
+    max-width:25px !important;
+    height:25px !important;
+    font-size:25px !important;
+  }
+  .mobile-menu .menu-parent{padding-right:18px !important}
+}
+
+@media (max-width:320px){
+  .site-nav .menu-toggle{
+    right:max(10px, env(safe-area-inset-right)) !important;
+    inset-inline-end:max(10px, env(safe-area-inset-right)) !important;
+  }
+}
+
+/* =========================================================
+   V5.3.6 — NAVBAR STACK + VIEWPORT OVERFLOW AUDIT REPAIR 04
+   ROOT CAUSE FIX:
+   - mobile-menu was a sibling of .site-nav, so logo could not sit
+     between the glass layer and drawer while burger stayed above drawer.
+   - repeated 100vw/fixed rules allowed horizontal overflow, which moved
+     right-edge controls beyond the visual viewport at several widths.
+   - slider arrows were then clipped/covered at the same right edge.
+
+   SOURCE-OF-TRUTH STACK (back -> front):
+   glass background -> logo -> drawer panel -> burger.
+========================================================= */
+html,
+body{
+  width:100% !important;
+  max-width:100% !important;
+  margin-right:0 !important;
+  overflow-x:hidden !important;
+}
+
+.site-nav{
+  position:sticky !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:80px !important;
+  min-height:80px !important;
+  margin-bottom:-80px !important;
+  padding:0 clamp(18px,3vw,64px) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  background:transparent !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  isolation:isolate !important;
+  z-index:4000 !important;
+  overflow:visible !important;
+}
+
+/* Glass morph layer: behind logo, drawer and burger. */
+.site-nav::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  background:linear-gradient(180deg,rgba(43,56,67,.70) 0%,rgba(43,56,67,0) 100%) !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+
+.site-nav .brand{
+  position:relative !important;
+  z-index:2 !important;
+  flex:0 0 auto !important;
+  width:min(155px,18vw) !important;
+  max-width:155px !important;
+  min-width:0 !important;
+  margin-left:clamp(6px,1vw,20px) !important;
+  display:flex !important;
+  align-items:center !important;
+}
+
+
+/* Drawer is now a child of the nav stacking context.
+   It is full viewport height but its top edge remains at viewport top. */
+.site-nav .mobile-menu{
+  position:absolute !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:auto !important;
+  left:auto !important;
+  width:min(480px,100%) !important;
+  max-width:100% !important;
+  height:100dvh !important;
+  min-height:100vh !important;
+  max-height:none !important;
+  box-sizing:border-box !important;
+  margin:0 !important;
+  padding:110px 42px 40px !important;
+  z-index:3 !important;
+  border-radius:0 !important;
+  background:rgba(43,56,67,.97) !important;
+  backdrop-filter:blur(20px) !important;
+  -webkit-backdrop-filter:blur(20px) !important;
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  overscroll-behavior:contain !important;
+  -webkit-overflow-scrolling:touch !important;
+  transform:translate3d(105%,0,0) !important;
+  transition:transform .72s cubic-bezier(.22,.61,.36,1) !important;
+  animation:none !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:none !important;
+  will-change:transform !important;
+}
+.site-nav .mobile-menu.open{
+  transform:translate3d(0,0,0) !important;
+  pointer-events:auto !important;
+}
+.site-nav .mobile-menu.is-closing{
+  transform:translate3d(105%,0,0) !important;
+  pointer-events:none !important;
+}
+
+/* Our Hotels row is geometry-stable: the drawer moves, not the row/chevron. */
+.site-nav .mobile-menu > .menu-group > .menu-parent{
+  transform:none !important;
+  animation:none !important;
+  opacity:1 !important;
+}
+
+/* Burger is above drawer and anchored to the nav viewport edge. */
+.site-nav .menu-toggle{
+  position:absolute !important;
+  top:50% !important;
+  right:clamp(18px,2.4vw,64px) !important;
+  left:auto !important;
+  bottom:auto !important;
+  width:max-content !important;
+  max-width:calc(100% - 36px) !important;
+  min-width:0 !important;
+  margin:0 !important;
+  padding:8px 0 !important;
+  transform:translateY(-50%) !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:clamp(7px,1vw,14px) !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  z-index:4 !important;
+  color:#fff !important;
+  background:transparent !important;
+  border:0 !important;
+}
+.site-nav .menu-toggle span,
+.site-nav .menu-toggle iconify-icon{
+  position:relative !important;
+  z-index:5 !important;
+}
+.site-nav .menu-toggle span{
+  font-size:clamp(10px,1.05vw,13px) !important;
+  line-height:1 !important;
+  letter-spacing:.06em !important;
+}
+.site-nav .menu-toggle iconify-icon{
+  flex:0 0 auto !important;
+  width:clamp(27px,2.2vw,32px) !important;
+  height:clamp(27px,2.2vw,32px) !important;
+  font-size:clamp(27px,2.2vw,32px) !important;
+  line-height:1 !important;
+}
+
+/* Right-edge controls must stay inside their own slider boxes. */
+.hero{
+  width:100% !important;
+  max-width:100% !important;
+}
+.hero-arrow{
+  z-index:6 !important;
+  width:44px !important;
+  height:44px !important;
+  top:50% !important;
+  bottom:auto !important;
+  transform:translateY(-50%) !important;
+}
+.hero-prev{left:18px !important}
+.hero-next{right:18px !important}:where(.hotels-section) .hotel-slider{
+  width:100% !important;
+  max-width:100% !important;
+  overflow:hidden !important;
+}
+.slider-prev{left:18px !important}
+.slider-next{right:18px !important}
+
+/* Prevent viewport-unit sections from creating a phantom horizontal strip. */
+:where(.events-section) .event-slider-wrap{
+  max-width:100% !important;
+}
+
+@media (min-width:1600px){
+  .site-nav{
+    height:80px !important;
+    min-height:80px !important;
+    padding-inline:clamp(48px,3.2vw,80px) !important;
+  }
+  
+  
+  .site-nav .mobile-menu{
+    width:min(520px,34vw) !important;
+    padding:120px 52px 48px !important;
+  }
+  .site-nav .menu-toggle{right:clamp(28px,2.5vw,64px) !important}
+}
+
+@media (max-width:820px){
+  .site-nav{
+    height:72px !important;
+    min-height:72px !important;
+    margin-bottom:-72px !important;
+    padding-inline:clamp(18px,4vw,30px) !important;
+  }
+  
+  
+  .site-nav .mobile-menu{
+    width:100% !important;
+    max-width:100% !important;
+    padding:104px clamp(24px,7vw,42px) 34px !important;
+  }
+  .site-nav .menu-toggle{
+    right:clamp(12px,4vw,24px) !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+  }
+  .hero-next{right:10px !important}
+  .slider-next{right:18px !important}
+}
+
+@media (max-width:380px){
+  .site-nav{padding-inline:16px !important}
+  
+  
+  .site-nav .menu-toggle{
+    right:10px !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    gap:6px !important;
+  }
+  
+  .site-nav .menu-toggle iconify-icon{width:27px !important;height:27px !important;font-size:27px !important}
+  .site-nav .mobile-menu{padding-inline:22px !important}
+}
+
+@media (max-width:320px){
+  .site-nav{padding-inline:14px !important}
+  .site-nav .brand{width:116px !important;max-width:116px !important;margin-left:3px !important}
+  
+  .site-nav .menu-toggle{right:8px !important;top:50% !important;transform:translateY(-50%) !important;gap:5px !important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .site-nav .mobile-menu{transition:none !important}
+}
+
+
+/* =========================================================
+   V5.3.6 — NAVBAR REPAIR 07
+   Regression fix from CLEANUP_06:
+   - restore visible menu content
+   - keep Our Hotels chevron geometry stable
+   - center MENU/CLOSE on the navbar row at every viewport
+   - restore hero slider arrows to the hero vertical center
+   The drawer height, stack order and approved drawer motion remain unchanged.
+========================================================= */
+.site-nav .mobile-menu > a{
+  opacity:1 !important;
+}
+.site-nav .mobile-menu > .menu-group > .menu-parent{
+  opacity:1 !important;
+  transform:none !important;
+  animation:none !important;
+}
+.site-nav .menu-toggle{
+  top:50% !important;
+  transform:translateY(-50%) !important;
+}
+.site-nav .menu-toggle:hover,
+.site-nav .menu-toggle:focus-visible,
+.site-nav .menu-toggle.is-open{
+  transform:translateY(-50%) !important;
+}
+.hero-arrow{
+  top:50% !important;
+  bottom:auto !important;
+  transform:translateY(-50%) !important;
+}
+.hero-arrow:hover,
+.hero-arrow:focus-visible{
+  transform:translateY(-50%) scale(1.06) !important;
+}
+
+/* =========================================================
+   V5.3.6 — NAVBAR REPAIR 08
+   Scope: header persistence + drawer viewport anchoring only.
+   Baseline preserved from REPAIR 07:
+   - stack order: glass -> logo -> drawer -> burger
+   - drawer motion
+   - drawer width/clipping
+   - menu/chevron geometry
+   - hero arrow geometry
+
+   Fix:
+   - Header is fixed to the viewport so it remains visible while the
+     document scrolls.
+   - Drawer is fixed to the viewport, not the navbar/document flow.
+   - Drawer always spans the current device viewport height.
+   - Drawer content may scroll internally without moving the panel edge.
+========================================================= */
+.site-nav{
+  position:fixed !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:auto !important;
+  left:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 0 -80px 0 !important;
+  z-index:4000 !important;
+}
+
+.site-nav .mobile-menu{
+  position:fixed !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  left:auto !important;
+  width:min(480px,100vw) !important;
+  max-width:100vw !important;
+  height:100vh !important;
+  height:100dvh !important;
+  min-height:100vh !important;
+  min-height:100dvh !important;
+  max-height:none !important;
+  margin:0 !important;
+  box-sizing:border-box !important;
+  overflow-x:hidden !important;
+  overflow-y:auto !important;
+  overscroll-behavior:contain !important;
+  -webkit-overflow-scrolling:touch !important;
+  z-index:3 !important;
+}
+
+.site-nav .menu-toggle{
+  position:absolute !important;
+  top:50% !important;
+  right:clamp(18px,2.4vw,64px) !important;
+  left:auto !important;
+  bottom:auto !important;
+  transform:translateY(-50%) !important;
+  z-index:4 !important;
+}
+
+@media (min-width:1600px){
+  .site-nav .mobile-menu{
+    width:min(520px,100vw) !important;
+  }
+  .site-nav .menu-toggle{
+    right:clamp(28px,2.5vw,64px) !important;
+  }
+}
+
+@media (max-width:820px){
+  .site-nav{
+    margin-bottom:-72px !important;
+  }
+  .site-nav .mobile-menu{
+    width:100vw !important;
+    max-width:100vw !important;
+  }
+  .site-nav .menu-toggle{
+    right:clamp(12px,4vw,24px) !important;
+  }
+}
+
+@media (max-width:380px){
+  .site-nav .mobile-menu{
+    width:100vw !important;
+    max-width:100vw !important;
+  }
+  .site-nav .menu-toggle{
+    right:10px !important;
+  }
+}
+
+@media (max-width:320px){
+  .site-nav .menu-toggle{
+    right:8px !important;
+  }
+}
+
+/* =========================================================
+   WELCOME IMAGE PARALLAX — CodePen Lerp adaptation
+   Scope: welcome-image01 + welcome-image02 only.
+========================================================= */
+.about-photo{
+  position:relative;
+}
+.about-photo .welcome-image{
+  position:absolute;
+  inset:0 auto auto 0;
+  display:block !important;
+  width:100% !important;
+  height:135% !important;
+  max-width:none !important;
+  object-fit:cover !important;
+  transform:translate3d(0,0,0);
+  will-change:transform;
+}
+@media (prefers-reduced-motion:reduce){
+  .about-photo .welcome-image{
+    height:100% !important;
+    transform:none !important;
+    will-change:auto;
+  }
+}
+
+/* =========================================================
+   BOOKING FORM — RESPONSIVE INTERACTION LAYER
+   V5.3.6 baseline: visual geometry remains unchanged.
+   This layer adds adaptive state, animated dropdown and calendar popovers.
+========================================================= */
+.booking-destination{position:relative !important;}
+.booking-native-select{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+  overflow:hidden !important;
+}
+.booking-select-trigger{
+  min-width:0 !important;
+  width:100% !important;
+  height:100% !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  color:var(--text) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  font:inherit !important;
+  text-align:left !important;
+  cursor:pointer !important;
+}
+.booking-select-value{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
+.booking-destination.has-value .booking-select-value{color:var(--text)}
+.booking-select-trigger>iconify-icon{flex:0 0 auto;font-size:18px !important;transition:transform .34s cubic-bezier(.16,1,.3,1),color .22s ease !important}
+.booking-select-trigger[aria-expanded="true"]>iconify-icon{transform:rotate(180deg);color:var(--orange) !important}
+.booking-bar .booking-select-trigger:hover,.booking-bar .booking-select-trigger:active{
+  background:transparent !important;
+  transform:none !important;
+  box-shadow:none !important;
+}
+.booking-bar .booking-select-trigger:focus-visible{
+  outline:3px solid rgba(253,166,52,.28) !important;
+  outline-offset:-4px !important;
+}
+.booking-popover{
+  position:fixed !important;
+  z-index:5000 !important;
+  box-sizing:border-box !important;
+  border:1px solid rgba(43,56,67,.12) !important;
+  background:rgba(255,255,255,.97) !important;
+  box-shadow:0 18px 42px rgba(43,56,67,.20) !important;
+  backdrop-filter:blur(16px) !important;
+  -webkit-backdrop-filter:blur(16px) !important;
+  opacity:0 !important;
+  transform:translate3d(0,-10px,0) scale(.97) !important;
+  transform-origin:top center !important;
+  transition:opacity .28s ease,transform .38s cubic-bezier(.16,1,.3,1) !important;
+}
+.booking-popover.is-open{opacity:1 !important;transform:translate3d(0,0,0) scale(1) !important}
+.booking-popover.is-closing{opacity:0 !important;transform:translate3d(0,-7px,0) scale(.98) !important}
+.booking-hotel-popover{padding:8px !important;border-radius:18px !important;overflow:hidden !important}
+.booking-hotel-option{
+  width:100% !important;
+  min-height:46px !important;
+  padding:10px 12px !important;
+  border:0 !important;
+  border-radius:11px !important;
+  background:transparent !important;
+  color:var(--text) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  font:inherit !important;
+  font-size:13px !important;
+  text-align:left !important;
+  cursor:pointer !important;
+  opacity:0 !important;
+  transform:translate3d(-14px,0,0) !important;
+  transition:background-color .20s ease,color .20s ease,opacity .30s ease,transform .38s cubic-bezier(.16,1,.3,1) !important;
+  transition-delay:0ms,0ms,var(--booking-stagger),var(--booking-stagger) !important;
+}
+.booking-popover.is-open .booking-hotel-option{opacity:1 !important;transform:translate3d(0,0,0) !important}
+.booking-hotel-option:hover,.booking-hotel-option:focus-visible{background:rgba(253,166,52,.12) !important;color:#2B3843 !important;outline:0 !important}
+.booking-hotel-option.is-selected{background:rgba(253,166,52,.10) !important}
+.booking-hotel-option iconify-icon{opacity:0 !important;color:var(--orange) !important;transition:opacity .2s ease !important}
+.booking-hotel-option.is-selected iconify-icon{opacity:1 !important}
+.booking-calendar-popover{padding:14px !important;border-radius:20px !important}
+.booking-calendar-head{display:grid;grid-template-columns:38px 1fr 38px;align-items:center;gap:6px;margin-bottom:12px}
+.booking-calendar-title{text-align:center;font-size:14px;font-weight:600;color:var(--text)}
+.booking-calendar-nav{width:38px;height:38px;border:0;border-radius:50%;background:transparent;color:var(--text);font-size:26px;line-height:1;cursor:pointer;transition:background-color .2s ease,transform .2s ease,color .2s ease}
+.booking-calendar-nav:hover:not(:disabled),.booking-calendar-nav:focus-visible{background:rgba(253,166,52,.12);color:var(--orange);outline:0;transform:scale(1.05)}
+.booking-calendar-nav:disabled{opacity:.28;cursor:not-allowed}
+.booking-calendar-week,.booking-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.booking-calendar-week{margin-bottom:6px;color:var(--muted);font-size:11px;text-align:center}
+.booking-calendar-grid{row-gap:4px}
+.booking-calendar-day{min-width:0;height:38px;padding:0;border:0;border-radius:10px;background:transparent;color:var(--text);font:inherit;font-size:12px;cursor:pointer;transition:background-color .18s ease,color .18s ease,transform .28s cubic-bezier(.16,1,.3,1),opacity .25s ease}
+.booking-calendar-grid .booking-calendar-day[data-date]{opacity:0;transform:translateY(5px) scale(.96);transition-delay:var(--booking-stagger)}
+.booking-calendar-popover.is-open .booking-calendar-grid .booking-calendar-day[data-date]{opacity:1;transform:translateY(0) scale(1)}
+.booking-calendar-day:hover:not(:disabled),.booking-calendar-day:focus-visible{background:rgba(253,166,52,.13);outline:0}
+.booking-calendar-day.is-selected{background:var(--orange);color:#fff;font-weight:600}
+.booking-calendar-day.is-in-range{background:rgba(253,166,52,.10);border-radius:0}
+.booking-calendar-day.is-range-start{border-top-right-radius:0;border-bottom-right-radius:0}
+.booking-calendar-day.is-range-end{border-top-left-radius:0;border-bottom-left-radius:0}
+.booking-calendar-day:disabled{opacity:.28;cursor:not-allowed}
+.booking-calendar-day.is-muted{color:rgba(43,56,67,.24);cursor:default}
+
+/* Compact mobile/tablet state: dates occupy zero space until hotel selection. */
+@media(max-width:819px){
+  .booking-bar{overflow:visible !important;max-width:calc(100% - 32px) !important;grid-template-columns:1fr !important;height:auto !important;border-radius:22px !important}
+  .booking-bar .booking-destination{min-height:54px !important;border-right:0 !important;border-bottom:1px solid var(--line) !important}
+  .booking-bar.booking-compact:not(.booking-dates-revealed) .date-field{
+    min-height:0 !important;
+    height:0 !important;
+    max-height:0 !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    border:0 !important;
+    opacity:0 !important;
+    overflow:hidden !important;
+    transform:translateY(-8px) !important;
+    pointer-events:none !important;
+    transition:min-height .38s ease,max-height .38s ease,height .38s ease,padding .38s ease,border-color .28s ease,opacity .28s ease,transform .38s cubic-bezier(.16,1,.3,1) !important;
+  }
+  .booking-bar.booking-compact.booking-dates-revealed .date-field{
+    min-height:54px !important;
+    height:54px !important;
+    max-height:54px !important;
+    opacity:1 !important;
+    transform:translateY(0) !important;
+    pointer-events:auto !important;
+    transition:min-height .42s ease,max-height .42s ease,height .42s ease,padding .42s ease,border-color .30s ease,opacity .34s ease,transform .42s cubic-bezier(.16,1,.3,1) !important;
+  }
+  .booking-bar .date-field.booking-field-revealed{border-right:0 !important}
+  .booking-bar .date-field:last-of-type{border-bottom:1px solid var(--line) !important}
+  .booking-bar button[type="submit"]{min-height:54px !important;margin:8px !important;border-radius:50px !important}
+  .booking-hotel-popover{max-height:min(58vh,420px);overflow-y:auto;overscroll-behavior:contain}
+  .booking-calendar-popover{max-width:calc(100vw - 24px) !important}
+  .booking-calendar-day{height:40px}
+}
+@media(max-width:520px){
+  .booking-bar{max-width:calc(100% - 24px) !important}
+  .booking-bar .booking-destination{padding-inline:18px !important}
+  .booking-bar .date-field{padding-inline:18px !important}
+  .booking-select-value{font-size:13px}
+  .booking-hotel-option{min-height:48px !important;padding:11px 12px !important}
+  .booking-calendar-popover{padding:12px !important;border-radius:18px !important}
+  .booking-calendar-day{height:38px;border-radius:9px}
+  .back-top{right:8px !important;bottom:8px !important;width:38px !important;height:38px !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .booking-popover,.booking-hotel-option,.booking-calendar-day,.booking-select-trigger>iconify-icon,.booking-bar .date-field{transition:none !important;animation:none !important}
+}
+
+
+/* =========================================================
+   BOOKING FORM — UI REFINEMENT 02
+   Scope: booking form only. Navbar + Welcome remain untouched.
+========================================================= */
+.booking-bar .booking-destination,
+.booking-bar .date-field{
+  min-height:65px !important;
+  height:65px !important;
+  box-sizing:border-box !important;
+  padding:0 24px !important;
+  border-radius:0 !important;
+  background:transparent !important;
+}
+.booking-bar .booking-destination{
+  display:flex !important;
+  align-items:center !important;
+}
+.booking-bar .booking-destination > iconify-icon,
+.booking-bar .date-field > .date-icon{
+  flex:0 0 auto !important;
+  width:22px !important;
+  font-size:22px !important;
+  color:rgba(0,0,0,.65) !important;
+}
+.booking-bar .booking-select-trigger{
+  flex:1 1 auto !important;
+  min-width:0 !important;
+  height:100% !important;
+  min-height:65px !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  color:rgba(0,0,0,.65) !important;
+  font-size:13px !important;
+  font-weight:400 !important;
+}
+.booking-bar .booking-select-value{
+  color:rgba(0,0,0,.65) !important;
+  font-size:13px !important;
+  font-weight:400 !important;
+}
+.booking-bar .booking-destination.has-value .booking-select-value{color:rgba(0,0,0,.65) !important}
+.booking-bar .booking-select-trigger > iconify-icon{
+  width:auto !important;
+  font-size:17px !important;
+  color:rgba(0,0,0,.65) !important;
+}
+.booking-bar .booking-select-trigger[aria-expanded="true"] > iconify-icon{color:#FDA634 !important}
+.booking-actions{
+  min-width:0 !important;
+  min-height:65px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  padding:0 10px 0 0 !important;
+  box-sizing:border-box !important;
+}
+.booking-actions > button[type="submit"]{
+  flex:1 1 auto !important;
+  min-width:0 !important;
+  width:auto !important;
+  height:45px !important;
+  min-height:45px !important;
+  margin:10px 0 10px 10px !important;
+}
+.booking-actions .back-top{
+  position:static !important;
+  inset:auto !important;
+  flex:0 0 40px !important;
+  width:40px !important;
+  height:40px !important;
+  margin:0 !important;
+  border-radius:50% !important;
+  background:rgba(255,255,255,.72) !important;
+  color:#2B3843 !important;
+  display:grid !important;
+  place-items:center !important;
+  box-shadow:0 6px 16px rgba(0,0,0,.12) !important;
+  transform:none !important;
+}
+.booking-actions .back-top:hover{transform:scale(1.06) !important}
+.booking-calendar-day:disabled{
+  background:rgba(43,56,67,.055) !important;
+  color:rgba(43,56,67,.30) !important;
+  opacity:1 !important;
+}
+.booking-calendar-day.is-in-range{
+  background:rgba(253,166,52,.18) !important;
+  color:#2B3843 !important;
+}
+.booking-calendar-day.is-range-start,
+.booking-calendar-day.is-range-end{
+  background:var(--orange) !important;
+  color:#fff !important;
+  font-weight:600 !important;
+}
+@media(max-width:819px){
+  .booking-bar .booking-destination,
+  .booking-bar .date-field{
+    min-height:54px !important;
+    height:54px !important;
+  }
+  .booking-bar .booking-select-trigger{min-height:54px !important}
+  .booking-actions{
+    min-height:62px !important;
+    height:62px !important;
+    padding:0 8px !important;
+    gap:8px !important;
+  }
+  .booking-actions > button[type="submit"]{
+    height:46px !important;
+    min-height:46px !important;
+    margin:8px 0 8px 0 !important;
+  }
+  .booking-actions .back-top{
+    flex-basis:42px !important;
+    width:42px !important;
+    height:42px !important;
+  }
+}
+@media(max-width:380px){
+  .booking-bar .booking-destination,
+  .booking-bar .date-field{padding-inline:18px !important}
+  .booking-actions{padding-inline:8px !important}
+}
+
+/* =========================================================
+   BOOKING FORM — UI REFINEMENT 03
+   Scope: booking form only. Navbar + Welcome remain untouched.
+   Goals:
+   1. Hotel destination typography matches Arrival/Departure.
+   2. Preserve 13px text while giving date fields enough horizontal room
+      from 820px–1200px so labels/values do not clip.
+   3. Keep CTA on one line.
+   4. Back-to-top: fixed bottom-right above 1200px; inline beside CTA
+      at 1200px and below.
+========================================================= */
+.booking-bar .booking-select-trigger,
+.booking-bar .booking-select-value{
+  font-size:13px !important;
+  font-weight:500 !important;
+  line-height:1.2 !important;
+}
+.booking-bar .booking-field .date-display{
+  min-width:0 !important;
+  width:100% !important;
+  font-size:13px !important;
+  font-weight:500 !important;
+  line-height:1.2 !important;
+  white-space:nowrap !important;
+}
+.booking-actions > button[type="submit"]{
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  overflow:hidden !important;
+  text-overflow:clip !important;
+  font-size:13px !important;
+  line-height:1 !important;
+}
+
+/* 820px–1200px: rebalance columns before text is forced to wrap. */
+@media (min-width:820px) and (max-width:1200px){
+  .booking-bar{
+    grid-template-columns:1.35fr 1.1fr 1.1fr 1.25fr !important;
+  }
+  .booking-bar .booking-destination,
+  .booking-bar .date-field{
+    padding-inline:16px !important;
+  }
+  .booking-bar .booking-field > .date-icon,
+  .booking-bar .booking-destination > iconify-icon{
+    width:21px !important;
+    font-size:21px !important;
+  }
+  .booking-bar .booking-field{
+    gap:8px !important;
+  }
+  .booking-actions{
+    padding-right:8px !important;
+    gap:8px !important;
+  }
+  .booking-actions > button[type="submit"]{
+    margin-left:8px !important;
+    padding-inline:12px !important;
+  }
+}
+
+/* Above 1200px: restore the independent fixed Go To Top control. */
+@media (min-width:1201px){
+  .booking-actions .back-top{
+    position:fixed !important;
+    z-index:29 !important;
+    right:10px !important;
+    bottom:15px !important;
+    inset:auto 10px 15px auto !important;
+    flex:0 0 auto !important;
+    width:40px !important;
+    height:40px !important;
+    margin:0 !important;
+  }
+  .booking-actions{
+    padding-right:0 !important;
+  }
+  .booking-actions > button[type="submit"]{
+    margin-left:10px !important;
+    margin-right:10px !important;
+  }
+}
+
+
+/* =========================================================
+   OUR PACKAGES — REVISION 01
+   Locked content/anatomy. Visual hierarchy + responsive system.
+   JS filtering remains the source of truth for visibility.
+========================================================= */
+.packages-section .section-intro{
+  text-align:center !important;
+  max-width:900px !important;
+  margin-inline:auto !important;
+}
+.packages-section .section-intro h2{
+  margin:0 !important;
+  color:var(--nav) !important;
+  font-size:clamp(32px,3vw,39px) !important;
+  line-height:1.15 !important;
+  font-weight:600 !important;
+}
+.packages-section .section-intro p{
+  margin:14px auto 0 !important;
+  max-width:820px !important;
+  color:var(--text) !important;
+  font-size:15px !important;
+  line-height:1.65 !important;
+}
+:where(.packages-section) .package-tabs{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  margin:32px 0 38px !important;
+}
+:where(.packages-section) .package-tabs button{
+  flex:0 0 auto !important;
+  min-height:40px !important;
+  padding:9px 18px !important;
+  border:1px solid var(--line) !important;
+  border-radius:999px !important;
+  background:#fff !important;
+  color:var(--text) !important;
+  font-size:13px !important;
+  line-height:1.2 !important;
+  white-space:nowrap !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+:where(.packages-section) .package-tabs button:hover{
+  color:var(--nav) !important;
+  border-color:rgba(253,166,52,.55) !important;
+  background:#fff !important;
+  box-shadow:none !important;
+  transform:translateY(-1px) !important;
+}
+:where(.packages-section) .package-tabs button.active{
+  background:var(--nav) !important;
+  border-color:var(--nav) !important;
+  color:#fff !important;
+}
+:where(.packages-section) .package-grid{
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:24px !important;
+  align-items:start !important;
+}
+:where(.packages-section) .package-grid article.tilt-card{
+  aspect-ratio:auto !important;
+  min-height:0 !important;
+  height:auto !important;
+  overflow:visible !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  isolation:auto !important;
+  transform-style:preserve-3d !important;
+  will-change:transform !important;
+}
+:where(.packages-section) .package-grid article.tilt-card > .tilt-card-media{
+  position:relative !important;
+  inset:auto !important;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:3/4 !important;
+  overflow:hidden !important;
+  border-radius:24px !important;
+  transform:translateZ(0) !important;
+  will-change:transform !important;
+}
+:where(.packages-section) .package-grid article.tilt-card > .tilt-card-media img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  border:0 !important;
+  border-radius:inherit !important;
+  transform:translateZ(0) !important;
+  filter:none !important;
+  transition:transform .55s cubic-bezier(.22,.61,.36,1),filter .4s ease !important;
+}
+:where(.packages-section) .package-grid article.tilt-card > .tilt-card-content{
+  position:relative !important;
+  inset:auto !important;
+  width:100% !important;
+  min-height:0 !important;
+  padding:14px 2px 0 !important;
+  margin:0 !important;
+  color:var(--nav) !important;
+  background:transparent !important;
+  text-align:left !important;
+  transform:translateZ(60px) !important;
+  will-change:transform !important;
+  z-index:20 !important;
+  box-sizing:border-box !important;
+}
+:where(.packages-section) .package-grid article.tilt-card > .tilt-card-content h3{
+  margin:0 !important;
+  color:var(--nav) !important;
+  text-align:left !important;
+  text-shadow:none !important;
+  font-size:clamp(15px,1.15vw,18px) !important;
+  line-height:1.35 !important;
+  font-weight:600 !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+}
+:where(.packages-section) .package-grid article.tilt-card:hover{
+  box-shadow:none !important;
+  z-index:2 !important;
+}
+:where(.packages-section) .package-grid article.tilt-card:hover > .tilt-card-media{
+  box-shadow:0 14px 32px rgba(0,0,0,.20) !important;
+}
+:where(.packages-section) .package-grid article.tilt-card:hover > .tilt-card-media img{
+  transform:scale(1.025) !important;
+  filter:saturate(1.02) contrast(1.01) !important;
+}
+:where(.packages-section) .package-grid article.tilt-card:hover > .tilt-card-content h3{
+  color:var(--orange) !important;
+  transform:none !important;
+}
+:where(.packages-section) .package-grid article.tilt-card.card-tilt-active{
+  box-shadow:none !important;
+}
+:where(.packages-section) .package-more{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:max-content !important;
+  margin:30px auto 0 !important;
+  gap:8px !important;
+  color:var(--orange) !important;
+  font-size:14px !important;
+  font-weight:600 !important;
+  line-height:1.2 !important;
+  transition:gap .2s ease,color .2s ease,transform .2s ease !important;
+}
+:where(.packages-section) .package-more[hidden]{display:none !important}
+:where(.packages-section) .package-more:hover{
+  gap:12px !important;
+  color:var(--nav) !important;
+  transform:translateY(-1px) !important;
+}
+@media(max-width:1199px){
+  :where(.packages-section) .package-tabs{
+    justify-content:flex-start !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch !important;
+    scrollbar-width:none !important;
+    padding:2px 2px 6px !important;
+    margin-bottom:34px !important;
+  }
+  :where(.packages-section) .package-tabs::-webkit-scrollbar{display:none !important}
+  :where(.packages-section) .package-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:24px 20px !important}
+}
+@media(max-width:820px){
+  .packages-section{padding-top:68px !important;padding-bottom:64px !important}
+  .packages-section .section-intro p{font-size:14px !important;line-height:1.6 !important}
+  :where(.packages-section) .package-tabs{margin-top:28px !important;margin-bottom:30px !important}
+  :where(.packages-section) .package-tabs button{min-height:38px !important;padding:8px 16px !important;font-size:12.5px !important}
+  :where(.packages-section) .package-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:24px 18px !important}
+  :where(.packages-section) .package-grid article.tilt-card > .tilt-card-media{border-radius:20px !important}
+  :where(.packages-section) .package-grid article.tilt-card > .tilt-card-content{padding:12px 2px 0 !important}
+  :where(.packages-section) .package-grid article.tilt-card > .tilt-card-content h3{font-size:16px !important}
+}
+@media(max-width:520px){
+  .packages-section{padding-top:60px !important;padding-bottom:58px !important}
+  .packages-section .section-intro h2{font-size:32px !important}
+  .packages-section .section-intro p{font-size:13.5px !important}
+  :where(.packages-section) .package-tabs{margin-top:24px !important;margin-bottom:28px !important}
+  :where(.packages-section) .package-grid{grid-template-columns:1fr !important;gap:26px !important}
+  :where(.packages-section) .package-grid article.tilt-card > .tilt-card-content{padding:11px 2px 0 !important}
+}
+
+
+
+
+
+/* =========================================================
+   FOSIA V5.3.8 — OUR EVENTS
+   CLEAN SOURCE OF TRUTH — Revision 08
+   Scope: Event carousel, responsive geometry, card content,
+   hover shadow, arrow motion, and controls.
+   Do not duplicate Event rules below this block.
+========================================================= */
+
+/* ---------- Carousel viewport ---------- */
+:where(.events-section) .event-slider-wrap{
+  width:100%;
+  max-width:100%;
+  margin-top:34px;
+  padding:0;
+  overflow:visible !important;
+  box-sizing:border-box;
+}
+
+:where(.events-section) .event-grid{
+  position:relative !important;
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  justify-content:flex-start !important;
+  align-items:stretch !important;
+  gap:20px !important;
+  margin:0 !important;
+  padding:48px 16px 46px !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  box-sizing:border-box !important;
+  scrollbar-width:none !important;
+  -ms-overflow-style:none !important;
+  scroll-behavior:auto !important;
+  scroll-snap-type:none !important;
+  overscroll-behavior-x:contain !important;
+  overscroll-behavior-y:auto !important;
+  touch-action:pan-y !important;
+  cursor:grab;
+}
+
+:where(.events-section) .event-grid.is-dragging{cursor:grabbing !important;user-select:none !important;scroll-behavior:auto !important}
+
+/* Desktop/tablet card width remains the established FOSIA geometry. */
+:where(.events-section) .event-grid .event{
+  flex:0 0 clamp(280px,calc(100vw - 32px),390px) !important;
+  width:clamp(280px,calc(100vw - 32px),390px) !important;
+  max-width:390px !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-self:stretch !important;
+  overflow:visible !important;
+  margin:0 !important;
+  scroll-snap-align:start !important;
+  transform-origin:center center !important;
+}
+
+/* ---------- Card visual ---------- */
+:where(.events-section) .event-grid .event:hover, :where(.events-section) .event-grid .event.card-tilt-active{
+  box-shadow:0 22px 46px rgba(0,0,0,.20) !important;
+  z-index:5 !important;
+}
+:where(.events-section) .event-grid .event:hover img, :where(.events-section) .event-grid .event.card-tilt-active img{
+  box-shadow:none !important;
+}
+/* ---------- Card content ---------- */
+:where(.events-section) .event-grid .event > .tilt-card-content{
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  width:100% !important;
+  flex:1 1 auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  box-sizing:border-box !important;
+  min-height:0 !important;
+  padding:20px 28px !important;
+  margin:0 !important;
+  transform:translateZ(0) !important;
+  background:#fff !important;
+  color:var(--nav) !important;
+  text-align:left !important;
+  z-index:20 !important;
+}
+:where(.events-section) .event-grid .event > .tilt-card-content > div{
+  width:100% !important;
+  min-width:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+/* Title: maximum two lines. */
+:where(.events-section) .event-grid .event > .tilt-card-content h3{
+  margin:0 !important;
+  max-width:100% !important;
+  color:var(--nav) !important;
+  font-size:clamp(16px,1.15vw,18px) !important;
+  line-height:1.35 !important;
+  font-weight:600 !important;
+  text-shadow:none !important;
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:2 !important;
+  line-clamp:2 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  overflow-wrap:anywhere !important;
+}
+:where(.events-section) .event-grid .event > .tilt-card-content h3 a{
+  color:inherit !important;
+  text-decoration:none !important;
+}
+
+/* Description: maximum three lines. script.js performs the text fitting so
+   the final Read more link is part of the real inline text flow. */
+:where(.events-section) .event-grid .event > .tilt-card-content p{
+  margin:12px 0 0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-height:calc(1.55em * 3) !important;
+  height:calc(1.55em * 3) !important;
+  max-height:calc(1.55em * 3) !important;
+  color:var(--text) !important;
+  font-size:13px !important;
+  line-height:1.55 !important;
+  text-shadow:none !important;
+  display:block !important;
+  overflow:hidden !important;
+  text-overflow:clip !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+  white-space:normal !important;
+}
+:where(.events-section) .event-grid .event:hover > .tilt-card-content h3, :where(.events-section) .event-grid .event.card-tilt-active > .tilt-card-content h3{
+  color:var(--orange) !important;
+  transform:none !important;
+}
+
+/* ---------- Event hover/glare cleanup ---------- */
+/* Event cards do not use the cursor-following glare layer. The card tilt/scale
+   remains, but the pseudo-element highlight is disabled to avoid visual artifacts. */
+:where(.events-section) .event-grid .event::after{
+  content:none !important;
+  display:none !important;
+  opacity:0 !important;
+  background:none !important;
+}
+:where(.events-section) .event-grid .event.card-tilt-active::after{
+  content:none !important;
+  display:none !important;
+  opacity:0 !important;
+}
+
+/* One authoritative 24px rounded geometry for Event cards. */
+:where(.events-section) .event-grid .event{
+  border-radius:24px !important;
+}
+:where(.events-section) .event-grid .event > .tilt-card-media{
+  border-radius:24px 24px 0 0 !important;
+  overflow:hidden !important;
+}
+:where(.events-section) .event-grid .event > .tilt-card-media img{
+  border-radius:0 !important;
+}
+:where(.events-section) .event-grid .event > .tilt-card-content{
+  border-radius:0 0 24px 24px !important;
+}
+
+/* Read-more is inserted as real text by script.js only when needed. */
+:where(.events-section) .event-grid .event > .tilt-card-content .event-read-more{
+  color:var(--orange) !important;
+  font-weight:600 !important;
+  text-decoration:none !important;
+  white-space:nowrap;
+  cursor:pointer !important;
+}
+:where(.events-section) .event-grid .event > .tilt-card-content .event-read-more:hover, :where(.events-section) .event-grid .event > .tilt-card-content .event-read-more:focus-visible{
+  color:var(--nav) !important;
+  text-decoration:underline !important;
+}
+
+/* ---------- Controls ---------- */
+:where(.events-section) .event-controls{
+  position:relative !important;
+  z-index:100 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  gap:0 !important;
+  /* 46px grid shadow clearance - 16px visual compensation = 30px card-to-Discover. */
+  margin:-16px auto 0 !important;
+  pointer-events:auto !important;
+}
+:where(.events-section) .event-discover-all{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--orange) !important;
+  font-size:13px;
+  font-weight:600;
+  transition:gap .2s ease,transform .2s ease,color .2s ease;
+}
+:where(.events-section) .event-discover-all:hover{gap:12px;transform:translateY(-1px);color:#fff !important}
+:where(.events-section) .event-arrow-controls{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-top:12px;
+}
+:where(.events-section) .event-controls .event-arrow-controls button{
+  position:relative !important;
+  z-index:101 !important;
+  width:44px !important;
+  height:44px !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+}
+
+/* ---------- Arrow motion ---------- */
+:where(.events-section) .event-grid.event-scroll-next .event{
+  animation:fosiaEventArrowNext538 .46s cubic-bezier(.22,.61,.36,1) both !important;
+}
+:where(.events-section) .event-grid.event-scroll-prev .event{
+  animation:fosiaEventArrowPrev538 .46s cubic-bezier(.22,.61,.36,1) both !important;
+}
+@keyframes fosiaEventArrowNext538{
+  0%{opacity:.86;filter:brightness(.98)}
+  55%{opacity:1;filter:brightness(1.025)}
+  100%{opacity:1;filter:none}
+}
+@keyframes fosiaEventArrowPrev538{
+  0%{opacity:.86;filter:brightness(.98)}
+  55%{opacity:1;filter:brightness(1.025)}
+  100%{opacity:1;filter:none}
+}
+
+/* ---------- Mobile: viewport geometry is the source of truth ---------- */
+@media(max-width:768px){
+  .events-section .event-slider-wrap{
+    width:100vw !important;
+    max-width:none !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    margin-top:34px !important;
+    padding:0 !important;
+    overflow:visible !important;
+  }
+  .events-section .event-grid{
+    width:100% !important;
+    min-width:0 !important;
+    gap:16px !important;
+    padding:44px 16px 46px !important;
+  }
+  .events-section .event-grid .event{
+    flex:0 0 calc((100vw - 48px) / 2) !important;
+    width:calc((100vw - 48px) / 2) !important;
+    max-width:none !important;
+  }
+}
+
+@media(max-width:425px){
+  .events-section .event-grid{
+    padding-top:42px !important;
+  }
+  .events-section .event-grid .event{
+    flex:0 0 calc(100vw - 32px) !important;
+    width:calc(100vw - 32px) !important;
+    max-width:none !important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  
+}
+
+
+/* =========================================================
+   BACK TO TOP — STABLE PLACEMENT
+   The control must remain visible after breakpoint/resize changes.
+========================================================= */
+.back-top{
+  visibility:visible !important;
+  opacity:1 !important;
+}
+@media (min-width:1201px){
+  body > .back-top{
+    position:fixed !important;
+    z-index:999 !important;
+    right:10px !important;
+    bottom:15px !important;
+    width:40px !important;
+    height:40px !important;
+  }
+}
+@media (max-width:1200px){
+  .booking-actions .back-top{
+    position:static !important;
+    z-index:999 !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+}
+
+
+/* FOSIA BOOKING FORM — REVISION 11: compact initial date visibility
+   At <=819px, Arrival and Departure remain collapsed until a hotel is selected.
+   This CSS guard makes the initial state deterministic even before JS applies
+   the booking-compact class. Existing JS reveal logic remains unchanged. */
+@media (max-width:819px){
+  .booking-bar:not(.booking-dates-revealed) .date-field{
+    min-height:0 !important;
+    height:0 !important;
+    max-height:0 !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    border:0 !important;
+    opacity:0 !important;
+    overflow:hidden !important;
+    transform:translateY(-8px) !important;
+    pointer-events:none !important;
+  }
+
+  .booking-bar.booking-dates-revealed .date-field{
+    min-height:54px !important;
+    height:54px !important;
+    max-height:54px !important;
+    opacity:1 !important;
+    transform:translateY(0) !important;
+    pointer-events:auto !important;
+  }
+}

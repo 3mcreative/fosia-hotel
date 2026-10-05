@@ -1,0 +1,40 @@
+--- rev30/styles.css
++++ rev31/styles.css
+@@ -1065,7 +1065,7 @@
+   transition:transform .46s cubic-bezier(.22,.61,.36,1),box-shadow .46s ease,filter .46s ease !important;
+ }
+ :where(.events-section) .event-grid .event.card-tilt-active{
+-  transform:perspective(900px) rotateX(var(--card-rx)) rotateY(var(--card-ry)) translate3d(var(--card-mx),var(--card-my),0) scale(1.018) !important;
++  /* transform is owned by the shared JS tilt controller */
+   box-shadow:0 22px 42px rgba(0,0,0,.24) !important;
+   z-index:8 !important;
+ }
+@@ -1090,7 +1090,7 @@
+   will-change:transform;
+ }
+ :where(.packages-section) .package-grid article.card-tilt-active{
+-  transform:perspective(900px) rotateX(var(--card-rx)) rotateY(var(--card-ry)) translate3d(var(--card-mx),var(--card-my),0) scale(1.018) !important;
++  /* transform is owned by the shared JS tilt controller */
+   box-shadow:0 20px 40px rgba(0,0,0,.18) !important;
+   z-index:4 !important;
+ }
+@@ -1283,7 +1283,7 @@
+   transition:opacity .28s ease !important;
+ }
+ :where(.packages-section) .package-grid article.card-tilt-active, :where(.events-section) .event-grid .event.card-tilt-active{
+-  transform:perspective(1100px) rotateX(var(--card-rx)) rotateY(var(--card-ry)) translate3d(var(--card-mx),var(--card-my),0) scale(1.025) !important;
++  /* transform is owned by the shared JS tilt controller */
+   box-shadow:0 24px 52px rgba(20,27,33,.22) !important;
+   z-index:20 !important;
+ }
+--- rev30/script.js
++++ rev31/script.js
+@@ -843,7 +843,7 @@
+   // CARD EFFECT — local 3D tilt implementation.
+   // Event cards keep tilt/scale only; no cursor-following glare is used.
+   // ---------------------------------------------------------
+-  const tiltCards = [...document.querySelectorAll('[data-tilt="true"]')];
++  const tiltCards = reduceMotion() ? [] : [...document.querySelectorAll('[data-tilt="true"]')];
+   const resetTilt = card => {
+     card.classList.remove('card-tilt-active');
+     ['--card-rx','--card-ry','--card-mx','--card-my','--spot-x','--spot-y'].forEach(name => card.style.removeProperty(name));

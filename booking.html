@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>FOSIA Hotels — Booking</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+<style>
+:root{font-family:"Kumbh Sans",sans-serif;color:#2B3843;background:#F2F1F1;--orange:#FDA634;--muted:#71808a;--line:#E1E5E8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:32px;display:grid;place-items:center;background:#F2F1F1}
+.card{width:min(820px,100%);background:#fff;border-radius:28px;padding:42px;box-shadow:0 24px 70px rgba(43,56,67,.14)}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.62}h1{margin:8px 0 10px;font-size:42px;line-height:1.1}p{line-height:1.7;color:#66727c}.booking-form{display:grid;gap:14px;margin-top:28px}.field{position:relative;display:flex;align-items:center;gap:12px;min-height:58px;padding:0 18px;border:1px solid var(--line);border-radius:16px;background:#fff;transition:transform .32s cubic-bezier(.22,.61,.36,1),border-color .25s ease,box-shadow .25s ease}.field:focus-within{border-color:#AEB8BE;box-shadow:0 10px 24px rgba(43,56,67,.08);transform:translateY(-2px)}.field iconify-icon{font-size:21px;color:rgba(0,0,0,.65);flex:0 0 auto}.field select,.field input{width:100%;border:0;outline:0;background:transparent;color:rgba(0,0,0,.65);font:inherit}.field select{cursor:pointer}.date-display{cursor:pointer}.field-date{animation:none}.actions{display:flex;gap:12px;margin-top:6px}.button{border:0;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 22px;border-radius:28px;background:#2B3843;color:#fff;text-decoration:none;font:600 14px/1 "Kumbh Sans",sans-serif;cursor:pointer;transition:transform .28s ease,box-shadow .28s ease,background .28s ease}.button:hover{transform:translateY(-2px);background:#40505D;box-shadow:0 12px 26px rgba(43,56,67,.18)}.button:active{transform:translateY(1px) scale(.985)}.button.secondary{background:#fff;color:#2B3843;border:1px solid var(--line)}.button.secondary:hover{background:#F7F8F8}.note{font-size:13px;margin-top:20px}.status{margin-top:20px;padding:16px 18px;border-radius:16px;background:#F6F7F7;display:none}.status.show{display:block;animation:rise .45s cubic-bezier(.22,.61,.36,1) both}.status b{display:block;margin-bottom:5px}.native-date{position:absolute!important;opacity:0!important;pointer-events:none!important;width:1px!important;height:1px!important}.date-field{overflow:hidden}.date-field.is-active{border-color:#FDA634;box-shadow:0 12px 28px rgba(253,166,52,.12)}.date-field.is-active .date-icon,.date-field.is-active .date-display{animation:dateLift .34s cubic-bezier(.22,.61,.36,1) both}@keyframes dateLift{0%{opacity:.65;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.field-label{position:absolute;left:18px;top:9px;font-size:11px;line-height:1;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:rgba(0,0,0,.65);pointer-events:none;z-index:2}.field:has(.field-label) select,.field:has(.field-label) .date-display{padding-top:15px}.field:has(.field-label) iconify-icon{margin-top:10px}.field:has(.field-label){padding-top:8px;padding-bottom:0}.field-date{min-height:66px}@media(max-width:600px){body{padding:16px}.card{padding:28px;border-radius:22px}h1{font-size:34px}.actions{flex-direction:column}.button{width:100%}}
+</style></head>
+<body><main class="card"><div class="eyebrow">FOSIA Hotels · Booking</div><h1>Check Availability</h1><p>Select your destination or hotel, arrival date, and departure date.</p><form class="booking-form" id="bookingPageForm"><label class="field"><span class="field-label">Hotel</span><iconify-icon aria-hidden="true" icon="lucide:hotel"></iconify-icon><select aria-label="Select a destination or hotel" id="bookingHotel" name="hotel" required="required"><option disabled="disabled" value="">Select a destination or hotel</option><option value="fortunagrande-malioboro">FortunaGrande Malioboro</option><option value="fortunagrande-seturan">FortunaGrande Seturan</option><option value="fortunagrande-jember">FortunaGrande Jember</option><option value="fortunaliving">FortunaLiving</option><option value="fortunasuites">FortunaSuites</option><option value="mugya-the-villas">MUGYA The Villas</option></select></label><label class="field date-field" data-date-field="arrival"><span class="field-label">Arrival Date</span><iconify-icon aria-hidden="true" class="date-icon" icon="hugeicons:calendar-check-out-02"></iconify-icon><input aria-label="Arrival Date" autocomplete="off" class="date-display" id="arrivalDisplay" placeholder="Arrival Date" readonly="readonly" type="text"/><input aria-hidden="true" class="native-date" id="arrival" name="arrival" required="required" tabindex="-1" type="date"/></label><label class="field date-field" data-date-field="departure"><span class="field-label">Departure Date</span><iconify-icon aria-hidden="true" class="date-icon" icon="hugeicons:calendar-check-out-01"></iconify-icon><input aria-label="Departure Date" autocomplete="off" class="date-display" id="departureDisplay" placeholder="Departure Date" readonly="readonly" type="text"/><input aria-hidden="true" class="native-date" id="departure" name="departure" required="required" tabindex="-1" type="date"/></label><div class="actions"><button class="button" type="submit">Check Availability</button><a class="button secondary" href="index.html#home">Back to FOSIA Home</a></div></form><div aria-live="polite" class="status" id="bookingStatus"></div><p class="note">This front-end booking page is ready for the future booking engine/API integration.</p></main><script>
+(() => {
+  const labels={
+    'fortunagrande-malioboro':'FortunaGrande Malioboro','fortunagrande-seturan':'FortunaGrande Seturan','fortunagrande-jember':'FortunaGrande Jember','fortunaliving':'FortunaLiving','fortunasuites':'FortunaSuites','mugya-the-villas':'MUGYA The Villas'
+  };
+  const params=new URLSearchParams(location.search);
+  const form=document.getElementById('bookingPageForm'), hotel=document.getElementById('bookingHotel'), status=document.getElementById('bookingStatus');
+  const dates={arrival:document.getElementById('arrival'),departure:document.getElementById('departure')};
+  const displays={arrival:document.getElementById('arrivalDisplay'),departure:document.getElementById('departureDisplay')};
+  const fields={arrival:document.querySelector('[data-date-field="arrival"]'),departure:document.querySelector('[data-date-field="departure"]')};
+  const pad=n=>String(n).padStart(2,'0');
+  const format=d=>{if(!d)return ''; const [y,m,day]=d.split('-'); const months=['January','February','March','April','May','June','July','August','September','October','November','December']; return `${pad(day)}/${months[Number(m)-1]}/${y}`};
+  const today=()=>{const d=new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`};
+  const min=today();
+  Object.values(dates).forEach(i=>i.min=min);
+  const preset=params.get('hotel'); if(preset && labels[preset]) hotel.value=preset;
+  const setDate=(name,value)=>{dates[name].value=value||''; displays[name].value=format(value||'')};
+  if(params.get('arrival')) setDate('arrival',params.get('arrival'));
+  if(params.get('departure')) setDate('departure',params.get('departure'));
+  dates.arrival.addEventListener('change',()=>{dates.departure.min=dates.arrival.value||min;if(dates.departure.value && dates.departure.value<dates.departure.min)setDate('departure',dates.departure.min);setDate('arrival',dates.arrival.value)});
+  dates.departure.addEventListener('change',()=>setDate('departure',dates.departure.value));
+  document.querySelectorAll('.date-field').forEach(field=>{
+    const name=field.dataset.dateField;
+    const open=()=>{fields[name].classList.add('is-active'); const input=dates[name]; try{input.showPicker?.()}catch(_){input.click()}};
+    field.addEventListener('click',open);
+    field.addEventListener('focusin',()=>fields[name].classList.add('is-active'));
+    field.addEventListener('focusout',()=>window.setTimeout(()=>fields[name].classList.remove('is-active'),160));
+  });
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!hotel.value || !dates.arrival.value || !dates.departure.value)return;
+    if(dates.departure.value<dates.arrival.value){dates.departure.setCustomValidity('Departure must be on or after arrival.');dates.departure.reportValidity();return}
+    dates.departure.setCustomValidity('');
+    const next=`booking.html?hotel=${encodeURIComponent(hotel.value)}&arrival=${encodeURIComponent(dates.arrival.value)}&departure=${encodeURIComponent(dates.departure.value)}`;
+    history.replaceState({},'',next);
+    status.innerHTML=`<b>Availability request ready</b>${labels[hotel.value]} · ${format(dates.arrival.value)} → ${format(dates.departure.value)}`;
+    status.classList.remove('show'); void status.offsetWidth; status.classList.add('show');
+  });
+})();
+</script></body>
+</html>
